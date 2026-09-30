@@ -158,8 +158,8 @@ void paso() {
   int[] ny = new int[2];
   boolean[] choca = new boolean[2];
   for (int i = 0; i < 2; i++) {
-    nx[i] = motos[i].x + DX[motos[i].dir];
-    ny[i] = motos[i].y + DY[motos[i].dir];
+    nx[i] = envolverX(motos[i].x + DX[motos[i].dir]);
+    ny[i] = envolverY(motos[i].y + DY[motos[i].dir]);
     choca[i] = !libre(nx[i], ny[i]);
   }
   // Choque de frente: las dos entran a la misma celda
@@ -196,7 +196,23 @@ void paso() {
 }
 
 boolean libre(int x, int y) {
-  return x >= 0 && y >= 0 && x < cols && y < filas && grid[x][y] == 0;
+  return grid[envolverX(x)][envolverY(y)] == 0;
+}
+
+// Los bordes son portales: al salir por un lado se entra por el contrario
+int envolverX(int x) {
+  return (x % cols + cols) % cols;
+}
+
+int envolverY(int y) {
+  return (y % filas + filas) % filas;
+}
+
+// Distancia teniendo en cuenta que los bordes se conectan
+int distanciaEnvuelta(int x1, int y1, int x2, int y2) {
+  int dx = abs(x1 - x2);
+  int dy = abs(y1 - y2);
+  return min(dx, cols - dx) + min(dy, filas - dy);
 }
 
 // =====================================================
@@ -209,8 +225,8 @@ int decidirIA(Moto yo, Moto rival) {
 
   for (int k = 0; k < opciones.length; k++) {
     int d = opciones[k];
-    int x = yo.x + DX[d];
-    int y = yo.y + DY[d];
+    int x = envolverX(yo.x + DX[d]);
+    int y = envolverY(yo.y + DY[d]);
     float puntaje;
     if (!libre(x, y)) {
       puntaje = -1e6;
@@ -220,7 +236,7 @@ int decidirIA(Moto yo, Moto rival) {
       // Preferir seguir recto (movimiento más natural)
       if (k == 0) puntaje += 8;
       // Evitar quedar pegado a la cabeza del rival (riesgo de choque de frente)
-      if (abs(x - rival.x) + abs(y - rival.y) <= 1) puntaje -= 50;
+      if (distanciaEnvuelta(x, y, rival.x, rival.y) <= 1) puntaje -= 50;
       // Un poco de azar para que no sea predecible
       puntaje += random(0, 6);
     }
@@ -248,8 +264,8 @@ int contarEspacio(int sx, int sy, int limite) {
     int y = pilaY[tope];
     cuenta++;
     for (int d = 0; d < 4; d++) {
-      int vx = x + DX[d];
-      int vy = y + DY[d];
+      int vx = envolverX(x + DX[d]);
+      int vy = envolverY(y + DY[d]);
       if (libre(vx, vy) && visitado[vx][vy] != marcaVisita) {
         visitado[vx][vy] = marcaVisita;
         pilaX[tope] = vx;
@@ -270,16 +286,28 @@ void dibujarSegmento(Moto m, int desdeX, int desdeY) {
   float x2 = m.x * CELDA + CELDA / 2.0;
   float y2 = m.y * CELDA + CELDA / 2.0;
 
+  if (abs(m.x - desdeX) > 1 || abs(m.y - desdeY) > 1) {
+    // Cruzó un borde: se dibuja media línea hasta el borde de salida
+    // y otra media desde el borde de entrada, en vez de cruzar la pantalla
+    float medio = CELDA / 2.0;
+    dibujarLinea(m.col, x1, y1, x1 + DX[m.dir] * medio, y1 + DY[m.dir] * medio);
+    dibujarLinea(m.col, x2 - DX[m.dir] * medio, y2 - DY[m.dir] * medio, x2, y2);
+  } else {
+    dibujarLinea(m.col, x1, y1, x2, y2);
+  }
+}
+
+void dibujarLinea(color c, float x1, float y1, float x2, float y2) {
   capaBrillo.beginDraw();
   capaBrillo.strokeCap(ROUND);
-  capaBrillo.stroke(m.col, 45);
+  capaBrillo.stroke(c, 45);
   capaBrillo.strokeWeight(CELDA * 1.6);
   capaBrillo.line(x1, y1, x2, y2);
   capaBrillo.endDraw();
 
   capaNucleo.beginDraw();
   capaNucleo.strokeCap(ROUND);
-  capaNucleo.stroke(m.col);
+  capaNucleo.stroke(c);
   capaNucleo.strokeWeight(CELDA * 0.5);
   capaNucleo.line(x1, y1, x2, y2);
   capaNucleo.stroke(255, 160);
@@ -321,9 +349,9 @@ void dibujarArena() {
   }
   rectMode(CORNER);
 
-  // Borde de la arena
+  // Borde de la arena: línea que titila para indicar que es un portal
   noFill();
-  stroke(0, 200, 255, 160);
+  stroke(0, 200, 255, 60 + 50 * pulso);
   strokeWeight(2);
   rect(1, 1, cols * CELDA - 2, filas * CELDA - 2);
 
@@ -411,7 +439,7 @@ void dibujarMenu() {
   fill(COLOR_J2);
   text("Jugador 2 (NARANJA): Flechas", width / 2, 478);
   fill(160);
-  text("No choques con los bordes ni con ninguna estela.", width / 2, 530);
+  text("No choques con ninguna estela. Los bordes te llevan al lado contrario.", width / 2, 530);
   text("Gana el primero en llegar a " + PUNTOS_PARA_GANAR + " puntos.", width / 2, 555);
 }
 

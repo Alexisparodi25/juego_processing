@@ -1,8 +1,9 @@
 # TRON - Motos de luz (Processing)
 
 Juego estilo **Tron** hecho en [Processing](https://processing.org/) (modo Java).
-Cada moto deja una estela de luz detrás: si chocás contra un borde o contra
-cualquier estela (incluida la tuya), perdés la ronda. Gana el primero en llegar a 5 puntos.
+Cada moto deja una estela de luz detrás: si chocás contra cualquier estela
+(incluida la tuya), perdés la ronda. Los bordes no matan: si salís por un lado
+de la pantalla, aparecés por el lado contrario. Gana el primero en llegar a 5 puntos.
 
 ## Cómo jugar
 
@@ -31,3 +32,4 @@ En modo 1 jugador, las flechas también mueven al jugador 1.
 - CPU que elige el camino con más espacio libre (relleno por inundación)
 - Buffer de teclas para poder hacer giros rápidos sin perder pulsaciones
 - Detección de choques de frente (empate)
+- Bordes que funcionan como portales al lado contrario
