@@ -197,7 +197,7 @@ class BattleScene extends Scene {
           boolean useMax = u.dynamaxed || wantDyna;
           if (wantDyna && !u.dynamaxed) m = b.maxVersion(u, Dex.mv(u.moves[i]));
           fill(typeColor(m.type)); rect(x + 8, y + 8, 6, 36, 3);
-          txt(m.name, x + 22, y + 4, fSmall, u.pp[i] > 0 ? color(255) : color(140));
+          txt(m.dn(), x + 22, y + 4, fSmall, u.pp[i] > 0 ? color(255) : color(140));
           txt("PP " + u.pp[i] + "/" + u.maxPp[i], x + 22, y + 26, fSmall, u.pp[i] == 0 ? color(255, 90, 90) : color(200));
           if (m.bp > 0) txtr("" + m.bp, x + 296, y + 4, fSmall, color(255, 230, 140));
         }
@@ -209,7 +209,7 @@ class BattleScene extends Scene {
         if (wantDyna && !u.dynamaxed) m = b.maxVersion(u, Dex.mv(u.moves[moveSel]));
         typeChip(m.type, width - 268, height - 140);
         txt((m.cat == 'P' ? "Físico" : m.cat == 'S' ? "Especial" : "Estado") + (m.acc > 0 ? "  Prec " + m.acc : ""), width - 184, height - 140, fSmall, color(220));
-        textFont(fSmall); fill(210); textAlign(LEFT, TOP); text(m.desc, width - 268, height - 112, 228, 70);
+        textFont(fSmall); fill(210); textAlign(LEFT, TOP); text(m.dd(), width - 268, height - 112, 228, 70);
       }
       String t = "";
       if (b.canMega(b.sides[0])) t += (wantMega ? "[M] MEGA ✔  " : "[M] Mega  ");

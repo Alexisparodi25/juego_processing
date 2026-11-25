@@ -51,6 +51,9 @@ class Move {
   int maxBP; String isMax = "";
   String desc = "";
   boolean supported = true;
+  String es = "", descEs = "";
+  String dn() { return es.isEmpty() ? name : es; }
+  String dd() { return descEs.isEmpty() ? desc : descEs; }
   boolean has(String f) { return flags.indexOf(f) >= 0; }
   boolean contact() { return has("contact"); }
   boolean status() { return cat == 'N'; }
@@ -64,19 +67,24 @@ class Move {
     m.selfSwitch = selfSwitch; m.breaksProtect = breaksProtect; m.ignoreDef = ignoreDef; m.willCrit = willCrit;
     m.weather = weather; m.terrain = terrain; m.sideCond = sideCond; m.damage = damage; m.pseudo = pseudo;
     m.slotCond = slotCond; m.overrideOff = overrideOff; m.overrideDefPoke = overrideDefPoke; m.maxBP = maxBP;
-    m.isMax = isMax; m.desc = desc; m.supported = supported;
+    m.isMax = isMax; m.desc = desc; m.supported = supported; m.es = es; m.descEs = descEs;
     return m;
   }
   public String toString() { return name; }
 }
 
-class AbilityDef { String id, name, desc; int gen; double rating; }
+class AbilityDef { String id, name, desc, es = "", descEs = ""; int gen; double rating;
+  String dn() { return es.isEmpty() ? name : es; }
+  String dd() { return descEs.isEmpty() ? desc : descEs; } }
 
 class ItemDef {
   String id, name, desc, megaStone = "", megaEvolves = "", plateType = "", memoryType = "", driveType = "", ngType = "";
   String[] users = new String[0];
   int gen, fling, ngBP;
   boolean berry, ball, choice;
+  String es = "", descEs = "";
+  String dn() { return es.isEmpty() ? name : es; }
+  String dd() { return descEs.isEmpty() ? desc : descEs; }
   public String toString() { return name; }
 }
 
@@ -219,7 +227,17 @@ class Dex {
     for (Move m : moves.values()) {
       if (!m.isMax.isEmpty() && !m.isMax.equals("Max")) gmaxMoveOf.put(toId(m.isMax), m);
     }
+    loadSpanish(L);
     loaded = true;
+  }
+
+  /** Nombres y descripciones en español (WikiDex). Opcional: si falta el archivo se usa el inglés. */
+  static void loadSpanish(DataLoader L) {
+    try {
+      for (String ln : L.lines("es_moves.tsv")) { String[] p = cols(ln); Move m = moves.get(p[0]); if (m != null && p.length > 2) { m.es = p[1]; m.descEs = p[2]; } }
+      for (String ln : L.lines("es_abilities.tsv")) { String[] p = cols(ln); AbilityDef a = abilities.get(p[0]); if (a != null && p.length > 2) { a.es = p[1]; a.descEs = p[2]; } }
+      for (String ln : L.lines("es_items.tsv")) { String[] p = cols(ln); ItemDef it = items.get(p[0]); if (it != null && p.length > 2) { it.es = p[1]; it.descEs = p[2]; } }
+    } catch (RuntimeException e) { /* sin traducción */ }
   }
 
   static Species sp(String id) { Species s = species.get(toId(id)); if (s == null) s = byName.get(toId(id)); return s; }

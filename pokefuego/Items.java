@@ -62,14 +62,14 @@ class Items {
     Consumable c = CONS.get(id);
     if (c != null) return c.name;
     ItemDef d = Dex.items.get(id);
-    return d != null ? d.name : id;
+    return d != null ? d.dn() : id;
   }
   static String desc(String id) {
     id = Dex.toId(id);
     Consumable c = CONS.get(id);
     if (c != null) return c.desc;
     ItemDef d = Dex.items.get(id);
-    return d != null ? d.desc : "";
+    return d != null ? d.dd() : "";
   }
   static boolean usableInBattle(String id) {
     Consumable c = CONS.get(Dex.toId(id));
@@ -154,7 +154,7 @@ class Items {
       case "iceheal": if (m.status.equals("frz")) { m.status = ""; return "¡" + n + " se descongeló!"; } return "No tendrá ningún efecto.";
       case "fullheal": if (!m.status.isEmpty() && !m.fainted()) { m.status = ""; return "¡" + n + " se curó!"; } return "No tendrá ningún efecto.";
       case "ether": case "maxether": {
-        for (int i = 0; i < m.pp.length; i++) if (m.pp[i] < m.maxPp[i]) { m.pp[i] = Math.min(m.maxPp[i], m.pp[i] + (id.equals("ether") ? 10 : 99)); return "¡Se restauraron los PP de " + Dex.mv(m.moves[i]).name + "!"; }
+        for (int i = 0; i < m.pp.length; i++) if (m.pp[i] < m.maxPp[i]) { m.pp[i] = Math.min(m.maxPp[i], m.pp[i] + (id.equals("ether") ? 10 : 99)); return "¡Se restauraron los PP de " + Dex.mv(m.moves[i]).dn() + "!"; }
         return "No tendrá ningún efecto."; }
       case "elixir": case "maxelixir": {
         boolean any = false;

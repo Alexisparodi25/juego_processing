@@ -75,7 +75,7 @@ El **motor de combate es propio** y no implementa el 100 % de las mecánicas de 
 - **Objetos:** bayas, restos, vidasfera, bandas/gafas Elección, chalecos, placas, potenciadores de tipo, orbes, piedras mega, etc.
   Muchos objetos "de nicho" existen pero no tienen efecto en combate.
 - **Combates 1 vs 1** (sin dobles).
-- Los **nombres** de especies, movimientos y habilidades están en inglés (los de la fuente de datos); la interfaz está en español.
+- **Idioma:** movimientos, habilidades y objetos se muestran en español con su descripción (extraídos de [WikiDex](https://www.wikidex.net/) con `tools/fetch_wikidex.py`; ~96 % de movimientos, 97 % de habilidades y 82 % de objetos; lo que falta, como las MT genéricas, queda en inglés). Los nombres de especies son los internacionales.
 - **Sin sprites oficiales** (no se pueden incluir): el juego dibuja una criatura generada por tipo. Para usar sprites reales ejecuta
   `tools/download_sprites.sh` (descarga de PokeAPI/sprites); el juego los detecta solo en `pokefuego/data/sprites/`.
 
@@ -93,6 +93,7 @@ pokefuego/
   data/*.tsv         datos generados con tools/export_data.js
 tools/
   export_data.js     regenera los datos desde @pkmn/dex (npm i && node export_data.js)
+  fetch_wikidex.py   traducciones al español desde WikiDex (data/es_*.tsv)
   check.sh           compila el motor y simula miles de combates IA vs IA
   PlaySim.java       bot que juega partidas completas (todos los modos)
   build_sketch.sh    compila el sketch contra core.jar sin abrir Processing

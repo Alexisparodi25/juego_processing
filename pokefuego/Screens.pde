@@ -6,6 +6,8 @@
 interface IntCb { void run(int i); }
 interface StrCb { void run(String s); }
 
+String abEs(String n) { AbilityDef a = Dex.ab(n); return a == null ? n : a.dn(); }
+
 boolean hasSave() { return new File(sketchPath("save.txt")).exists(); }
 
 void saveGame() {
@@ -133,7 +135,7 @@ class StarterScene extends Scene {
       txtc(s.name, x, 340, fBig, color(255));
       typeChip(s.t1, x - (s.t2.isEmpty() ? 39 : 82), 385);
       if (!s.t2.isEmpty()) typeChip(s.t2, x + 4, 385);
-      txtc("Hab: " + s.abilities[0], x, 420, fSmall, color(220));
+      txtc("Hab: " + abEs(s.abilities[0]), x, 420, fSmall, color(220));
       txtc("Total base: " + s.bst(), x, 445, fSmall, color(200));
     }
     txtc("←/→ elegir · Z aceptar", width / 2, 560, fSmall, color(180));
@@ -399,11 +401,11 @@ class SummaryScene extends Scene {
     typeChip(m.sp.t1, 330, 100); if (!m.sp.t2.isEmpty()) typeChip(m.sp.t2, 414, 100);
     txt("Naturaleza: " + m.natureName(), 40, 300, fNormal, color(255));
     AbilityDef ab = Dex.ab(m.ability);
-    txt("Habilidad: " + (ab != null ? ab.name : m.ability), 40, 330, fNormal, color(255, 220, 140));
-    if (ab != null) { textFont(fSmall); fill(215); textAlign(LEFT, TOP); text(ab.desc, 40, 360, 420, 70); }
+    txt("Habilidad: " + (ab != null ? ab.dn() : m.ability), 40, 330, fNormal, color(255, 220, 140));
+    if (ab != null) { textFont(fSmall); fill(215); textAlign(LEFT, TOP); text(ab.dd(), 40, 360, 420, 70); }
     ItemDef it = Dex.item(m.item);
     txt("Objeto: " + (m.item.isEmpty() ? "ninguno" : Items.name(m.item)), 40, 440, fNormal, color(180, 220, 255));
-    if (it != null) { textFont(fSmall); fill(215); textAlign(LEFT, TOP); text(it.desc, 40, 470, 420, 70); }
+    if (it != null) { textFont(fSmall); fill(215); textAlign(LEFT, TOP); text(it.dd(), 40, 470, 420, 70); }
     txt("PS " + m.hp + "/" + m.maxHp, 40, 548, fNormal, color(255));
     hpBar(150, 556, 280, m.hpFrac());
     if (page == 0) {
@@ -423,7 +425,7 @@ class SummaryScene extends Scene {
       txt("Origen: " + (m.origin.isEmpty() ? "Pueblo Paleta" : m.origin), 520, 420, fSmall, color(200));
       if (m.megaForm() != null) txt("★ Puede Megaevolucionar a " + m.megaForm().name, 520, 460, fSmall, color(255, 220, 90));
       if (m.canDynamax()) txt(m.gmaxForm() != null ? "◆ Puede Gigamaxizarse (G-Max)" : "◆ Puede Dinamaxizarse", 520, 485, fSmall, color(255, 130, 130));
-      for (Evo e : m.normalSp.evos) txt("Evoluciona a " + e.to + (Mon.evoLevel(e) > 0 ? " (Nv " + Mon.evoLevel(e) + ")" : "") + (e.type.equals("useItem") ? " con " + e.item : ""), 520, 520 + 0, fSmall, color(180, 230, 180));
+      for (Evo e : m.normalSp.evos) txt("Evoluciona a " + e.to + (Mon.evoLevel(e) > 0 ? " (Nv " + Mon.evoLevel(e) + ")" : "") + (e.type.equals("useItem") ? " con " + Items.name(e.item) : ""), 520, 520 + 0, fSmall, color(180, 230, 180));
     } else {
       for (int i = 0; i < 4; i++) {
         float y = 100 + i * 118;
@@ -431,11 +433,11 @@ class SummaryScene extends Scene {
         if (i >= m.moves.length) continue;
         Move mv = Dex.mv(m.moves[i]);
         if (mv == null) continue;
-        txt(mv.name, 514, y + 6, fNormal, color(255));
+        txt(mv.dn(), 514, y + 6, fNormal, color(255));
         typeChip(mv.type, 514, y + 36);
         txt((mv.cat == 'P' ? "Físico" : mv.cat == 'S' ? "Especial" : "Estado") + (mv.bp > 0 ? " · Pod " + mv.bp : "") + (mv.acc > 0 ? " · Prec " + mv.acc : ""), 600, y + 36, fSmall, color(220));
         txtr("PP " + m.pp[i] + "/" + m.maxPp[i], 905, y + 8, fSmall, color(255, 230, 140));
-        textFont(fSmall); fill(200); textAlign(LEFT, TOP); text(mv.desc, 514, y + 62, 396, 40);
+        textFont(fSmall); fill(200); textAlign(LEFT, TOP); text(mv.dd(), 514, y + 62, 396, 40);
       }
     }
     txt("←/→: página · X: volver", 330, 556, fSmall, color(170));
@@ -686,7 +688,7 @@ class BoxScene extends Scene {
       drawCreature(mo.normalSp, 735, 190, 130, false, false, false, view == 1 ? 150.0f : 255.0f);
       txt(mo.name() + "  Nv " + mo.level, 560, 290, fNormal, color(255));
       typeChip(mo.normalSp.t1, 560, 325); if (!mo.normalSp.t2.isEmpty()) typeChip(mo.normalSp.t2, 644, 325);
-      txt("Hab: " + mo.ability, 560, 360, fSmall, color(220));
+      txt("Hab: " + abEs(mo.ability), 560, 360, fSmall, color(220));
       txt("Obj: " + (mo.item.isEmpty() ? "-" : Items.name(mo.item)), 560, 385, fSmall, color(220));
       if (view == 0) txt("Z: mover al equipo / intercambiar", 560, 520, fSmall, color(180));
       else txt("Origen: " + mo.origin, 560, 410, fSmall, color(200));
@@ -738,7 +740,7 @@ class DexScene extends Scene {
       typeChip(s.t1, 540, 345); if (!s.t2.isEmpty()) typeChip(s.t2, 624, 345);
       String[] nm = {"PS", "Ata", "Def", "AtE", "DeE", "Vel"};
       for (int i = 0; i < 6; i++) txt(nm[i] + " " + s.base[i], 540 + (i % 3) * 120, 385 + (i / 3) * 26, fSmall, color(230));
-      txt("Habilidades: " + s.abilities[0] + (s.abilities[1].isEmpty() ? "" : " / " + s.abilities[1]) + (s.abilities[2].isEmpty() ? "" : " / (" + s.abilities[2] + ")"), 540, 450, fSmall, color(210));
+      txt("Habilidades: " + abEs(s.abilities[0]) + (s.abilities[1].isEmpty() ? "" : " / " + abEs(s.abilities[1])) + (s.abilities[2].isEmpty() ? "" : " / (" + abEs(s.abilities[2]) + ")"), 540, 450, fSmall, color(210));
       String fl = (s.mega ? "Megaevolución " : "") + (s.primal ? "Regresión primigenia " : "") + (s.gmax ? "Gigamax " : "") + (s.noDmax ? "(sin Dinamax) " : "");
       txt(fl, 540, 480, fSmall, color(255, 220, 120));
     }
@@ -759,19 +761,19 @@ class LearnMoveScene extends Scene {
   Mon mon; String mv; Cb done; int sel = 0;
   LearnMoveScene(Mon m, String mv, Cb done) { this.mon = m; this.mv = mv; this.done = done; }
   void enter() {
-    if (mon.moves.length < 4) { mon.learnMove(mv, mon.moves.length); say(mon.name() + " aprendió " + Dex.mv(mv).name + "."); popScene(); if (done != null) done.run(); }
+    if (mon.moves.length < 4) { mon.learnMove(mv, mon.moves.length); say(mon.name() + " aprendió " + Dex.mv(mv).dn() + "."); popScene(); if (done != null) done.run(); }
   }
   boolean opaque() { return false; }
   void draw() {
     panel(120, 100, 720, 400);
     Move nm = Dex.mv(mv);
-    txt(mon.name() + " quiere aprender " + nm.name + ".", 140, 112, fNormal, color(255, 230, 140));
+    txt(mon.name() + " quiere aprender " + nm.dn() + ".", 140, 112, fNormal, color(255, 230, 140));
     txt("¿Qué movimiento debe olvidar?", 140, 144, fSmall, color(220));
     for (int i = 0; i < 5; i++) {
       float y = 180 + i * 56;
       panelSel(140, y, 680, 50, sel == i);
       Move m = i < 4 ? Dex.mv(mon.moves[i]) : nm;
-      txt(m.name + (i == 4 ? "  (nuevo)" : ""), 156, y + 12, fNormal, color(255));
+      txt(m.dn() + (i == 4 ? "  (nuevo)" : ""), 156, y + 12, fNormal, color(255));
       typeChip(m.type, 420, y + 14);
       txt((m.cat == 'P' ? "Fís" : m.cat == 'S' ? "Esp" : "Est") + (m.bp > 0 ? "  Pod " + m.bp : ""), 520, y + 14, fSmall, color(220));
     }
@@ -780,8 +782,8 @@ class LearnMoveScene extends Scene {
   void key(int k, char c) {
     if (k == K_UP) sel = (sel + 4) % 5; else if (k == K_DOWN) sel = (sel + 1) % 5;
     else if (k == K_OK) {
-      if (sel < 4) { String old = mon.moves[sel]; mon.learnMove(mv, sel); say("Olvidó " + Dex.mv(old).name + " y aprendió " + Dex.mv(mv).name + "."); }
-      else say(mon.name() + " no aprendió " + Dex.mv(mv).name + ".");
+      if (sel < 4) { String old = mon.moves[sel]; mon.learnMove(mv, sel); say("Olvidó " + Dex.mv(old).dn() + " y aprendió " + Dex.mv(mv).dn() + "."); }
+      else say(mon.name() + " no aprendió " + Dex.mv(mv).dn() + ".");
       popScene(); if (done != null) done.run();
     }
   }

@@ -203,7 +203,7 @@ class Battle {
     else if (ab.equals("moldbreaker")) log("¡" + m.name() + " rompe el molde!");
     else if (ab.equals("turboblaze")) log("¡" + m.name() + " irradia un aura ardiente!");
     else if (ab.equals("teravolt")) log("¡" + m.name() + " irradia un aura reventona!");
-    else if (ab.equals("trace") && f != null && f.alive()) { m.abilityOverride = f.ability; log("¡" + m.name() + " copió " + Dex.ab(f.ability).name + "!"); onEnter2(m); }
+    else if (ab.equals("trace") && f != null && f.alive()) { m.abilityOverride = f.ability; log("¡" + m.name() + " copió " + Dex.ab(f.ability).dn() + "!"); onEnter2(m); }
     else if (ab.equals("supersweetsyrup") && f != null) boost(f, 7, -1, m, false);
     else if (ab.equals("anticipation") || ab.equals("forewarn") || ab.equals("unnerve")) { }
     // Dinamax: no se puede ser expulsado, etc. (se maneja en los movimientos)
@@ -302,7 +302,7 @@ class Battle {
     else if (it.equals("oranberry") && m.hpFrac() <= half) { consume(m, "Baya Aranja"); heal(m, 10, "¡" + m.name() + " recuperó PS con la Baya Aranja!"); }
     else if (it.equals("berryjuice") && m.hpFrac() <= half) { consume(m, "Zumo de Baya"); heal(m, 20, "¡" + m.name() + " recuperó PS con el Zumo de Baya!"); }
     else if ((it.equals("figyberry") || it.equals("wikiberry") || it.equals("magoberry") || it.equals("aguavberry") || it.equals("iapapaberry")) && m.hpFrac() <= quarter) {
-      consume(m, Dex.item(it).name); heal(m, m.maxHp / 3, "¡" + m.name() + " recuperó PS con su baya!");
+      consume(m, Dex.item(it).dn()); heal(m, m.maxHp / 3, "¡" + m.name() + " recuperó PS con su baya!");
     }
     else if (it.equals("liechiberry") && m.hpFrac() <= quarter) { consume(m, "Baya Lichi"); boost(m, 1, 1, m, true); }
     else if (it.equals("ganlonberry") && m.hpFrac() <= quarter) { consume(m, "Baya Gonlan"); boost(m, 2, 1, m, true); }
@@ -773,7 +773,7 @@ class Battle {
     if (nuzlockeNoCatch) { log("Nuzlocke: ya usaste tu captura en esta zona."); return false; }
     if (bag != null) bag.remove(ballId, 1);
     ItemDef it = Dex.item(ballId);
-    log("¡Lanzaste una " + (it != null ? it.name : "Poké Ball") + "!");
+    log("¡Lanzaste una " + (it != null ? it.dn() : "Poké Ball") + "!");
     double mult = Items.ballMult(this, e, ballId);
     if (mult >= 255) { finishCatch(e, ballId); return true; }
     double rate = catchRateOverride > 0 ? catchRateOverride : catchRate(e.normalSp);
@@ -953,7 +953,7 @@ class Battle {
       u.lockedMove = u.moves[act.idx];
     }
     if (m.id.equals("struggle")) log(u.name() + " no tiene movimientos que usar...");
-    log("¡" + u.name() + " usó " + (m.isMax.isEmpty() ? m.name : m.name) + "!");
+    log("¡" + u.name() + " usó " + m.dn() + "!");
     u.lastMove = m.id;
     if (u.hasAbility("truant")) u.truantSkip = true;
     if ((u.hasAbility("protean") || u.hasAbility("libero")) && !m.id.equals("struggle") && !(u.type1.equals(m.type) && u.type2.isEmpty()) && !u.vol.contains("proteaned")) {
@@ -987,7 +987,7 @@ class Battle {
       log("¡El viento despejó las trampas!");
     }
     if (ok && m.id.equals("knockoff") && t != null && t.alive() && !t.itemId().isEmpty() && !Items.unremovable(t)) {
-      ItemDef idf = Dex.item(t.item); log("¡" + u.name() + " tiró " + (idf != null ? idf.name : "el objeto") + " de " + t.name() + "!"); t.itemConsumed = true;
+      ItemDef idf = Dex.item(t.item); log("¡" + u.name() + " tiró " + (idf != null ? idf.dn() : "el objeto") + " de " + t.name() + "!"); t.itemConsumed = true;
     }
     if (ok && m.selfSwitch && sides[ui].hasBackup() && u.alive()) pivotPending[ui] = u;
   }
@@ -1406,7 +1406,7 @@ class Battle {
         if (c.isEmpty()) { log("¡Pero falló!"); return false; }
         Move mv = effectiveMove(u, c.get(rng.nextInt(c.size())));
         String keep = u.status; u.status = "";
-        log("¡" + u.name() + " usó " + mv.name + " dormido!");
+        log("¡" + u.name() + " usó " + mv.dn() + " dormido!");
         boolean r = (mv.cat == 'N' && mv.bp == 0) ? statusMove(us, ts, u, t, mv) : attackMove(us, ts, u, t, mv, true);
         if (u.status.isEmpty()) u.status = keep;
         return r; }
@@ -1414,7 +1414,7 @@ class Battle {
         List<Move> all = new ArrayList<Move>();
         for (Move x : Dex.moves.values()) if (x.supported && x.isMax.isEmpty() && !x.id.equals("metronome") && !x.id.equals("sleeptalk") && x.pp > 0) all.add(x);
         Move mv = all.get(rng.nextInt(all.size()));
-        log("¡" + u.name() + " agitó un dedo y usó " + mv.name + "!");
+        log("¡" + u.name() + " agitó un dedo y usó " + mv.dn() + "!");
         return (mv.cat == 'N' && mv.bp == 0) ? statusMove(us, ts, u, t, mv) : attackMove(us, ts, u, t, mv, true); }
       case "splash": case "celebrate": case "holdhands": log("¡Pero no pasó nada!"); return true;
       case "teleport": case "batonpass": case "partingshot": break;
