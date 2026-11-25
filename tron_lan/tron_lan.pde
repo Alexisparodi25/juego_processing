@@ -66,7 +66,12 @@ final int[] SDY = {0, 0, 1, -1, 0};
 Server s;
 Client c;
 int puerto = 12345;
-String ipServidor = "";          // sin IP precargada: se escribe al conectar
+String ipServidor = "";          // sin IP precargada: se descubre en la red o se escribe
+final int PUERTO_DESCUBRIR = 12346;   // UDP: el host avisa que existe, el cliente lo escucha
+volatile String hostEncontrado = null;
+volatile boolean escuchando = false;
+boolean escrituraManual = false;
+String ipsLocales = "";
 
 int pasosPorFrame = 4;
 
@@ -179,17 +184,119 @@ void dibujarIpInput() {
   fill(0, 220, 255);
   text("CONECTAR A UN SERVIDOR", W/2, 150);
 
+  // si el host apareció en la red, se conecta solo
+  if (!escrituraManual && hostEncontrado != null) {
+    ipServidor = hostEncontrado;
+    hostEncontrado = null;
+    iniciarCliente();
+    return;
+  }
+
   textSize(18);
   fill(255);
-  text("Escribí la IP que muestra el host en su sala de espera", W/2, 230);
+  if (!escrituraManual) {
+    String puntos = "...".substring(0, 1 + (frameCount / 20) % 3);
+    text("Buscando servidores en la red local" + puntos, W/2, 230);
+    fill(150);
+    textSize(14);
+    text("(el host tiene que estar en la sala de espera)", W/2, 260);
+    textSize(16);
+    fill(255);
+    text("o escribí la IP del host con el teclado", W/2, 330);
+  } else {
+    text("IP del host (la muestra en su sala de espera)", W/2, 230);
+    textSize(36);
+    fill(255, 220, 60);
+    text(ipServidor + ((frameCount / 30) % 2 == 0 ? "_" : " "), W/2, 310);
+    textSize(14);
+    fill(150);
+    text("[ ENTER ] conectar    [ BACKSPACE ] borrar (vacío = vuelve a buscar)", W/2, 400);
+  }
+}
 
-  textSize(36);
-  fill(255, 220, 60);
-  text(ipServidor + ((frameCount / 30) % 2 == 0 ? "_" : " "), W/2, 310);
+void abrirBusqueda() {
+  ipServidor = "";
+  hostEncontrado = null;
+  escrituraManual = false;
+  estadoApp = IP_INPUT;
+  thread("escucharServidores");
+}
 
-  textSize(14);
-  fill(150);
-  text("[ ENTER ] conectar    [ BACKSPACE ] borrar (con la IP vacía, vuelve al menú)", W/2, 400);
+// hilo del cliente: espera el aviso UDP del host
+void escucharServidores() {
+  if (escuchando) return;
+  escuchando = true;
+  DatagramSocket ds = null;
+  try {
+    ds = new DatagramSocket(null);
+    ds.setReuseAddress(true);
+    ds.bind(new InetSocketAddress(PUERTO_DESCUBRIR));
+    ds.setSoTimeout(500);
+    byte[] buf = new byte[128];
+    while (estadoApp == IP_INPUT && hostEncontrado == null) {
+      try {
+        DatagramPacket pk = new DatagramPacket(buf, buf.length);
+        ds.receive(pk);
+        String msg = new String(pk.getData(), 0, pk.getLength());
+        if (msg.startsWith("TRONLAN")) hostEncontrado = pk.getAddress().getHostAddress();
+      } catch (SocketTimeoutException e) {
+        // seguir esperando
+      }
+    }
+  } catch (Exception e) {
+    println("Descubrimiento: " + e);
+  } finally {
+    if (ds != null) ds.close();
+    escuchando = false;
+  }
+}
+
+// hilo del host: avisa por broadcast cada segundo
+void anunciarServidor() {
+  DatagramSocket ds = null;
+  try {
+    ds = new DatagramSocket();
+    ds.setBroadcast(true);
+    byte[] datos = ("TRONLAN," + puerto).getBytes();
+    while (estadoApp == SERVIDOR) {
+      ArrayList<InetAddress> destinos = new ArrayList<InetAddress>();
+      destinos.add(InetAddress.getByName("255.255.255.255"));
+      for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+        if (!ni.isUp() || ni.isLoopback()) continue;
+        for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
+          if (ia.getBroadcast() != null) destinos.add(ia.getBroadcast());
+        }
+      }
+      for (InetAddress d : destinos) {
+        try {
+          ds.send(new DatagramPacket(datos, datos.length, d, PUERTO_DESCUBRIR));
+        } catch (Exception e) {
+          // esa interfaz no sirve: probar con las otras
+        }
+      }
+      Thread.sleep(1000);
+    }
+  } catch (Exception e) {
+    println("Anuncio: " + e);
+  } finally {
+    if (ds != null) ds.close();
+  }
+}
+
+// IPs de red local de esta máquina (las que tiene que usar el cliente si escribe la IP a mano)
+String listarIpsLocales() {
+  String r = "";
+  try {
+    for (NetworkInterface ni : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+      if (!ni.isUp() || ni.isLoopback()) continue;
+      for (InetAddress a : Collections.list(ni.getInetAddresses())) {
+        if (a instanceof Inet4Address && a.isSiteLocalAddress()) r += (r.length() > 0 ? "  /  " : "") + a.getHostAddress();
+      }
+    }
+  } catch (Exception e) {
+    println("IPs locales: " + e);
+  }
+  return r.length() > 0 ? r : Server.ip();
 }
 
 void dibujarConfig() {
@@ -253,15 +360,17 @@ boolean esEnter() {
 void keyPressed() {
   if (estadoApp == MENU) {
     if (key == '1') estadoApp = CONFIG;
-    if (key == '2') { ipServidor = ""; estadoApp = IP_INPUT; }
+    if (key == '2') abrirBusqueda();
   }
   else if (estadoApp == IP_INPUT) {
     if (esEnter()) {
-      if (ipServidor.length() > 0) iniciarCliente();
+      if (escrituraManual && ipServidor.length() > 0) iniciarCliente();
     } else if (key == BACKSPACE) {
-      if (ipServidor.length() > 0) ipServidor = ipServidor.substring(0, ipServidor.length() - 1);
+      if (escrituraManual && ipServidor.length() > 0) ipServidor = ipServidor.substring(0, ipServidor.length() - 1);
+      else if (escrituraManual) escrituraManual = false;       // vacío: vuelve a buscar solo
       else estadoApp = MENU;
     } else if (key != CODED && ((key >= '0' && key <= '9') || key == '.' || key == ':') && ipServidor.length() < 40) {
+      escrituraManual = true;
       ipServidor += key;
     }
   }
@@ -295,7 +404,7 @@ void keyPressed() {
     } else if (key == 'r' || key == 'R') {
       iniciarCliente();
     } else if (key == 'i' || key == 'I') {
-      estadoApp = IP_INPUT;
+      abrirBusqueda();
     }
   }
 }
@@ -311,6 +420,8 @@ void iniciarServidor() {
   estadoApp = SERVIDOR;
   miId = 0;
   ultimoMs = millis();
+  ipsLocales = listarIpsLocales();
+  thread("anunciarServidor");
 }
 
 // llamado por Processing (en otro hilo) cuando alguien se conecta
@@ -836,7 +947,7 @@ void dibujarLobby(int mask, boolean esHost) {
     else text("Se necesitan al menos 2 jugadores", W/2, 455);
     fill(150);
     textSize(14);
-    text("Tu IP: " + Server.ip() + "  |  puerto " + puerto, W/2, 495);
+    text("Tu IP: " + ipsLocales + "  |  puerto " + puerto, W/2, 495);
   } else {
     text("Esperando que el host inicie la partida...", W/2, 455);
   }
