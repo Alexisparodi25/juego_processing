@@ -1,4 +1,5 @@
 // Prueba determinista: espera al menú de combate, activa Mega / Dinamax con M / G y verifica el estado del motor.
+import pokefuego.engine.*;
 import processing.core.*;
 import processing.event.KeyEvent;
 import java.io.File;

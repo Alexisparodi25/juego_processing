@@ -1,4 +1,5 @@
 // Segunda prueba de interfaz: monta una partida avanzada y captura menús y combates con Mega y Dinamax.
+import pokefuego.engine.*;
 import processing.core.*;
 import processing.event.KeyEvent;
 import java.io.File;

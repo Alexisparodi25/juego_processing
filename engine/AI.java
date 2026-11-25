@@ -1,14 +1,9 @@
-// =====================================================
-//  IA de entrenadores (modo DIFÍCIL)
-//  - Calcula el daño real de cada movimiento
-//  - Prioriza KOs, ataques prioritarios y cambia a buenos counters
-//  - Usa Megaevolución / Dinamax con su "as"
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 
-class AI {
+public class AI {
   /** Mejor % de daño que puede hacer a sobre d con cualquiera de sus movimientos. */
-  static double bestPct(Battle b, int sa, Mon a, int sd, Mon d) {
+  public static double bestPct(Battle b, int sa, Mon a, int sd, Mon d) {
     double best = 0;
     for (int i = 0; i < a.moves.length; i++) {
       if (a.pp[i] <= 0) continue;
@@ -20,7 +15,7 @@ class AI {
   }
 
   /** Valor del enfrentamiento a vs d (positivo = favorable a a). */
-  static double matchup(Battle b, int sa, Mon a, int sd, Mon d) {
+  public static double matchup(Battle b, int sa, Mon a, int sd, Mon d) {
     double mine = Math.min(1.5, bestPct(b, sa, a, sd, d));
     double theirs = Math.min(1.5, bestPct(b, sd, d, sa, a));
     double spd = Calc.speed(b, b.sides[sa], a) - Calc.speed(b, b.sides[sd], d);
@@ -32,7 +27,7 @@ class AI {
     return v;
   }
 
-  static int bestReplacement(Battle b, int si) {
+  public static int bestReplacement(Battle b, int si) {
     Side s = b.sides[si];
     Mon foe = b.sides[1 - si].active;
     int best = -1; double bv = -1e9;
@@ -45,7 +40,7 @@ class AI {
     return best;
   }
 
-  static Action choose(Battle b, int si, boolean hard) {
+  public static Action choose(Battle b, int si, boolean hard) {
     Side me = b.sides[si];
     Mon u = me.active, t = b.sides[1 - si].active;
     Random r = b.rng;
@@ -116,7 +111,7 @@ class AI {
     return Action.move(bestIdx, mega, dyna);
   }
 
-  static double statusScore(Battle b, int si, Mon u, Mon t, Move m, double myHp, double foeBest, boolean faster) {
+  public static double statusScore(Battle b, int si, Mon u, Mon t, Move m, double myHp, double foeBest, boolean faster) {
     String id = m.id;
     Side me = b.sides[si], foe = b.sides[1 - si];
     double s = 10;
@@ -156,5 +151,5 @@ class AI {
     return s;
   }
 
-  static final Set<String> PROT = new HashSet<String>(Arrays.asList("protect", "detect", "kingsshield", "spikyshield", "banefulbunker"));
+  public static final Set<String> PROT = new HashSet<String>(Arrays.asList("protect", "detect", "kingsshield", "spikyshield", "banefulbunker"));
 }

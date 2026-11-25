@@ -1,74 +1,34 @@
-// =====================================================
-//  Game: estado de la partida, mapa de Kanto, entrenadores,
-//  modo aleatorio, Nuzlocke, dificultad, experiencia, guardado
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 
-class Rules {
-  boolean random, nuzlocke;
-  boolean hard = true;        // siempre difícil: IA fuerte, topes de nivel, entrenadores con EVs
-}
-
-class TMon {
-  String species; int level; String item = ""; boolean ace;
-  TMon(String s, int l, String it, boolean ace) { species = s; level = l; item = it; this.ace = ace; }
-}
-
-class Trainer {
-  String name, cls;
-  List<TMon> team = new ArrayList<TMon>();
-  int reward; String badge = "";
-  boolean boss, rival, done;
-  String intro = "";
-  String key = "";
-  Trainer(String cls, String name) { this.cls = cls; this.name = name; }
-  String full() { return cls.isEmpty() ? name : cls + " " + name; }
-  int maxLevel() { int m = 0; for (TMon t : team) m = Math.max(m, t.level); return m; }
-}
-
-class Place {
-  String name, desc;
-  int minLv, maxLv;
-  String[] theme;           // tipos que aparecen en la hierba
-  boolean center, shop, bigShop, megaShop;
-  List<Trainer> trainers = new ArrayList<Trainer>();
-  Trainer boss;             // líder / rival / alto mando (hay que vencerlo para avanzar)
-  List<Trainer> bossChain = new ArrayList<Trainer>();   // Alto Mando: se enfrentan en orden
-  int bossStep;
-  boolean encounterUsed;    // Nuzlocke: primera captura por zona
-  boolean encounterFailed;
-  int mapX, mapY;
-  Place(String n, String d, int lo, int hi, String... theme) { name = n; desc = d; minLv = lo; maxLv = hi; this.theme = theme; }
-}
-
-class Game {
-  Rules rules = new Rules();
-  Random rng = new Random();
-  long seed;
-  List<Place> places = new ArrayList<Place>();
-  int placeIdx = 0;
-  List<Mon> party = new ArrayList<Mon>();
-  List<Mon> box = new ArrayList<Mon>();
-  List<Mon> graveyard = new ArrayList<Mon>();
-  Bag bag = new Bag();
-  int money = 3000, badges = 0;
-  boolean gameOver, champion;
-  String starterId = "";
-  Set<String> owned = new HashSet<String>();      // especies base capturadas / vistas (Nuzlocke duplicados)
-  Set<String> dex = new HashSet<String>();        // Pokédex: especies vistas/capturadas
-  int battlesWon, deaths, steps;
+public class Game {
+  public Rules rules = new Rules();
+  public Random rng = new Random();
+  public long seed;
+  public List<Place> places = new ArrayList<Place>();
+  public int placeIdx = 0;
+  public List<Mon> party = new ArrayList<Mon>();
+  public List<Mon> box = new ArrayList<Mon>();
+  public List<Mon> graveyard = new ArrayList<Mon>();
+  public Bag bag = new Bag();
+  public int money = 3000, badges = 0;
+  public boolean gameOver, champion;
+  public String starterId = "";
+  public Set<String> owned = new HashSet<String>();      // especies base capturadas / vistas (Nuzlocke duplicados)
+  public Set<String> dex = new HashSet<String>();        // Pokédex: especies vistas/capturadas
+  public int battlesWon, deaths, steps;
 
   // ------------------------------------------------------------
   //  nueva partida
   // ------------------------------------------------------------
-  Game(Rules r, long seed) {
+  public Game(Rules r, long seed) {
     this.rules = r; this.seed = seed; this.rng = new Random(seed);
     buildWorld();
     bag.add("pokeball", 5); bag.add("potion", 3);
     money = 3000;
   }
 
-  List<String> starterChoices() {
+  public List<String> starterChoices() {
     List<String> out = new ArrayList<String>();
     if (!rules.random) { out.add("bulbasaur"); out.add("charmander"); out.add("squirtle"); return out; }
     List<Species> cand = new ArrayList<Species>();
@@ -77,7 +37,7 @@ class Game {
     return out;
   }
 
-  void chooseStarter(String id) {
+  public void chooseStarter(String id) {
     starterId = id;
     Mon m = Mon.create(Dex.sp(id), 5, rng);
     m.pickAbility(rng, false);
@@ -87,9 +47,9 @@ class Game {
     own(m);
   }
 
-  void own(Mon m) { owned.add(Dex.toId(rootOf(m.normalSp).id)); dex.add(m.normalSp.id); }
+  public void own(Mon m) { owned.add(Dex.toId(rootOf(m.normalSp).id)); dex.add(m.normalSp.id); }
 
-  static Species rootOf(Species s) {
+  public static Species rootOf(Species s) {
     int g = 0;
     while (!s.prevo.isEmpty() && g++ < 5) { Species p = Dex.sp(s.prevo); if (p == null) break; s = p; }
     return s;
@@ -98,9 +58,9 @@ class Game {
   // ------------------------------------------------------------
   //  mundo
   // ------------------------------------------------------------
-  Place place() { return places.get(placeIdx); }
+  public Place place() { return places.get(placeIdx); }
 
-  void buildWorld() {
+  public void buildWorld() {
     places.clear();
     Place p;
     p = new Place("Pueblo Paleta", "Tu pueblo natal. Tu rival te espera en el laboratorio.", 2, 4, "Normal", "Flying");
@@ -149,7 +109,7 @@ class Game {
   // ------------------------------------------------------------
   //  generación de especies
   // ------------------------------------------------------------
-  static Species evolveFor(Species s, int level, Random r) {
+  public static Species evolveFor(Species s, int level, Random r) {
     for (int guard = 0; guard < 4; guard++) {
       List<Species> opts = new ArrayList<Species>();
       for (Evo e : s.evos) {
@@ -165,9 +125,9 @@ class Game {
     return s;
   }
 
-  static double targetBst(int level) { return 200 + level * 5.6; }
+  public static double targetBst(int level) { return 200 + level * 5.6; }
 
-  Species randomSpecies(int level, String[] theme, boolean fullRandom, int refBst) {
+  public Species randomSpecies(int level, String[] theme, boolean fullRandom, int refBst) {
     double target = refBst > 0 ? refBst : targetBst(level);
     double tol = refBst > 0 ? Math.max(40, refBst * 0.12) : 75;
     for (int attempt = 0; attempt < 900; attempt++) {
@@ -195,7 +155,7 @@ class Game {
   }
 
   /** Crea un Pokémon con el estilo de dificultad actual. */
-  Mon makeMon(Species s, int level, boolean trainerMon, boolean smart) {
+  public Mon makeMon(Species s, int level, boolean trainerMon, boolean smart) {
     Mon m = Mon.create(s, level, rng);
     if (trainerMon) {
       int ev = Math.min(84, badges * 11);
@@ -207,11 +167,11 @@ class Game {
     return m;
   }
 
-  static final String[] ITEMS_PHYS = {"choiceband", "lifeorb", "leftovers", "sitrusberry", "focussash", "expertbelt", "muscleband"};
-  static final String[] ITEMS_SPEC = {"choicespecs", "lifeorb", "leftovers", "sitrusberry", "focussash", "expertbelt", "wiseglasses"};
-  static final String[] ITEMS_BULKY = {"leftovers", "sitrusberry", "rockyhelmet", "assaultvest", "eviolite", "lumberry", "blacksludge"};
+  public static final String[] ITEMS_PHYS = {"choiceband", "lifeorb", "leftovers", "sitrusberry", "focussash", "expertbelt", "muscleband"};
+  public static final String[] ITEMS_SPEC = {"choicespecs", "lifeorb", "leftovers", "sitrusberry", "focussash", "expertbelt", "wiseglasses"};
+  public static final String[] ITEMS_BULKY = {"leftovers", "sitrusberry", "rockyhelmet", "assaultvest", "eviolite", "lumberry", "blacksludge"};
 
-  String autoItem(Mon m) {
+  public String autoItem(Mon m) {
     Species s = m.normalSp;
     if (!s.evos.isEmpty() && m.level < 50 && rng.nextInt(2) == 0) return "eviolite";
     if (s.base[1] >= s.base[3] + 10) return ITEMS_PHYS[rng.nextInt(ITEMS_PHYS.length)];
@@ -220,7 +180,7 @@ class Game {
     return rng.nextBoolean() ? "lifeorb" : "leftovers";
   }
 
-  Mon buildTrainerMon(TMon t, boolean aceMegaCapable) {
+  public Mon buildTrainerMon(TMon t, boolean aceMegaCapable) {
     Species s = Dex.sp(t.species);
     if (s == null) s = Dex.sp("rattata");
     Mon m = makeMon(s, t.level, true, true);
@@ -240,23 +200,23 @@ class Game {
   // ------------------------------------------------------------
   //  entrenadores
   // ------------------------------------------------------------
-  static final String[] NAMES = {"Alex","Beto","Carla","Dani","Edu","Fer","Gabi","Hugo","Iñaki","Javi","Kike","Lara","Marta","Nacho","Olaya","Paco","Quique","Rosa","Saúl","Tere","Uri","Vera","Willy","Xavi","Yago","Zoe"};
+  public static final String[] NAMES = {"Alex","Beto","Carla","Dani","Edu","Fer","Gabi","Hugo","Iñaki","Javi","Kike","Lara","Marta","Nacho","Olaya","Paco","Quique","Rosa","Saúl","Tere","Uri","Vera","Willy","Xavi","Yago","Zoe"};
 
-  Trainer route(String cls, String nm, Place p, int id) {
+  public Trainer route(String cls, String nm, Place p, int id) {
     Trainer t = new Trainer(cls, nm);
     t.key = "r" + id;
     t.reward = 0;
     return t;     // el equipo se genera al combatir (para que el modo aleatorio y el nivel actual influyan)
   }
 
-  Trainer leader(String name, String badge, int n) {
+  public Trainer leader(String name, String badge, int n) {
     Trainer t = new Trainer("Líder", name); t.boss = true; t.badge = badge; t.key = "g" + n;
     return t;
   }
 
-  Trainer rival(String name, int n) { Trainer t = new Trainer("", name); t.boss = true; t.rival = true; t.key = "v" + n; return t; }
+  public Trainer rival(String name, int n) { Trainer t = new Trainer("", name); t.boss = true; t.rival = true; t.key = "v" + n; return t; }
 
-  List<Trainer> eliteFour() {
+  public List<Trainer> eliteFour() {
     List<Trainer> l = new ArrayList<Trainer>();
     String[] nm = {"Lorelei", "Bruno", "Agatha", "Lance"};
     for (int i = 0; i < 4; i++) { Trainer t = new Trainer("Alto Mando", nm[i]); t.boss = true; t.key = "e" + i; l.add(t); }
@@ -265,7 +225,7 @@ class Game {
   }
 
   /** Genera (o regenera) el equipo del entrenador. */
-  void prepare(Trainer t, Place pl) {
+  public void prepare(Trainer t, Place pl) {
     if (!t.team.isEmpty()) return;
     List<TMon> team = t.team;
     if (t.key.startsWith("g")) team.addAll(leaderTeam(Integer.parseInt(t.key.substring(1))));
@@ -293,9 +253,9 @@ class Game {
     }
   }
 
-  int hardBonus() { return 1; }
+  public int hardBonus() { return 1; }
 
-  String[] routeTheme(String cls, Place p) {
+  public String[] routeTheme(String cls, Place p) {
     switch (cls) {
       case "Cazabichos": return new String[]{"Bug"};
       case "Excursionista": case "Montañero": return new String[]{"Rock", "Ground", "Fighting"};
@@ -311,14 +271,14 @@ class Game {
     return p.theme;
   }
 
-  Species starterStage(int starterFam, int level) {
+  public Species starterStage(int starterFam, int level) {
     String[][] fams = {{"bulbasaur", "ivysaur", "venusaur"}, {"charmander", "charmeleon", "charizard"}, {"squirtle", "wartortle", "blastoise"}};
     int s = level < 16 ? 0 : level < 36 ? 1 : 2;
     return Dex.sp(fams[starterFam][s]);
   }
 
   /** Equipo del rival: usa el inicial que gana al tuyo (o uno aleatorio). */
-  List<TMon> rivalTeam(int n) {
+  public List<TMon> rivalTeam(int n) {
     List<TMon> t = new ArrayList<TMon>();
     int fam = 0;
     String me = Dex.toId(starterId);
@@ -333,7 +293,7 @@ class Game {
     return t;
   }
 
-  List<TMon> leaderTeam(int n) {
+  public List<TMon> leaderTeam(int n) {
     List<TMon> t = new ArrayList<TMon>();
     switch (n) {
       case 0: t.add(new TMon("geodude", 12, "", false)); t.add(new TMon("rhyhorn", 14, "", false)); t.add(new TMon("onix", 16, "", true)); break;
@@ -348,7 +308,7 @@ class Game {
     return t;
   }
 
-  List<TMon> e4Team(int n) {
+  public List<TMon> e4Team(int n) {
     List<TMon> t = new ArrayList<TMon>();
     switch (n) {
       case 0: t.add(new TMon("dewgong", 54, "", false)); t.add(new TMon("cloyster", 53, "", false)); t.add(new TMon("slowbro", 54, "", false)); t.add(new TMon("jynx", 56, "", false)); t.add(new TMon("lapras", 59, "", true)); break;
@@ -360,7 +320,7 @@ class Game {
   }
 
   /** Tope de nivel: el as del próximo jefe (se resta un poco para dificultad). */
-  int levelCap() {
+  public int levelCap() {
     for (int i = placeIdx; i < places.size(); i++) {
       Place p = places.get(i);
       if (p.boss != null && !p.boss.done) {
@@ -377,16 +337,16 @@ class Game {
   // ------------------------------------------------------------
   //  combates
   // ------------------------------------------------------------
-  Side playerSide() {
+  public Side playerSide() {
     Side s = new Side(); s.name = "Tú"; s.human = true;
     s.party.addAll(party);
     return s;
   }
 
-  Mon firstAlive() { for (Mon m : party) if (m.alive()) return m; return null; }
+  public Mon firstAlive() { for (Mon m : party) if (m.alive()) return m; return null; }
 
   /** Pokémon salvaje de la zona actual. */
-  Mon wildMon(boolean firstEncounter) {
+  public Mon wildMon(boolean firstEncounter) {
     Place p = place();
     int lv = p.minLv + rng.nextInt(Math.max(1, p.maxLv - p.minLv + 1));
     Species s = null;
@@ -402,7 +362,7 @@ class Game {
     return m;
   }
 
-  Battle wildBattle() {
+  public Battle wildBattle() {
     Place p = place();
     boolean first = rules.nuzlocke && !p.encounterUsed;
     Mon w = wildMon(first);
@@ -415,7 +375,7 @@ class Game {
     return b;
   }
 
-  Battle trainerBattle(Trainer t) {
+  public Battle trainerBattle(Trainer t) {
     Place p = place();
     prepare(t, p);
     Side e = new Side(); e.name = t.full(); e.trainer = true;
@@ -440,18 +400,18 @@ class Game {
   // ------------------------------------------------------------
   //  resultado de un combate
   // ------------------------------------------------------------
-  static class LevelUp { Mon mon; int newLevel; List<String> newMoves = new ArrayList<String>(); }
-  static class Result {
-    List<String> msgs = new ArrayList<String>();
-    List<Object[]> learn = new ArrayList<Object[]>();       // {Mon, moveId}
-    List<Object[]> evolve = new ArrayList<Object[]>();      // {Mon, Species}
-    boolean won, lost, fled, captured, gameOver;
-    Mon capturedMon; String capturedWhere = "";
-    int money;
+  public static class LevelUp { public Mon mon; public int newLevel; public List<String> newMoves = new ArrayList<String>(); }
+  public static class Result {
+    public List<String> msgs = new ArrayList<String>();
+    public List<Object[]> learn = new ArrayList<Object[]>();       // {Mon, moveId}
+    public List<Object[]> evolve = new ArrayList<Object[]>();      // {Mon, Species}
+    public boolean won, lost, fled, captured, gameOver;
+    public Mon capturedMon; String capturedWhere = "";
+    public int money;
   }
 
   /** Procesa experiencia, muertes, dinero, capturas, etc. Se llama una vez al terminar el combate. */
-  Result finish(Battle b, Map<Mon, Integer> expLog) {
+  public Result finish(Battle b, Map<Mon, Integer> expLog) {
     Result r = new Result();
     int cap = levelCap();
     // sincronizar de vuelta
@@ -491,7 +451,7 @@ class Game {
     return r;
   }
 
-  Result finishExp(Battle b, Result r, int cap) {
+  public Result finishExp(Battle b, Result r, int cap) {
     // experiencia por cada rival caído
     for (Mon foe : b.sides[1].party) {
       if (!foe.fainted() && !(foe == b.caughtMon)) continue;
@@ -522,7 +482,7 @@ class Game {
     return r;
   }
 
-  void giveDrop(Result r, boolean boss) {
+  public void giveDrop(Result r, boolean boss) {
     List<ItemDef> pool = new ArrayList<ItemDef>();
     for (ItemDef d : Dex.items.values()) {
       if (d.ball) continue;
@@ -547,9 +507,9 @@ class Game {
     bag.add(c, bonus); r.msgs.add("¡Encontraste " + bonus + " × " + Items.name(c) + "!");
   }
 
-  boolean holding(String id) { for (Mon m : party) if (Dex.toId(m.item).equals(id)) return true; for (Mon m : box) if (Dex.toId(m.item).equals(id)) return true; return false; }
+  public boolean holding(String id) { for (Mon m : party) if (Dex.toId(m.item).equals(id)) return true; for (Mon m : box) if (Dex.toId(m.item).equals(id)) return true; return false; }
 
-  void handleWhiteout(Result r) {
+  public void handleWhiteout(Result r) {
     if (rules.nuzlocke) {
       boolean anyAlive = false;
       for (Mon m : party) if (m.alive()) anyAlive = true;
@@ -565,23 +525,23 @@ class Game {
     placeIdx = Math.max(0, lastCenter());
   }
 
-  int lastCenter() { for (int i = placeIdx; i >= 0; i--) if (places.get(i).center) return i; return 0; }
+  public int lastCenter() { for (int i = placeIdx; i >= 0; i--) if (places.get(i).center) return i; return 0; }
 
-  void moveDeadToGraveyard() {
+  public void moveDeadToGraveyard() {
     for (Iterator<Mon> it = party.iterator(); it.hasNext();) { Mon m = it.next(); if (m.dead) { graveyard.add(m); it.remove(); deaths++; } }
     for (Iterator<Mon> it = box.iterator(); it.hasNext();) { Mon m = it.next(); if (m.dead) { graveyard.add(m); it.remove(); } }
   }
 
-  void refillFromBox() {
+  public void refillFromBox() {
     while (party.size() < 1 && !box.isEmpty()) { for (Mon m : box) if (m.alive()) { box.remove(m); party.add(m); break; } if (party.isEmpty()) break; }
   }
 
-  void healAll() { for (Mon m : party) m.fullHeal(); }
+  public void healAll() { for (Mon m : party) m.fullHeal(); }
 
   // ------------------------------------------------------------
   //  tienda
   // ------------------------------------------------------------
-  List<String> shopStock(int kind) {
+  public List<String> shopStock(int kind) {
     List<String> l = new ArrayList<String>();
     if (kind == 0) {      // médico + balls
       l.addAll(Arrays.asList("pokeball", "greatball", "potion", "antidote", "paralyzeheal", "awakening", "burnheal", "iceheal"));
@@ -605,7 +565,7 @@ class Game {
     return l;
   }
 
-  int priceOf(String id) {
+  public int priceOf(String id) {
     int p = Items.price(id);
     ItemDef d = Dex.items.get(id);
     if (d != null && !d.megaStone.isEmpty()) p = 12000;
@@ -613,7 +573,7 @@ class Game {
     return p;
   }
 
-  boolean buy(String id, int qty) {
+  public boolean buy(String id, int qty) {
     int cost = priceOf(id) * qty;
     if (money < cost) return false;
     money -= cost; bag.add(id, qty); return true;
@@ -622,38 +582,38 @@ class Game {
   // ------------------------------------------------------------
   //  avance
   // ------------------------------------------------------------
-  boolean canAdvance() {
+  public boolean canAdvance() {
     Place p = place();
     if (placeIdx >= places.size() - 1) return false;
     if (p.boss != null && !allBossDone(p)) return false;
     return true;
   }
 
-  boolean allBossDone(Place p) {
+  public boolean allBossDone(Place p) {
     if (p.bossChain.isEmpty()) return p.boss == null || p.boss.done;
     for (Trainer t : p.bossChain) if (!t.done) return false;
     return true;
   }
 
-  Trainer nextBoss() {
+  public Trainer nextBoss() {
     Place p = place();
     if (!p.bossChain.isEmpty()) { for (Trainer t : p.bossChain) if (!t.done) return t; return null; }
     return p.boss != null && !p.boss.done ? p.boss : null;
   }
 
-  void advance() {
+  public void advance() {
     if (canAdvance()) { placeIdx++; }
   }
 
-  boolean won() { Place p = places.get(places.size() - 1); return allBossDone(p) && !p.bossChain.isEmpty(); }
+  public boolean won() { Place p = places.get(places.size() - 1); return allBossDone(p) && !p.bossChain.isEmpty(); }
 
   /** Después de ganar el último combate de la Liga. */
-  void checkChampion() { if (won()) champion = true; }
+  public void checkChampion() { if (won()) champion = true; }
 
   // ------------------------------------------------------------
   //  guardado
   // ------------------------------------------------------------
-  static String monLine(Mon m) {
+  public static String monLine(Mon m) {
     StringBuilder sb = new StringBuilder("M|");
     sb.append(m.normalSp.id).append('|').append(m.nick).append('|').append(m.level).append('|').append(m.exp).append('|').append(m.nature).append('|');
     for (int v : m.iv) sb.append(v).append(','); sb.append('|');
@@ -665,7 +625,7 @@ class Game {
     return sb.toString();
   }
 
-  static Mon parseMon(String line) {
+  public static Mon parseMon(String line) {
     String[] p = line.split("\\|", -1);
     Species s = Dex.sp(p[1]);
     Mon m = new Mon(s, Integer.parseInt(p[3]));
@@ -685,7 +645,7 @@ class Game {
     return m;
   }
 
-  List<String> serialize() {
+  public List<String> serialize() {
     List<String> o = new ArrayList<String>();
     o.add("G|" + (rules.random ? 1 : 0) + "|" + (rules.nuzlocke ? 1 : 0) + "|" + placeIdx + "|" + money + "|" + badges + "|" + seed + "|" + starterId + "|" + (gameOver ? 1 : 0) + "|" + battlesWon + "|" + deaths);
     StringBuilder sb = new StringBuilder("BAG|");
@@ -706,9 +666,9 @@ class Game {
     return o;
   }
 
-  String trainerBits(Place p) { StringBuilder sb = new StringBuilder(); for (Trainer t : p.trainers) sb.append(t.done ? 1 : 0); return sb.toString(); }
+  public String trainerBits(Place p) { StringBuilder sb = new StringBuilder(); for (Trainer t : p.trainers) sb.append(t.done ? 1 : 0); return sb.toString(); }
 
-  static Game deserialize(List<String> lines) {
+  public static Game deserialize(List<String> lines) {
     Game g = null;
     for (String l : lines) {
       String[] p = l.split("\\|", -1);

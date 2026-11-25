@@ -1,108 +1,63 @@
-// =====================================================
-//  Battle: motor de combate por turnos (1 vs 1)
-//  Mecánicas especiales: SOLO Megaevolución y Dinamax/Gigamax
-//  (ambas duran todo el combate).
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 
-class Side {
-  String name = "";
-  boolean human, trainer;
-  List<Mon> party = new ArrayList<Mon>();
-  Mon active;
-  boolean transformed;               // ya usó Mega o Dinamax en este combate
-  boolean canTransform = true;       // (IA) permitido usar Mega/Dinamax
-  int stealthRock, spikes, toxicSpikes, safeguard;
-  boolean stickyWeb;
-  int reflect, lightScreen, auraVeil, tailwind, dot;
-  String dotName = "";
-  int aiAce = -1;                    // índice del "as" que se transforma (IA)
-
-  int alive() { int n = 0; for (Mon m : party) if (m.alive()) n++; return n; }
-  boolean hasBackup() { for (Mon m : party) if (m.alive() && m != active) return true; return false; }
-  int indexOf(Mon m) { return party.indexOf(m); }
-}
-
-class Action {
-  static final int MOVE = 0, SWITCH = 1, ITEM = 2, RUN = 3, BALL = 4, NONE = 5;
-  int type = NONE, idx;
-  boolean mega, dyna;
-  String item = "";
-  Action(int t, int i) { type = t; idx = i; }
-  static Action move(int i, boolean mega, boolean dyna) { Action a = new Action(MOVE, i); a.mega = mega; a.dyna = dyna; return a; }
-  static Action sw(int i) { return new Action(SWITCH, i); }
-  static Action item(String it, int target) { Action a = new Action(ITEM, target); a.item = it; return a; }
-  static Action ball(String it) { Action a = new Action(BALL, 0); a.item = it; return a; }
-  static Action run() { return new Action(RUN, 0); }
-}
-
-class Event {
-  String msg = "";
-  String[] name = new String[2], status = new String[2], spId = new String[2];
-  int[] hp = new int[2], maxHp = new int[2], level = new int[2];
-  boolean[] dyna = new boolean[2], mega = new boolean[2];
-  int hitSide = -1;       // lado que recibió un golpe (animación)
-  String anim = "";       // "faint0", "faint1", "send0"...
-  String weather = "", terrain = "";
-}
-
-class Battle {
-  static final Move STRUGGLE = new Move();
+public class Battle {
+  public static final Move STRUGGLE = new Move();
   static {
     STRUGGLE.id = "struggle"; STRUGGLE.name = "Forcejeo"; STRUGGLE.type = "Typeless"; STRUGGLE.cat = 'P'; STRUGGLE.bp = 50; STRUGGLE.acc = 0;
     STRUGGLE.pp = 1; STRUGGLE.flags = "contact|protect"; STRUGGLE.recoil = new int[]{1, 4}; STRUGGLE.target = "normal";
   }
-  static final String[][] MAXMOVES = {
+  public static final String[][] MAXMOVES = {
     {"Normal","Max Strike"},{"Fire","Max Flare"},{"Water","Max Geyser"},{"Electric","Max Lightning"},{"Grass","Max Overgrowth"},
     {"Ice","Max Hailstorm"},{"Fighting","Max Knuckle"},{"Poison","Max Ooze"},{"Ground","Max Quake"},{"Flying","Max Airstream"},
     {"Psychic","Max Mindstorm"},{"Bug","Max Flutterby"},{"Rock","Max Rockfall"},{"Ghost","Max Phantasm"},{"Dragon","Max Wyrmwind"},
     {"Dark","Max Darkness"},{"Steel","Max Steelspike"},{"Fairy","Max Starfall"}};
 
-  Side[] sides = new Side[2];
-  String weather = "", terrain = "";
-  int weatherTurns, terrainTurns, trickRoom;
-  Random rng;
-  List<Event> events = new ArrayList<Event>();
-  boolean wild, over, caught, escaped, hardMode = true;
-  int winner = -1, turn = 0, runAttempts = 0;
-  boolean[] needSwitch = new boolean[2];
-  Mon caughtMon;
-  Map<Mon, Set<Mon>> participants = new HashMap<Mon, Set<Mon>>();
-  Bag bag;                        // mochila del jugador
-  int catchRateOverride = -1;
-  String evoLock = "";
-  Mon[] pivotPending = new Mon[2];
-  boolean nuzlockeNoCatch, catchEnc;
-  Trainer currentTrainer;
-  Set<String> owned = new HashSet<String>();   // especies ya capturadas (Bola Acopio)
+  public Side[] sides = new Side[2];
+  public String weather = "", terrain = "";
+  public int weatherTurns, terrainTurns, trickRoom;
+  public Random rng;
+  public List<BEvent> events = new ArrayList<BEvent>();
+  public boolean wild, over, caught, escaped, hardMode = true;
+  public int winner = -1, turn = 0, runAttempts = 0;
+  public boolean[] needSwitch = new boolean[2];
+  public Mon caughtMon;
+  public Map<Mon, Set<Mon>> participants = new HashMap<Mon, Set<Mon>>();
+  public Bag bag;                        // mochila del jugador
+  public int catchRateOverride = -1;
+  public String evoLock = "";
+  public Mon[] pivotPending = new Mon[2];
+  public boolean nuzlockeNoCatch, catchEnc;
+  public Trainer currentTrainer;
+  public Set<String> owned = new HashSet<String>();   // especies ya capturadas (Bola Acopio)
 
-  boolean bestIsPhys(Mon m) {
+  public boolean bestIsPhys(Mon m) {
     int p = 0, q = 0;
     for (String id : m.moves) { Move mv = Dex.mv(id); if (mv == null) continue; if (mv.cat == 'P') p++; else if (mv.cat == 'S') q++; }
     return p >= q;
   }
 
-  Battle(Side player, Side enemy, boolean wild, Random rng) {
+  public Battle(Side player, Side enemy, boolean wild, Random rng) {
     sides[0] = player; sides[1] = enemy; this.wild = wild; this.rng = rng;
   }
 
   // ------------------------------------------------------------------
   //  utilidades
   // ------------------------------------------------------------------
-  Side sideOf(Mon m) { return sides[0].party.contains(m) ? sides[0] : sides[1]; }
-  int idxOf(Mon m) { return sides[0].party.contains(m) ? 0 : 1; }
-  Mon foe(Mon m) { return idxOf(m) == 0 ? sides[1].active : sides[0].active; }
-  Side foeSide(Mon m) { return idxOf(m) == 0 ? sides[1] : sides[0]; }
+  public Side sideOf(Mon m) { return sides[0].party.contains(m) ? sides[0] : sides[1]; }
+  public int idxOf(Mon m) { return sides[0].party.contains(m) ? 0 : 1; }
+  public Mon foe(Mon m) { return idxOf(m) == 0 ? sides[1].active : sides[0].active; }
+  public Side foeSide(Mon m) { return idxOf(m) == 0 ? sides[1] : sides[0]; }
 
-  String weatherNow() {
+  public String weatherNow() {
     for (Side s : sides) if (s.active != null && s.active.alive() && (s.active.hasAbility("cloudnine") || s.active.hasAbility("airlock"))) return "";
     return weather;
   }
-  boolean dynamaxTarget(Mon m) { return m.dynamaxed; }
+  public boolean dynamaxTarget(Mon m) { return m.dynamaxed; }
 
-  void log(String msg) { log(msg, -1, ""); }
-  void log(String msg, int hitSide, String anim) {
-    Event e = new Event();
+  public void log(String msg) { log(msg, -1, ""); }
+  public void log(String msg, int hitSide, String anim) {
+    BEvent e = new BEvent();
     e.msg = msg; e.hitSide = hitSide; e.anim = anim;
     for (int i = 0; i < 2; i++) {
       Mon m = sides[i].active;
@@ -113,14 +68,14 @@ class Battle {
     e.weather = weather; e.terrain = terrain;
     events.add(e);
   }
-  List<Event> takeEvents() { List<Event> l = events; events = new ArrayList<Event>(); return l; }
+  public List<BEvent> takeEvents() { List<BEvent> l = events; events = new ArrayList<BEvent>(); return l; }
 
-  static String cap(String s) { return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1); }
+  public static String cap(String s) { return s.isEmpty() ? s : Character.toUpperCase(s.charAt(0)) + s.substring(1); }
 
   // ------------------------------------------------------------------
   //  inicio
   // ------------------------------------------------------------------
-  void start() {
+  public void start() {
     for (int i = 0; i < 2; i++) {
       Side s = sides[i];
       Mon first = null;
@@ -139,7 +94,7 @@ class Battle {
     for (Mon m : order) onEnter(m);
   }
 
-  void trackParticipants() {
+  public void trackParticipants() {
     Mon p = sides[0].active, e = sides[1].active;
     if (p == null || e == null) return;
     Set<Mon> set = participants.get(e);
@@ -151,7 +106,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  entrada al campo
   // ------------------------------------------------------------------
-  void onEnter(Mon m) {
+  public void onEnter(Mon m) {
     Side s = sideOf(m);
     Mon f = foe(m);
     m.turnsOut = 0;
@@ -214,25 +169,25 @@ class Battle {
     if (m.hasItem("whiteherb")) whiteHerb(m);
   }
 
-  void onEnter2(Mon m) { // tras Trace
+  public void onEnter2(Mon m) { // tras Trace
     String ab = m.abilityId();
     if (ab.equals("intimidate")) { Mon f = foe(m); if (f != null && f.alive()) boost(f, 1, -1, m, false); }
   }
 
-  void castform(Mon m) {
+  public void castform(Mon m) {
     String w = weatherNow(); String to = "Castform";
     if (w.equals("sun")) to = "Castform-Sunny"; else if (w.equals("rain")) to = "Castform-Rainy"; else if (w.equals("hail")) to = "Castform-Snowy";
     Species s = Dex.sp(to);
     if (s != null && s != m.sp) { m.setSpecies(s); log("¡" + m.name() + " cambió de forma!"); }
   }
 
-  void whiteHerb(Mon m) {
+  public void whiteHerb(Mon m) {
     boolean any = false;
     for (int i = 1; i < 8; i++) if (m.stage[i] < 0) { m.stage[i] = 0; any = true; }
     if (any) { log("¡" + m.name() + " restauró sus estadísticas con la Hierba Blanca!"); m.itemConsumed = true; }
   }
 
-  void setWeather(String w, Mon src, int turns) {
+  public void setWeather(String w, Mon src, int turns) {
     if (weather.equals(w)) return;
     weather = w;
     String it = src == null ? "" : src.itemId();
@@ -246,7 +201,7 @@ class Battle {
     for (Side s : sides) if (s.active != null && s.active.hasAbility("forecast") && s.active.normalSp.name.equals("Castform")) castform(s.active);
   }
 
-  void setTerrain(String t, Mon src) {
+  public void setTerrain(String t, Mon src) {
     if (terrain.equals(t)) return;
     terrain = t; terrainTurns = (src != null && src.hasItem("terrainextender")) ? 8 : 5;
     if (t.equals("electric")) log("¡Una corriente eléctrica recorre el campo!");
@@ -259,7 +214,7 @@ class Battle {
   //  daño directo y curación
   // ------------------------------------------------------------------
   /** Daño indirecto. */
-  int hurt(Mon m, int dmg, Mon src) {
+  public int hurt(Mon m, int dmg, Mon src) {
     if (m.fainted() || dmg <= 0) return 0;
     dmg = Math.min(dmg, m.hp);
     m.hp -= dmg;
@@ -269,7 +224,7 @@ class Battle {
     return dmg;
   }
 
-  int heal(Mon m, int amount, String why) {
+  public int heal(Mon m, int amount, String why) {
     if (m.fainted() || amount <= 0 || m.hp >= m.maxHp) return 0;
     int a = Math.min(amount, m.maxHp - m.hp);
     m.hp += a;
@@ -277,7 +232,7 @@ class Battle {
     return a;
   }
 
-  void faintCheck(Mon m) {
+  public void faintCheck(Mon m) {
     if (!m.fainted() || m.vol.contains("fainted")) return;
     m.vol.add("fainted");
     int s = idxOf(m);
@@ -292,7 +247,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  baya y objetos reactivos
   // ------------------------------------------------------------------
-  void checkBerries(Mon m) {
+  public void checkBerries(Mon m) {
     if (m.fainted() || m.itemConsumed) return;
     String it = m.itemId();
     if (it.isEmpty()) return;
@@ -323,9 +278,9 @@ class Battle {
     else if (it.equals("whiteherb")) whiteHerb(m);
   }
 
-  void consume(Mon m, String nm) { m.itemConsumed = true; }
+  public void consume(Mon m, String nm) { m.itemConsumed = true; }
 
-  void cureStatus(Mon m) {
+  public void cureStatus(Mon m) {
     if (m.status.isEmpty()) return;
     m.status = ""; m.sleepTurns = 0; m.toxicTurns = 0;
     log("¡" + m.name() + " se curó!");
@@ -334,7 +289,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  estados
   // ------------------------------------------------------------------
-  boolean setStatus(Mon t, Mon src, String st, boolean quiet) {
+  public boolean setStatus(Mon t, Mon src, String st, boolean quiet) {
     if (t.fainted() || !t.status.isEmpty()) {
       if (!quiet && src != null) log("¡Pero no tuvo efecto!");
       return false;
@@ -371,7 +326,7 @@ class Battle {
     return true;
   }
 
-  boolean setVolatile(Mon t, Mon src, String v) {
+  public boolean setVolatile(Mon t, Mon src, String v) {
     if (t.fainted()) return false;
     if (v.equals("confusion")) {
       if (t.vol.contains("confusion")) { log("¡" + t.name() + " ya está confuso!"); return false; }
@@ -397,9 +352,9 @@ class Battle {
   // ------------------------------------------------------------------
   //  cambios de estadística
   // ------------------------------------------------------------------
-  static final String[] STAT_NAMES = {"", "el Ataque", "la Defensa", "el At. Esp.", "la Def. Esp.", "la Velocidad", "la Precisión", "la Evasión"};
+  public static final String[] STAT_NAMES = {"", "el Ataque", "la Defensa", "el At. Esp.", "la Def. Esp.", "la Velocidad", "la Precisión", "la Evasión"};
 
-  void boost(Mon t, int idx, int delta, Mon src, boolean self) {
+  public void boost(Mon t, int idx, int delta, Mon src, boolean self) {
     if (t.fainted() || delta == 0) return;
     if (t.hasAbility("contrary")) delta = -delta;
     else if (t.hasAbility("simple")) delta *= 2;
@@ -428,7 +383,7 @@ class Battle {
     if (delta < 0 && t.hasItem("whiteherb")) whiteHerb(t);
   }
 
-  void applyBoostString(Mon t, String spec, Mon src, boolean self) {
+  public void applyBoostString(Mon t, String spec, Mon src, boolean self) {
     if (spec == null || spec.isEmpty()) return;
     for (String p : spec.split("/")) {
       String[] kv = p.split(":");
@@ -437,7 +392,7 @@ class Battle {
     }
   }
 
-  static int statIdx(String k) {
+  public static int statIdx(String k) {
     switch (k) { case "atk": return 1; case "def": return 2; case "spa": return 3; case "spd": return 4; case "spe": return 5; case "accuracy": return 6; case "evasion": return 7; }
     return -1;
   }
@@ -445,7 +400,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  inmunidades por habilidad (absorbe el golpe)
   // ------------------------------------------------------------------
-  static boolean absorbs(Mon d, String type, Move m) {
+  public static boolean absorbs(Mon d, String type, Move m) {
     String ab = d.abilityId();
     if (m.cat == 'N' && m.damage.isEmpty() && !(m.status.length() > 0 || !m.tgtBoost.isEmpty())) return false;
     switch (ab) {
@@ -465,7 +420,7 @@ class Battle {
   }
 
   /** ¿Inmune por habilidad? Aplica efecto de absorción. */
-  boolean abilityImmune(Mon u, Mon d, Move m, String type) {
+  public boolean abilityImmune(Mon u, Mon d, Move m, String type) {
     if (Calc.ignoresAbility(u, m) || u == d) return false;
     String ab = d.abilityId();
     if (!absorbs(d, type, m)) {
@@ -496,7 +451,7 @@ class Battle {
     return false;
   }
 
-  int prioOf(Mon u, Move m) {
+  public int prioOf(Mon u, Move m) {
     int p = m.prio;
     if (u.hasAbility("prankster") && m.cat == 'N') p += 1;
     if (u.hasAbility("galewings") && m.type.equals("Flying") && u.hp == u.maxHp) p += 1;
@@ -508,14 +463,14 @@ class Battle {
   // ------------------------------------------------------------------
   //  Mega y Dinamax
   // ------------------------------------------------------------------
-  boolean canMega(Side s) {
+  public boolean canMega(Side s) {
     return !s.transformed && s.active != null && s.active.megaForm() != null && !s.active.dynamaxed;
   }
-  boolean canDynamax(Side s) {
+  public boolean canDynamax(Side s) {
     return !s.transformed && s.active != null && s.active.canDynamax();
   }
 
-  void doMega(Side s) {
+  public void doMega(Side s) {
     Mon m = s.active; Species ms = m.megaForm();
     if (ms == null) return;
     s.transformed = true;
@@ -531,7 +486,7 @@ class Battle {
     onEnter(m);
   }
 
-  void doDynamax(Side s) {
+  public void doDynamax(Side s) {
     Mon m = s.active;
     if (!m.canDynamax()) return;
     s.transformed = true;
@@ -543,7 +498,7 @@ class Battle {
   }
 
   /** Versión Max del movimiento (o Max Guard). */
-  Move maxVersion(Mon u, Move base) {
+  public Move maxVersion(Mon u, Move base) {
     if (base.cat == 'N') {
       Move g = Dex.mv("maxguard"); return g != null ? g : base;
     }
@@ -572,14 +527,14 @@ class Battle {
     return m;
   }
 
-  static int maxBpFor(Move b) {
+  public static int maxBpFor(Move b) {
     int p = b.bp; boolean low = b.type.equals("Fighting") || b.type.equals("Poison");
     if (low) return p <= 40 ? 70 : p <= 50 ? 75 : p <= 60 ? 80 : p <= 70 ? 85 : p <= 100 ? 90 : p <= 140 ? 95 : 100;
     return p <= 40 ? 90 : p <= 50 ? 100 : p <= 60 ? 110 : p <= 70 ? 120 : p <= 100 ? 130 : p <= 140 ? 140 : 150;
   }
 
   /** Movimiento realmente usado, según índice (aplica Dinamax). */
-  Move effectiveMove(Mon u, int idx) {
+  public Move effectiveMove(Mon u, int idx) {
     if (idx < 0 || idx >= u.moves.length) return STRUGGLE;
     Move base = Dex.mv(u.moves[idx]);
     if (base == null) return STRUGGLE;
@@ -589,7 +544,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  Turno
   // ------------------------------------------------------------------
-  List<Integer> usableMoves(Mon u) {
+  public List<Integer> usableMoves(Mon u) {
     List<Integer> l = new ArrayList<Integer>();
     for (int i = 0; i < u.moves.length; i++) {
       if (u.pp[i] <= 0) continue;
@@ -600,9 +555,9 @@ class Battle {
     return l;
   }
 
-  boolean mustStruggle(Mon u) { return usableMoves(u).isEmpty() && u.chargingMove.isEmpty() && u.recharge == 0 && u.lockTurns == 0; }
+  public boolean mustStruggle(Mon u) { return usableMoves(u).isEmpty() && u.chargingMove.isEmpty() && u.recharge == 0 && u.lockTurns == 0; }
 
-  boolean canSwitch(Side s) {
+  public boolean canSwitch(Side s) {
     Mon m = s.active;
     if (m == null) return false;
     if (m.vol.contains("trapped") || m.vol.contains("bound")) return false;
@@ -617,7 +572,7 @@ class Battle {
     return true;
   }
 
-  void turn(Action a0, Action a1) {
+  public void turn(Action a0, Action a1) {
     if (over) return;
     turn++;
     Action[] acts = {a0, a1};
@@ -681,7 +636,7 @@ class Battle {
     checkOver();
   }
 
-  Move pickMove(Mon u, Action a) {
+  public Move pickMove(Mon u, Action a) {
     if (!u.chargingMove.isEmpty()) return maybeMax(u, Dex.mv(u.chargingMove));
     if (u.recharge > 0) return STRUGGLE;
     if (u.lockTurns > 0 && !u.lockedMove.isEmpty() && !u.dynamaxed) return Dex.mv(u.lockedMove);
@@ -694,9 +649,9 @@ class Battle {
     return effectiveMove(u, idx);
   }
 
-  Move maybeMax(Mon u, Move m) { return u.dynamaxed ? maxVersion(u, m) : m; }
+  public Move maybeMax(Mon u, Move m) { return u.dynamaxed ? maxVersion(u, m) : m; }
 
-  void checkOver() {
+  public void checkOver() {
     if (over) return;
     boolean p = sides[0].alive() > 0, e = sides[1].alive() > 0;
     if (!p || !e) { over = true; winner = p ? 0 : 1; }
@@ -705,7 +660,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  cambios
   // ------------------------------------------------------------------
-  void doSwitch(Side s, int idx, boolean forced) {
+  public void doSwitch(Side s, int idx, boolean forced) {
     Mon out = s.active;
     Mon in = s.party.get(idx);
     if (out != null && out.alive()) {
@@ -725,7 +680,7 @@ class Battle {
     if (in.hasAbility("zerotohero") && false) { }
   }
 
-  void replace(int sideIdx, int partyIdx) {
+  public void replace(int sideIdx, int partyIdx) {
     needSwitch[sideIdx] = false;
     Side s = sides[sideIdx];
     Mon out = s.active;
@@ -741,7 +696,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  objetos de la mochila / captura / huida
   // ------------------------------------------------------------------
-  void useBagItem(Action a) {
+  public void useBagItem(Action a) {
     Side s = sides[0];
     Mon target = s.party.get(Math.max(0, Math.min(s.party.size() - 1, a.idx)));
     String msg = Items.useOnMon(this, target, a.item, true);
@@ -749,7 +704,7 @@ class Battle {
     if (bag != null) bag.remove(a.item, 1);
   }
 
-  boolean tryRun() {
+  public boolean tryRun() {
     if (!wild) { log("¡No puedes huir de un combate contra un entrenador!"); return false; }
     Mon p = sides[0].active, e = sides[1].active;
     runAttempts++;
@@ -760,14 +715,14 @@ class Battle {
     return false;
   }
 
-  static int catchRate(Species s) {
+  public static int catchRate(Species s) {
     if (s.restricted()) return 3;
     if (s.legendary()) return 25;
     int bst = s.bst();
     return (int) Math.max(3, Math.min(255, 255 - (bst - 180) * 0.58));
   }
 
-  boolean throwBall(String ballId) {
+  public boolean throwBall(String ballId) {
     Mon e = sides[1].active;
     if (!wild) { log("¡No se puede capturar al Pokémon de otro entrenador!"); return false; }
     if (nuzlockeNoCatch) { log("Nuzlocke: ya usaste tu captura en esta zona."); return false; }
@@ -789,7 +744,7 @@ class Battle {
     return false;
   }
 
-  void finishCatch(Mon e, String ballId) {
+  public void finishCatch(Mon e, String ballId) {
     log("¡Ya está! ¡" + e.name() + " fue atrapado!");
     e.ball = ballId; caughtMon = e;
   }
@@ -797,7 +752,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  fin de turno
   // ------------------------------------------------------------------
-  void endOfTurn() {
+  public void endOfTurn() {
     List<Side> order = new ArrayList<Side>(Arrays.asList(sides));
     if (Calc.speed(this, sides[1], sides[1].active) > Calc.speed(this, sides[0], sides[0].active)) Collections.reverse(order);
     // clima
@@ -893,7 +848,7 @@ class Battle {
     }
   }
 
-  static String dotImmuneType(String name) {
+  public static String dotImmuneType(String name) {
     if (name.contains("Voraz") || name.contains("Wildfire") || name.contains("Centiferno")) return "Fire";
     if (name.contains("Vine") || name.contains("Lash")) return "Grass";
     if (name.contains("Cannonade")) return "Water";
@@ -905,7 +860,7 @@ class Battle {
   //  después de un KO
   // ------------------------------------------------------------------
   /** Reparte experiencia entre los participantes del Pokémon enemigo caído. Devuelve mapa Mon -> exp. */
-  Map<Mon, Integer> expAwards(Mon fainted, double trainerMult, double luckyEgg) {
+  public Map<Mon, Integer> expAwards(Mon fainted, double trainerMult, double luckyEgg) {
     Map<Mon, Integer> out = new LinkedHashMap<Mon, Integer>();
     Set<Mon> set = participants.get(fainted);
     if (set == null) return out;
@@ -925,11 +880,11 @@ class Battle {
   // ==================================================================
   //  EJECUCIÓN DE MOVIMIENTOS
   // ==================================================================
-  static final Set<String> PROTECT_MOVES = new HashSet<String>(Arrays.asList(
+  public static final Set<String> PROTECT_MOVES = new HashSet<String>(Arrays.asList(
     "protect", "detect", "kingsshield", "spikyshield", "banefulbunker", "obstruct", "silktrap", "burningbulwark", "maxguard", "endure"));
-  static final Set<String> SEMI_INVULN = new HashSet<String>(Arrays.asList("fly", "bounce", "dig", "dive", "phantomforce", "shadowforce"));
+  public static final Set<String> SEMI_INVULN = new HashSet<String>(Arrays.asList("fly", "bounce", "dig", "dive", "phantomforce", "shadowforce"));
 
-  void runMove(Side us, Side ts, Move m, Action act) {
+  public void runMove(Side us, Side ts, Move m, Action act) {
     Mon u = us.active;
     int ui = idxOf(u);
     boolean cont = !u.chargingMove.isEmpty() || (u.lockTurns > 0 && !u.lockedMove.isEmpty() && !u.dynamaxed);
@@ -992,13 +947,13 @@ class Battle {
     if (ok && m.selfSwitch && sides[ui].hasBackup() && u.alive()) pivotPending[ui] = u;
   }
 
-  boolean chargeSkips(Move m) {
+  public boolean chargeSkips(Move m) {
     String w = weatherNow();
     if ((m.id.equals("solarbeam") || m.id.equals("solarblade")) && w.equals("sun")) return true;
     return false;
   }
 
-  String chargeMsg(Mon u, Move m) {
+  public String chargeMsg(Mon u, Move m) {
     switch (m.id) {
       case "fly": return "¡" + u.name() + " voló muy alto!";
       case "bounce": return "¡" + u.name() + " dio un gran salto!";
@@ -1011,7 +966,7 @@ class Battle {
     return "¡" + u.name() + " está cargando energía!";
   }
 
-  void spendPP(Mon u, Move m, Action act, Side ts) {
+  public void spendPP(Mon u, Move m, Action act, Side ts) {
     if (act == null || act.type != Action.MOVE) return;
     int i = act.idx;
     if (i < 0 || i >= u.pp.length) return;
@@ -1023,7 +978,7 @@ class Battle {
   }
 
   /** Comprobaciones antes de mover. false = no se mueve. */
-  boolean preMove(Mon u, Move m) {
+  public boolean preMove(Mon u, Move m) {
     if (u.hasAbility("truant") && u.truantSkip && u.chargingMove.isEmpty()) { u.truantSkip = false; log("¡" + u.name() + " está holgazaneando!"); return false; }
     if (u.recharge > 0) { u.recharge--; log("¡" + u.name() + " debe recargar energía!"); return false; }
     if (u.status.equals("slp")) {
@@ -1059,7 +1014,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  movimientos de daño
   // ------------------------------------------------------------------
-  boolean accuracyCheck(Mon u, Mon t, Move m) {
+  public boolean accuracyCheck(Mon u, Mon t, Move m) {
     if (m.acc == 0 || u.hasAbility("noguard") || t.hasAbility("noguard")) return true;
     if (m.has("charge") && false) return true;
     double acc = m.acc;
@@ -1088,14 +1043,14 @@ class Battle {
     return rng.nextInt(100) < acc;
   }
 
-  boolean isProtected(Mon u, Mon t, Move m) {
+  public boolean isProtected(Mon u, Mon t, Move m) {
     if (!t.vol.contains("protect") && !t.vol.contains("endure_dummy")) return false;
     if (!m.has("protect") || m.breaksProtect) return false;
     if (m.cat == 'N' && m.target.equals("self")) return false;
     return true;
   }
 
-  boolean attackMove(Side us, Side ts, Mon u, Mon t, Move m, boolean cont) {
+  public boolean attackMove(Side us, Side ts, Mon u, Mon t, Move m, boolean cont) {
     if (t == null || !t.alive()) { log("¡Pero no tuvo efecto!"); return false; }
     // protección
     if (isProtected(u, t, m)) {
@@ -1214,7 +1169,7 @@ class Battle {
     return total > 0 || special;
   }
 
-  boolean hitsInvuln(Mon t, Move m) {
+  public boolean hitsInvuln(Mon t, Move m) {
     String id = m.id;
     if (t.chargingMove.equals("dig")) return id.equals("earthquake") || id.equals("magnitude") || id.equals("fissure");
     if (t.chargingMove.equals("fly") || t.chargingMove.equals("bounce")) return id.equals("thunder") || id.equals("gust") || id.equals("twister") || id.equals("hurricane") || id.equals("skyuppercut") || id.equals("smackdown") || id.equals("thousandarrows");
@@ -1222,7 +1177,7 @@ class Battle {
     return false;
   }
 
-  boolean rollCrit(Mon u, Mon t, Move m) {
+  public boolean rollCrit(Mon u, Mon t, Move m) {
     if (m.cat == 'N') return false;
     if (!Calc.ignoresAbility(u, m) && (t.hasAbility("battlearmor") || t.hasAbility("shellarmor"))) return false;
     if (t.hasItem("luckyegg_dummy")) return false;
@@ -1238,7 +1193,7 @@ class Battle {
   }
 
   /** Efectos al recibir un golpe (contacto, habilidades, objetos). */
-  void onHitReactions(Mon u, Mon t, Move m, int dmg, Calc.Res r) {
+  public void onHitReactions(Mon u, Mon t, Move m, int dmg, Calc.Res r) {
     boolean ign = Calc.ignoresAbility(u, m);
     String ta = ign ? "" : t.abilityId();
     boolean contact = m.contact() && !u.hasAbility("longreach") && !u.hasItem("protectivepads");
@@ -1281,7 +1236,7 @@ class Battle {
     if (u.alive() && (u.hasItem("kingsrock") || u.hasItem("razorfang")) && t.alive() && m.secVol.isEmpty() && rng.nextInt(10) == 0) setVolatile(t, u, "flinch");
   }
 
-  void onKO(Mon u, Mon t, Move m) {
+  public void onKO(Mon u, Mon t, Move m) {
     if (!u.alive()) return;
     String ab = u.abilityId();
     if (ab.equals("moxie") || ab.equals("chillingneigh") || ab.equals("asoneglastrier")) boost(u, 1, 1, u, true);
@@ -1293,7 +1248,7 @@ class Battle {
     else if (ab.equals("battlebond") && false) { }
   }
 
-  void secondary(Mon u, Mon t, Move m, Side ts) {
+  public void secondary(Mon u, Mon t, Move m, Side ts) {
     if (!t.alive()) return;
     if (u.hasAbility("sheerforce") && m.secChance > 0) return;
     if (t.hasAbility("shielddust") && !Calc.ignoresAbility(u, m)) return;
@@ -1306,7 +1261,7 @@ class Battle {
     if (!m.secBoost.isEmpty()) applyBoostString(t, m.secBoost, u, false);
   }
 
-  void forceOut(Side ts, Mon t, Mon src) {
+  public void forceOut(Side ts, Mon t, Mon src) {
     if (t.dynamaxed || !t.alive() || t.hasAbility("suctioncups")) { log("¡Pero no tuvo efecto!"); return; }
     if (wild && ts == sides[1]) {
       log("¡" + t.name() + " huyó!"); sides[1].active.hp = 0; over = true; winner = 2; escaped = true; return;
@@ -1321,7 +1276,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  efectos de movimientos Max / G-Max
   // ------------------------------------------------------------------
-  void maxEffect(Side us, Side ts, Mon u, Mon t, Move m) {
+  public void maxEffect(Side us, Side ts, Mon u, Mon t, Move m) {
     String n = m.name;
     switch (n) {
       case "Max Flare": setWeather("sun", u, 5); break;
@@ -1366,7 +1321,7 @@ class Battle {
   // ------------------------------------------------------------------
   //  movimientos de estado
   // ------------------------------------------------------------------
-  boolean statusMove(Side us, Side ts, Mon u, Mon t, Move m) {
+  public boolean statusMove(Side us, Side ts, Mon u, Mon t, Move m) {
     String id = m.id;
     boolean selfTarget = m.target.equals("self") || m.target.equals("allySide") || m.target.equals("allyTeam") || m.target.equals("all") || m.target.equals("foeSide") && false;
     if (PROTECT_MOVES.contains(id)) {

@@ -1,4 +1,5 @@
 // Prueba de interfaz: arranca el sketch real (bajo Xvfb), pulsa teclas y guarda capturas.
+import pokefuego.engine.*;
 import processing.core.*;
 import processing.event.KeyEvent;
 import java.io.File;

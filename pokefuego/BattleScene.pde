@@ -6,9 +6,9 @@
 // =====================================================================
 class BattleScene extends Scene {
   Battle b;
-  ArrayDeque<Event> q = new ArrayDeque<Event>();
-  Event cur = null;
-  Event last = null;
+  ArrayDeque<BEvent> q = new ArrayDeque<BEvent>();
+  BEvent cur = null;
+  BEvent last = null;
   int chars = 0, hold = 0;
   float[] dispHp = {1, 1};
   int phase = 0;                 // 0 reproduciendo, 1 menú, 2 movimientos, 3 terminado
@@ -26,7 +26,7 @@ class BattleScene extends Scene {
     enqueue();
   }
 
-  void enqueue() { for (Event e : b.takeEvents()) q.add(e); phase = 0; }
+  void enqueue() { for (BEvent e : b.takeEvents()) q.add(e); phase = 0; }
 
   Species spOf(int side) {
     if (cur != null && cur.spId[side] != null) { Species s = Dex.species.get(cur.spId[side]); if (s != null) return s; }
@@ -34,10 +34,10 @@ class BattleScene extends Scene {
     Mon m = b.sides[side].active; return m != null ? m.sp : Dex.sp("rattata");
   }
 
-  Event view() { return cur != null ? cur : last; }
+  BEvent view() { return cur != null ? cur : last; }
 
   void nextEvent() {
-    Event e = q.poll();
+    BEvent e = q.poll();
     if (e == null) { cur = null; return; }
     cur = e; last = e; chars = 0; hold = 0;
     if (e.hitSide >= 0) shake[e.hitSide] = 16;
@@ -67,7 +67,7 @@ class BattleScene extends Scene {
         }
       }
     }
-    Event v = view();
+    BEvent v = view();
     for (int i = 0; i < 2; i++) {
       if (v != null && v.maxHp[i] > 0) {
         float target = v.hp[i] / (float) v.maxHp[i];
@@ -85,7 +85,7 @@ class BattleScene extends Scene {
     if (flash > 0) { fill(255, 255, 255, flash * 8); noStroke(); rect(0, 0, width, height); }
   }
 
-  void drawArena(Event v) {
+  void drawArena(BEvent v) {
     // cielo y campo
     noStroke();
     for (int y = 0; y < 260; y += 4) { fill(lerpColor(color(110, 180, 240), color(200, 235, 255), y / 260.0f)); rect(0, y, width, 4); }
@@ -120,7 +120,7 @@ class BattleScene extends Scene {
     }
   }
 
-  void drawHud(Event v) {
+  void drawHud(BEvent v) {
     if (v == null) return;
     // enemigo
     panel(30, 24, 360, 98);
@@ -165,7 +165,7 @@ class BattleScene extends Scene {
     if (!hz1.isEmpty()) txt("Campo rival: " + hz1, 30, 310, fSmall, color(20));
   }
 
-  void drawBottom(Event v) {
+  void drawBottom(BEvent v) {
     panel(30, height - 150, width - 60, 130);
     if (phase == 0) {
       String s = cur != null ? cur.msg : (last != null ? last.msg : "");

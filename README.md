@@ -81,25 +81,25 @@ El **motor de combate es propio** y no implementa el 100 % de las mecánicas de 
 
 ## Estructura
 ```
-pokefuego/
-  pokefuego.pde      sketch principal (bucle, entrada, utilidades de dibujo)
-  Screens.pde        título, mapa de Kanto, equipo, mochila, tienda, cajas, Pokédex...
-  BattleScene.pde    escena de combate
-  Battle.java        motor de combate (Mega, Dinamax, estados, clima, trampas...)
-  Calc.java          daño, estadísticas, tipos, modificadores de habilidades y objetos
-  AI.java            IA de entrenadores
-  Game.java          partida: Kanto, jefes, aleatorio, Nuzlocke, experiencia, guardado
-  Data.java Mon.java Items.java Effects.java
-  data/*.tsv         datos generados con tools/export_data.js
+pokefuego/                 <- el sketch de Processing (abre pokefuego.pde)
+  pokefuego.pde            bucle principal, entrada, utilidades de dibujo
+  Screens.pde              título, mapa de Kanto, equipo, mochila, tienda, cajas, Pokédex...
+  BattleScene.pde          escena de combate
+  code/pokefuego-engine.jar  el motor de juego compilado (Processing lo carga solo)
+  data/*.tsv               datos (generados con tools/)
+engine/                    código fuente del motor (Java, paquete pokefuego.engine)
+  Battle, Calc, AI, Game, Mon, Items, Effects, Data (Species, Move, Dex...)
 tools/
+  build_engine.sh    recompila engine/ -> pokefuego/code/pokefuego-engine.jar
   export_data.js     regenera los datos desde @pkmn/dex (npm i && node export_data.js)
   fetch_wikidex.py   traducciones al español desde WikiDex (data/es_*.tsv)
-  check.sh           compila el motor y simula miles de combates IA vs IA
-  PlaySim.java       bot que juega partidas completas (todos los modos)
+  check.sh           simula miles de combates IA vs IA
+  PlaySim.java       bot que juega partidas completas
   build_sketch.sh    compila el sketch contra core.jar sin abrir Processing
-  UiTest*.java       pruebas de interfaz bajo Xvfb (teclas simuladas + capturas)
+  UiTest*.java       pruebas de interfaz bajo Xvfb
   download_sprites.sh  (opcional) descarga sprites reales
 ```
+Si modificas algo en `engine/`, ejecuta `tools/build_engine.sh` para regenerar el jar.
 
 ## Pruebas
 ```bash

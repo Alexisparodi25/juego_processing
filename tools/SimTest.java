@@ -1,5 +1,6 @@
 // Simulador headless: IA vs IA con equipos aleatorios (incluye Mega y Dinamax).
 // Uso: tools/check.sh   (compila el motor y ejecuta esto)
+import pokefuego.engine.*;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;

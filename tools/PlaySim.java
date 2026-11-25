@@ -1,4 +1,5 @@
 // Bot que juega la partida completa (todos los modos) para validar la capa de juego.
+import pokefuego.engine.*;
 import java.nio.file.*;
 import java.util.*;
 

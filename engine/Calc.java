@@ -1,21 +1,19 @@
-// =====================================================
-//  Calc: daño, estadísticas efectivas, velocidad, tipos
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 import java.util.regex.*;
 
-class Calc {
-  static final String[] HP_TYPES = {"Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark"};
-  static final Pattern BOOST_PAT = Pattern.compile("(\\w+)-type attacks? have 1\\.2");
-  static final Pattern RESIST_PAT = Pattern.compile("[Hh]alves damage taken from a (supereffective )?(\\w+)-type");
-  static Map<String, String> boostType = new HashMap<String, String>();
-  static Map<String, String[]> resistBerry = new HashMap<String, String[]>();
+public class Calc {
+  public static final String[] HP_TYPES = {"Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark"};
+  public static final Pattern BOOST_PAT = Pattern.compile("(\\w+)-type attacks? have 1\\.2");
+  public static final Pattern RESIST_PAT = Pattern.compile("[Hh]alves damage taken from a (supereffective )?(\\w+)-type");
+  public static Map<String, String> boostType = new HashMap<String, String>();
+  public static Map<String, String[]> resistBerry = new HashMap<String, String[]>();
 
-  static double stageMult(int s) { return s >= 0 ? (2 + s) / 2.0 : 2.0 / (2 - s); }
-  static double accMult(int s) { return s >= 0 ? (3 + s) / 3.0 : 3.0 / (3 - s); }
+  public static double stageMult(int s) { return s >= 0 ? (2 + s) / 2.0 : 2.0 / (2 - s); }
+  public static double accMult(int s) { return s >= 0 ? (3 + s) / 3.0 : 3.0 / (3 - s); }
 
   /** Tipo que potencia un objeto ("" si no es de potenciar tipo). */
-  static String itemBoostType(String itemId) {
+  public static String itemBoostType(String itemId) {
     if (itemId.isEmpty()) return "";
     String c = boostType.get(itemId);
     if (c != null) return c;
@@ -33,7 +31,7 @@ class Calc {
   }
 
   /** {tipo, "se"/"any"} si es una baya de resistencia. */
-  static String[] resistInfo(String itemId) {
+  public static String[] resistInfo(String itemId) {
     if (itemId.isEmpty()) return null;
     if (resistBerry.containsKey(itemId)) return resistBerry.get(itemId);
     String[] r = null;
@@ -46,14 +44,14 @@ class Calc {
     return r;
   }
 
-  static boolean ignoresAbility(Mon a, Move m) {
+  public static boolean ignoresAbility(Mon a, Move m) {
     return a.hasAbility("moldbreaker") || a.hasAbility("teravolt") || a.hasAbility("turboblaze") || m.id.equals("moongeistbeam") || m.id.equals("sunsteelstrike") || m.id.equals("photongeyser") || m.id.equals("lightthatburnsthesky");
   }
 
   // ------------------------------------------------------------
   //  Tipo del movimiento
   // ------------------------------------------------------------
-  static String moveType(Battle b, Mon a, Move m) {
+  public static String moveType(Battle b, Mon a, Move m) {
     String t = m.type;
     if (m.id.equals("weatherball")) {
       String w = b.weatherNow();
@@ -86,7 +84,7 @@ class Calc {
   // ------------------------------------------------------------
   //  Estadísticas efectivas
   // ------------------------------------------------------------
-  static double stat(Battle b, Mon m, int idx, boolean useStage, boolean physForHustle) {
+  public static double stat(Battle b, Mon m, int idx, boolean useStage, boolean physForHustle) {
     double v = m.stat[idx];
     if (useStage) {
       int st = m.stage[idx];
@@ -147,7 +145,7 @@ class Calc {
     return v;
   }
 
-  static double speed(Battle b, Side s, Mon m) {
+  public static double speed(Battle b, Side s, Mon m) {
     double v = stat(b, m, 5, true, false);
     if (s.tailwind > 0) v *= 2;
     return v;
@@ -156,7 +154,7 @@ class Calc {
   // ------------------------------------------------------------
   //  Efectividad
   // ------------------------------------------------------------
-  static double typeEff(Battle b, Mon a, Mon d, Move m, String type) {
+  public static double typeEff(Battle b, Mon a, Mon d, Move m, String type) {
     if (type.isEmpty() || type.equals("Typeless")) return 1;
     double e1 = Dex.chart[Dex.ti(type)][Dex.ti(d.type1)];
     double e2 = d.type2 == null || d.type2.isEmpty() ? 1 : Dex.chart[Dex.ti(type)][Dex.ti(d.type2)];
@@ -184,7 +182,7 @@ class Calc {
   // ------------------------------------------------------------
   //  Poder base
   // ------------------------------------------------------------
-  static int basePower(Battle b, Mon a, Mon d, Move m) {
+  public static int basePower(Battle b, Mon a, Mon d, Move m) {
     double bp = m.bp;
     String id = m.id;
     double ratio;
@@ -278,10 +276,10 @@ class Calc {
   // ------------------------------------------------------------
   //  Daño
   // ------------------------------------------------------------
-  static class Res { int dmg; double eff = 1; boolean crit, berry; int bp; String type; }
+  public static class Res { public int dmg; public double eff = 1; public boolean crit, berry; public int bp; public String type; }
 
   /** crit: forzar crítico. rand: aplicar aleatoriedad 85-100% (false = promedio, para IA). */
-  static Res damage(Battle b, Side as, Mon a, Side ds, Mon d, Move m, boolean crit, boolean rand) {
+  public static Res damage(Battle b, Side as, Mon a, Side ds, Mon d, Move m, boolean crit, boolean rand) {
     Res r = new Res();
     String type = moveType(b, a, m);
     r.type = type;
@@ -369,7 +367,7 @@ class Calc {
   }
 
   /** Modificadores de estadística que no son etapas (se aplican al ataque/defensa). */
-  static double statMod(Battle b, Mon m, int idx) {
+  public static double statMod(Battle b, Mon m, int idx) {
     double base = m.stat[idx];
     if (base <= 0) return 1;
     double eff = stat(b, m, idx, false, false);
@@ -377,7 +375,7 @@ class Calc {
   }
 
   /** Daño esperado en % del HP máximo del defensor (para la IA). */
-  static double expectedPercent(Battle b, Side as, Mon a, Side ds, Mon d, Move m) {
+  public static double expectedPercent(Battle b, Side as, Mon a, Side ds, Mon d, Move m) {
     if (m.cat == 'N' && m.damage.isEmpty()) return 0;
     Res r = damage(b, as, a, ds, d, m, false, false);
     int dmg = r.dmg;

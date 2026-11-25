@@ -13,6 +13,8 @@
 //              X / Retroceso / Esc volver   ·   en combate: M = Mega, G = Dinamax/Gigamax
 // =====================================================================
 
+import pokefuego.engine.*;
+
 // ---- constantes de teclas lógicas ----
 final int K_UP = 1, K_DOWN = 2, K_LEFT = 3, K_RIGHT = 4, K_OK = 5, K_BACK = 6, K_CHAR = 7;
 

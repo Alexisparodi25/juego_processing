@@ -1,29 +1,8 @@
-// =====================================================
-//  Mochila y objetos de uso (pociones, balls, piedras...)
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 
-class Bag {
-  Map<String, Integer> counts = new LinkedHashMap<String, Integer>();
-  void add(String id, int n) { id = Dex.toId(id); counts.put(id, count(id) + n); }
-  int count(String id) { Integer c = counts.get(Dex.toId(id)); return c == null ? 0 : c; }
-  boolean remove(String id, int n) {
-    id = Dex.toId(id);
-    int c = count(id);
-    if (c < n) return false;
-    if (c == n) counts.remove(id); else counts.put(id, c - n);
-    return true;
-  }
-  List<String> ids() { return new ArrayList<String>(counts.keySet()); }
-}
-
-class Consumable {
-  String id, name, desc; int price; String kind;
-  Consumable(String id, String name, String desc, int price, String kind) { this.id = id; this.name = name; this.desc = desc; this.price = price; this.kind = kind; }
-}
-
-class Items {
-  static LinkedHashMap<String, Consumable> CONS = new LinkedHashMap<String, Consumable>();
+public class Items {
+  public static LinkedHashMap<String, Consumable> CONS = new LinkedHashMap<String, Consumable>();
   static {
     add("potion", "Poción", "Restaura 20 PS.", 300, "heal");
     add("superpotion", "Superpoción", "Restaura 60 PS.", 700, "heal");
@@ -55,28 +34,28 @@ class Items {
     add("zinc", "Cinc", "Sube la Def. Esp. base (EVs).", 0, "ev");
     add("carbos", "Carburante", "Sube la Velocidad base (EVs).", 0, "ev");
   }
-  static void add(String id, String name, String desc, int price, String kind) { CONS.put(id, new Consumable(id, name, desc, price, kind)); }
+  public static void add(String id, String name, String desc, int price, String kind) { CONS.put(id, new Consumable(id, name, desc, price, kind)); }
 
-  static String name(String id) {
+  public static String name(String id) {
     id = Dex.toId(id);
     Consumable c = CONS.get(id);
     if (c != null) return c.name;
     ItemDef d = Dex.items.get(id);
     return d != null ? d.dn() : id;
   }
-  static String desc(String id) {
+  public static String desc(String id) {
     id = Dex.toId(id);
     Consumable c = CONS.get(id);
     if (c != null) return c.desc;
     ItemDef d = Dex.items.get(id);
     return d != null ? d.dd() : "";
   }
-  static boolean usableInBattle(String id) {
+  public static boolean usableInBattle(String id) {
     Consumable c = CONS.get(Dex.toId(id));
     return c != null && !c.kind.equals("candy") && !c.kind.equals("ev");
   }
-  static boolean isBall(String id) { ItemDef d = Dex.items.get(Dex.toId(id)); return d != null && d.ball; }
-  static int price(String id) {
+  public static boolean isBall(String id) { ItemDef d = Dex.items.get(Dex.toId(id)); return d != null && d.ball; }
+  public static int price(String id) {
     id = Dex.toId(id);
     Consumable c = CONS.get(id);
     if (c != null) return c.price;
@@ -87,7 +66,7 @@ class Items {
   }
 
   /** Objetos que pasan a gastarse (no regresan al terminar el combate). */
-  static boolean isConsumable(String id) {
+  public static boolean isConsumable(String id) {
     ItemDef d = Dex.items.get(Dex.toId(id));
     if (d == null) return false;
     if (d.berry) return true;
@@ -99,7 +78,7 @@ class Items {
   }
 
   /** El objeto no se puede quitar (piedras mega de su dueño, orbes/formas). */
-  static boolean unremovable(Mon m) {
+  public static boolean unremovable(Mon m) {
     ItemDef d = Dex.item(m.item);
     if (d == null) return false;
     if (!d.megaStone.isEmpty() && m.normalSp != null && Dex.megasOf.containsKey(m.normalSp.id)) return true;
@@ -108,7 +87,7 @@ class Items {
     return false;
   }
 
-  static double ballMult(Battle b, Mon e, String id) {
+  public static double ballMult(Battle b, Mon e, String id) {
     id = Dex.toId(id);
     switch (id) {
       case "masterball": return 255;
@@ -130,7 +109,7 @@ class Items {
   }
 
   /** Usa un objeto de curación sobre un Pokémon. Devuelve el mensaje. */
-  static String useOnMon(Battle b, Mon m, String id, boolean inBattle) {
+  public static String useOnMon(Battle b, Mon m, String id, boolean inBattle) {
     id = Dex.toId(id);
     Consumable c = CONS.get(id);
     if (c == null) return "No se puede usar ahora.";

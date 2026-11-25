@@ -1,127 +1,40 @@
-// =====================================================
-//  Datos: especies, movimientos, habilidades, objetos
-//  (cargados desde data/*.tsv, generados con tools/export_data.js)
-// =====================================================
+package pokefuego.engine;
 import java.util.*;
 
-interface DataLoader { String[] lines(String file); }
-
-class Evo {
-  String to; int level; String type = "", item = "", cond = "", move = "";
-}
-
-class Species {
-  String id, name, t1, t2 = "";
-  int num, gen;
-  int[] base = new int[6];                 // hp atk def spa spd spe
-  String[] abilities = new String[3];      // slot0, slot1, oculta
-  String baseSpecies, forme = "";
-  boolean mega, primal, gmax, cosmetic, battleOnly, noDmax, past;
-  String[] reqItems = new String[0];
-  String reqMove = "";
-  String battleOnlyFrom = "";
-  List<Evo> evos = new ArrayList<Evo>();
-  String prevo = "";
-  double weight;
-  String tags = "";
-  int[] learnLvl = new int[0];
-  String[] learnMove = new String[0];
-  String[] otherMoves = new String[0];
-
-  int bst() { int s = 0; for (int b : base) s += b; return s; }
-  boolean legendary() { return tags.contains("Legendary") || tags.contains("Mythical"); }
-  boolean restricted() { return tags.contains("RestrictedLegendary") || tags.contains("Mythical"); }
-  boolean isBaseForm() { return !mega && !primal && !gmax && !battleOnly && !cosmetic; }
-  public String toString() { return name; }
-}
-
-class Move {
-  String id, name, type, target = "normal", flags = "";
-  char cat = 'S';           // P, S, N(status)
-  int bp, acc, pp, prio, crit = 1;
-  String status = "", vol = "";
-  String selfBoost = "", tgtBoost = "";
-  int secChance; String secStatus = "", secVol = "", secBoost = "";
-  String selfAfter = ""; int selfAfterChance = 100;
-  int[] drain, recoil, heal;
-  int multiMin, multiMax;
-  boolean selfdestruct, ohko, forceSwitch, selfSwitch, breaksProtect, ignoreDef, willCrit;
-  String weather = "", terrain = "", sideCond = "", damage = "", pseudo = "", slotCond = "";
-  String overrideOff = "", overrideDefPoke = "";
-  int maxBP; String isMax = "";
-  String desc = "";
-  boolean supported = true;
-  String es = "", descEs = "";
-  String dn() { return es.isEmpty() ? name : es; }
-  String dd() { return descEs.isEmpty() ? desc : descEs; }
-  boolean has(String f) { return flags.indexOf(f) >= 0; }
-  boolean contact() { return has("contact"); }
-  boolean status() { return cat == 'N'; }
-  Move copy() {
-    Move m = new Move();
-    m.id = id; m.name = name; m.type = type; m.target = target; m.flags = flags; m.cat = cat; m.bp = bp; m.acc = acc;
-    m.pp = pp; m.prio = prio; m.crit = crit; m.status = status; m.vol = vol; m.selfBoost = selfBoost; m.tgtBoost = tgtBoost;
-    m.secChance = secChance; m.secStatus = secStatus; m.secVol = secVol; m.secBoost = secBoost; m.selfAfter = selfAfter;
-    m.selfAfterChance = selfAfterChance; m.drain = drain; m.recoil = recoil; m.heal = heal; m.multiMin = multiMin;
-    m.multiMax = multiMax; m.selfdestruct = selfdestruct; m.ohko = ohko; m.forceSwitch = forceSwitch;
-    m.selfSwitch = selfSwitch; m.breaksProtect = breaksProtect; m.ignoreDef = ignoreDef; m.willCrit = willCrit;
-    m.weather = weather; m.terrain = terrain; m.sideCond = sideCond; m.damage = damage; m.pseudo = pseudo;
-    m.slotCond = slotCond; m.overrideOff = overrideOff; m.overrideDefPoke = overrideDefPoke; m.maxBP = maxBP;
-    m.isMax = isMax; m.desc = desc; m.supported = supported; m.es = es; m.descEs = descEs;
-    return m;
-  }
-  public String toString() { return name; }
-}
-
-class AbilityDef { String id, name, desc, es = "", descEs = ""; int gen; double rating;
-  String dn() { return es.isEmpty() ? name : es; }
-  String dd() { return descEs.isEmpty() ? desc : descEs; } }
-
-class ItemDef {
-  String id, name, desc, megaStone = "", megaEvolves = "", plateType = "", memoryType = "", driveType = "", ngType = "";
-  String[] users = new String[0];
-  int gen, fling, ngBP;
-  boolean berry, ball, choice;
-  String es = "", descEs = "";
-  String dn() { return es.isEmpty() ? name : es; }
-  String dd() { return descEs.isEmpty() ? desc : descEs; }
-  public String toString() { return name; }
-}
-
-class Dex {
-  static final String[] TYPES = {"Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
+public class Dex {
+  public static final String[] TYPES = {"Normal","Fire","Water","Electric","Grass","Ice","Fighting","Poison","Ground",
     "Flying","Psychic","Bug","Rock","Ghost","Dragon","Dark","Steel","Fairy"};
-  static final String[] STATS = {"HP","Ataque","Defensa","At. Esp.","Def. Esp.","Velocidad"};
-  static Map<String, Species> species = new LinkedHashMap<String, Species>();
-  static Map<String, Move> moves = new LinkedHashMap<String, Move>();
-  static Map<String, AbilityDef> abilities = new LinkedHashMap<String, AbilityDef>();
-  static Map<String, ItemDef> items = new LinkedHashMap<String, ItemDef>();
-  static Map<String, Species> byName = new HashMap<String, Species>();
-  static Map<String, List<Species>> megasOf = new HashMap<String, List<Species>>();
-  static Map<String, Species> gmaxOf = new HashMap<String, Species>();
-  static Map<String, Move> gmaxMoveOf = new HashMap<String, Move>();   // especie base -> movimiento G-Max
-  static Map<String, Species> itemForme = new HashMap<String, Species>(); // "baseSpeciesId|itemId" -> forma
-  static Map<String, Integer> typeIndex = new HashMap<String, Integer>();
-  static double[][] chart = new double[18][18];
-  static List<Species> basePool = new ArrayList<Species>();     // especies "normales" (para aleatorio/salvajes)
-  static boolean loaded = false;
+  public static final String[] STATS = {"HP","Ataque","Defensa","At. Esp.","Def. Esp.","Velocidad"};
+  public static Map<String, Species> species = new LinkedHashMap<String, Species>();
+  public static Map<String, Move> moves = new LinkedHashMap<String, Move>();
+  public static Map<String, AbilityDef> abilities = new LinkedHashMap<String, AbilityDef>();
+  public static Map<String, ItemDef> items = new LinkedHashMap<String, ItemDef>();
+  public static Map<String, Species> byName = new HashMap<String, Species>();
+  public static Map<String, List<Species>> megasOf = new HashMap<String, List<Species>>();
+  public static Map<String, Species> gmaxOf = new HashMap<String, Species>();
+  public static Map<String, Move> gmaxMoveOf = new HashMap<String, Move>();   // especie base -> movimiento G-Max
+  public static Map<String, Species> itemForme = new HashMap<String, Species>(); // "baseSpeciesId|itemId" -> forma
+  public static Map<String, Integer> typeIndex = new HashMap<String, Integer>();
+  public static double[][] chart = new double[18][18];
+  public static List<Species> basePool = new ArrayList<Species>();     // especies "normales" (para aleatorio/salvajes)
+  public static boolean loaded = false;
 
-  static String toId(String s) { return s == null ? "" : s.toLowerCase().replaceAll("[^a-z0-9]", ""); }
+  public static String toId(String s) { return s == null ? "" : s.toLowerCase().replaceAll("[^a-z0-9]", ""); }
 
-  static String[] cols(String line) {
+  public static String[] cols(String line) {
     String[] p = line.split("\t", -1);
     return p;
   }
-  static String col(String[] p, int i) { return i < p.length ? p[i] : ""; }
-  static int num(String s) { try { return s.isEmpty() ? 0 : (int) Double.parseDouble(s); } catch (Exception e) { return 0; } }
-  static int[] frac(String s) {
+  public static String col(String[] p, int i) { return i < p.length ? p[i] : ""; }
+  public static int num(String s) { try { return s.isEmpty() ? 0 : (int) Double.parseDouble(s); } catch (Exception e) { return 0; } }
+  public static int[] frac(String s) {
     if (s.isEmpty()) return null;
     String[] f = s.split("/");
     if (f.length < 2) return null;
     return new int[]{num(f[0]), num(f[1])};
   }
 
-  static void load(DataLoader L) {
+  public static void load(DataLoader L) {
     if (loaded) return;
     for (String ln : L.lines("types.tsv")) {
       String[] p = cols(ln);
@@ -232,7 +145,7 @@ class Dex {
   }
 
   /** Nombres y descripciones en español (WikiDex). Opcional: si falta el archivo se usa el inglés. */
-  static void loadSpanish(DataLoader L) {
+  public static void loadSpanish(DataLoader L) {
     try {
       for (String ln : L.lines("es_moves.tsv")) { String[] p = cols(ln); Move m = moves.get(p[0]); if (m != null && p.length > 2) { m.es = p[1]; m.descEs = p[2]; } }
       for (String ln : L.lines("es_abilities.tsv")) { String[] p = cols(ln); AbilityDef a = abilities.get(p[0]); if (a != null && p.length > 2) { a.es = p[1]; a.descEs = p[2]; } }
@@ -240,30 +153,30 @@ class Dex {
     } catch (RuntimeException e) { /* sin traducción */ }
   }
 
-  static Species sp(String id) { Species s = species.get(toId(id)); if (s == null) s = byName.get(toId(id)); return s; }
-  static Move mv(String id) { return moves.get(toId(id)); }
-  static ItemDef item(String id) { return id == null || id.isEmpty() ? null : items.get(toId(id)); }
-  static AbilityDef ab(String name) { return abilities.get(toId(name)); }
-  static int ti(String type) { Integer i = typeIndex.get(type); return i == null ? 0 : i; }
+  public static Species sp(String id) { Species s = species.get(toId(id)); if (s == null) s = byName.get(toId(id)); return s; }
+  public static Move mv(String id) { return moves.get(toId(id)); }
+  public static ItemDef item(String id) { return id == null || id.isEmpty() ? null : items.get(toId(id)); }
+  public static AbilityDef ab(String name) { return abilities.get(toId(name)); }
+  public static int ti(String type) { Integer i = typeIndex.get(type); return i == null ? 0 : i; }
 
-  static double eff(String atkType, String d1, String d2) {
+  public static double eff(String atkType, String d1, String d2) {
     double e = chart[ti(atkType)][ti(d1)];
     if (d2 != null && !d2.isEmpty()) e *= chart[ti(atkType)][ti(d2)];
     return e;
   }
 
   /** Los Pokémon base que pueden aparecer como salvajes / en modo aleatorio. */
-  static boolean wildEligible(Species s) {
+  public static boolean wildEligible(Species s) {
     return s.isBaseForm() && s.num > 0 && s.reqItems.length == 0 && s.learnMove.length > 0;
   }
 
   // ---- movimientos aprendibles ----
-  static List<String> learnableAt(Species s, int level) {
+  public static List<String> learnableAt(Species s, int level) {
     List<String> out = new ArrayList<String>();
     for (int i = 0; i < s.learnMove.length; i++) if (s.learnLvl[i] <= Math.max(1, level) && !out.contains(s.learnMove[i])) out.add(s.learnMove[i]);
     return out;
   }
-  static List<String> allLearnable(Species s) {
+  public static List<String> allLearnable(Species s) {
     List<String> out = new ArrayList<String>();
     for (String m : s.learnMove) if (!out.contains(m)) out.add(m);
     for (String m : s.otherMoves) if (!out.contains(m)) out.add(m);
