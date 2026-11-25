@@ -1,0 +1,4 @@
+tools/node_modules/
+pokefuego/save.txt
+pokefuego/data/sprites/
+*.class

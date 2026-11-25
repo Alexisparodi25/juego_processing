@@ -1,0 +1,6 @@
+{
+  "name": "pokefuego-tools",
+  "private": true,
+  "description": "Herramientas para generar los datos de PokéFuego",
+  "dependencies": { "@pkmn/dex": "^0.11.0" }
+}

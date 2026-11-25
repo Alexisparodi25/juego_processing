@@ -1,0 +1,923 @@
+absorb	Absorb	Grass	S	20	100	25	0	1	normal	protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		90				0			0	0	User recovers 50% of the damage dealt.
+accelerock	Accelerock	Rock	P	40	100	20	1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+acid	Acid	Poison	S	40	100	30	0	1	allAdjacentFoes	protect|mirror|metronome					10			spd:-1		100					0	0				0	0		70				0			0	0	10% chance to lower the foe(s) Sp. Def by 1.
+acidarmor	Acid Armor	Poison	N	0	0	20	0	1	self	snatch|metronome			def:2		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 2.
+acidspray	Acid Spray	Poison	S	40	100	20	0	1	normal	protect|mirror|metronome|bullet					100			spd:-2		100					0	0				0	0		70				0			0	0	100% chance to lower the target's Sp. Def by 2.
+acrobatics	Acrobatics	Flying	P	55	100	15	0	1	any	contact|protect|mirror|distance|metronome					0					100					0	0				0	0		110				0			0	0	Power doubles if the user has no held item.
+acupressure	Acupressure	Normal	N	0	0	30	0	1	adjacentAllyOrSelf	metronome					0					100					0	0				0	0						0			0	0	Raises a random stat of the user or an ally by 2.
+aerialace	Aerial Ace	Flying	P	60	0	20	0	1	any	contact|protect|mirror|distance|metronome|slicing					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+aeroblast	Aeroblast	Flying	S	100	95	5	0	2	any	protect|mirror|distance|metronome|wind					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+afteryou	After You	Normal	N	0	0	15	0	1	normal	bypasssub|allyanim					0					100					0	0				0	0						0			0	0	The target makes its move right after the user.
+agility	Agility	Psychic	N	0	0	30	0	1	self	snatch|metronome			spe:2		0					100					0	0				0	0						0			0	0	Raises the user's Speed by 2.
+aircutter	Air Cutter	Flying	S	60	95	25	0	2	allAdjacentFoes	protect|mirror|metronome|slicing|wind					0					100					0	0				0	0		110				0			0	0	High critical hit ratio. Hits adjacent foes.
+airslash	Air Slash	Flying	S	75	95	15	0	1	any	protect|mirror|distance|metronome|slicing					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+alluringvoice	Alluring Voice	Fairy	S	80	100	10	0	1	normal	protect|mirror|sound|bypasssub|metronome					100					100					0	0				0	0		130				0			0	0	100% confuse target that had a stat rise this turn.
+allyswitch	Ally Switch	Psychic	N	0	0	15	2	1	self	metronome					0					100					0	0				0	0						0			0	0	User and ally swap positions; using again can fail.
+amnesia	Amnesia	Psychic	N	0	0	20	0	1	self	snatch|metronome			spd:2		0					100					0	0				0	0						0			0	0	Raises the user's Sp. Def by 2.
+anchorshot	Anchor Shot	Steel	P	80	100	20	0	1	normal	contact|protect|mirror|metronome					100					100					0	0				0	0		130				0			0	0	Prevents the target from switching out.
+ancientpower	Ancient Power	Rock	S	60	100	5	0	1	normal	protect|mirror|metronome					0				atk:1/def:1/spa:1/spd:1/spe:1	10					0	0				0	0		110				0			0	0	10% chance to raise all stats by 1 (not acc/eva).
+appleacid	Apple Acid	Grass	S	80	100	10	0	1	normal	protect|mirror					100			spd:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Sp. Def by 1.
+aquacutter	Aqua Cutter	Water	P	70	100	20	0	2	normal	protect|mirror|metronome|slicing					0					100					0	0				0	0		120				0			0	0	High critical hit ratio.
+aquajet	Aqua Jet	Water	P	40	100	20	1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+aquaring	Aqua Ring	Water	N	0	0	20	0	1	self	snatch|metronome		aquaring			0					100					0	0				0	0						0			0	0	User recovers 1/16 max HP per turn.
+aquastep	Aqua Step	Water	P	80	100	10	0	1	normal	contact|protect|mirror|dance|metronome					0				spe:1	100					0	0				0	0		130				0			0	0	100% chance to raise the user's Speed by 1.
+aquatail	Aqua Tail	Water	P	90	90	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+armorcannon	Armor Cannon	Fire	S	120	100	5	0	1	normal	protect|mirror					0				def:-1/spd:-1	100					0	0				0	0		140				0			0	0	Lowers the user's Defense and Sp. Def by 1.
+armthrust	Arm Thrust	Fighting	P	15	100	20	0	1	normal	contact|protect|mirror|metronome					0					100				2-5	0	0				0	0		70				0			0	0	Hits 2-5 times in one turn.
+aromatherapy	Aromatherapy	Grass	N	0	0	5	0	1	allyTeam	snatch|distance|metronome					0					100					0	0				0	0						0			0	0	Cures the user's party of all status conditions.
+aromaticmist	Aromatic Mist	Fairy	N	0	0	20	0	1	adjacentAlly	bypasssub|metronome				spd:1	0					100					0	0				0	0						0			0	0	Raises an ally's Sp. Def by 1.
+assist	Assist	Normal	N	0	0	20	0	1	self	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Uses a random move known by a team member.
+assurance	Assurance	Dark	P	60	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	Power doubles if target was damaged this turn.
+astonish	Astonish	Ghost	P	30	100	15	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		90				0			0	0	30% chance to make the target flinch.
+astralbarrage	Astral Barrage	Ghost	S	120	100	5	0	1	allAdjacentFoes	protect|mirror					0					100					0	0				0	0		140				0			0	0	No additional effect. Hits adjacent foes.
+attackorder	Attack Order	Bug	P	90	100	15	0	2	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+attract	Attract	Normal	N	0	100	15	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		attract			0					100					0	0				0	0						0			0	0	A target of the opposite gender gets infatuated.
+aurasphere	Aura Sphere	Fighting	S	80	0	20	0	1	any	protect|mirror|distance|metronome|bullet|pulse					0					100					0	0				0	0		90				0			0	0	This move does not check accuracy.
+aurawheel	Aura Wheel	Electric	P	110	100	10	0	1	normal	protect|mirror					0				spe:1	100					0	0				0	0		140				0			0	0	Morpeko: Electric; Hangry: Dark; 100% +1 Spe.
+aurorabeam	Aurora Beam	Ice	S	65	100	20	0	1	normal	protect|mirror|metronome					10			atk:-1		100					0	0				0	0		120				0			0	0	10% chance to lower the target's Attack by 1.
+auroraveil	Aurora Veil	Ice	N	0	0	20	0	1	allySide	snatch|metronome					0					100					0	0			auroraveil	0	0						0			0	0	For 5 turns, damage to allies halved. Snow only.
+autotomize	Autotomize	Steel	N	0	0	15	0	1	self	snatch|metronome			spe:2		0					100					0	0				0	0						0			0	0	Raises the user's Speed by 2; user loses 100 kg.
+avalanche	Avalanche	Ice	P	60	100	10	-4	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	Power doubles if user is damaged by the target.
+axekick	Axe Kick	Fighting	P	120	90	10	0	1	normal	contact|protect|mirror|metronome					30		confusion			100					0	0				0	0		95				0			0	0	30% confusion. User loses 50% max HP if miss.
+babydolleyes	Baby-Doll Eyes	Fairy	N	0	100	30	1	1	normal	protect|reflectable|mirror|allyanim|metronome				atk:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Attack by 1.
+baddybad	Baddy Bad	Dark	S	80	95	15	0	1	normal	protect|mirror					0					100					0	0				0	0		130				0			0	0	Summons Reflect.
+banefulbunker	Baneful Bunker	Poison	N	0	0	10	4	1	self	noassist|failcopycat		banefulbunker			0					100					0	0				0	0						0			0	0	Protects from moves. Contact: poison.
+barbbarrage	Barb Barrage	Poison	P	60	100	10	0	1	normal	protect|mirror|metronome					50	psn				100					0	0				0	0		80				0			0	0	50% psn. 2× power if target already poisoned.
+barrage	Barrage	Normal	P	15	85	20	0	1	normal	protect|mirror|metronome|bullet					0					100				2-5	0	0				0	0		90				0			0	0	Hits 2-5 times in one turn.
+barrier	Barrier	Psychic	N	0	0	20	0	1	self	snatch|metronome			def:2		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 2.
+batonpass	Baton Pass	Normal	N	0	0	40	0	1	self	metronome					0					100					0	0				0	1						0			0	0	User switches, passing stat changes and more.
+beakblast	Beak Blast	Flying	P	100	100	15	-3	1	normal	protect|failmefirst|nosleeptalk|noassist|failcopycat|failinstruct|bullet					0					100					0	0				0	0		130				0			0	0	Burns on contact with the user before it moves.
+beatup	Beat Up	Dark	P	0	100	10	0	1	normal	protect|mirror|allyanim|metronome					0					100					0	0				0	0		100				0			0	0	All healthy allies aid in damaging the target.
+behemothbash	Behemoth Bash	Steel	P	100	100	5	0	1	normal	contact|protect|mirror|failcopycat|failmimic					0					100					0	0				0	0		130				0			0	0	No additional effect.
+behemothblade	Behemoth Blade	Steel	P	100	100	5	0	1	normal	contact|protect|mirror|failcopycat|failmimic|slicing					0					100					0	0				0	0		130				0			0	0	No additional effect.
+belch	Belch	Poison	S	120	90	10	0	1	normal	protect|failmefirst|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0		95				0			0	0	Cannot be selected until the user eats a Berry.
+bellydrum	Belly Drum	Normal	N	0	0	10	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	User loses 50% max HP. Maximizes Attack.
+bestow	Bestow	Normal	N	0	0	15	0	1	normal	mirror|bypasssub|allyanim|noassist|failcopycat					0					100					0	0				0	0						0			0	0	User passes its held item to the target.
+bide	Bide	Normal	P	0	0	10	1	1	self	contact|protect|metronome|nosleeptalk|failinstruct		bide			0					100					0	0				0	0		100				0			0	0	Waits 2 turns; deals double the damage taken.
+bind	Bind	Normal	P	15	85	20	0	1	normal	contact|protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+bite	Bite	Dark	P	60	100	25	0	1	normal	contact|protect|mirror|metronome|bite					30		flinch			100					0	0				0	0		110				0			0	0	30% chance to make the target flinch.
+bitterblade	Bitter Blade	Fire	P	90	100	10	0	1	normal	contact|protect|mirror|heal|metronome|slicing					0					100	1/2				0	0				0	0		130				0			0	0	User recovers 50% of the damage dealt.
+bittermalice	Bitter Malice	Ghost	S	75	100	10	0	1	normal	protect|mirror|metronome					100			atk:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Attack by 1.
+blastburn	Blast Burn	Fire	S	150	90	5	0	1	normal	recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+blazekick	Blaze Kick	Fire	P	85	90	10	0	2	normal	contact|protect|mirror|metronome					10	brn				100					0	0				0	0		130				0			0	0	High critical hit ratio. 10% chance to burn.
+bleakwindstorm	Bleakwind Storm	Flying	S	100	80	10	0	1	allAdjacentFoes	protect|mirror|metronome|wind					30			spe:-1		100					0	0				0	0		130				0			0	0	30% to lower foe(s) Speed by 1. Rain: can't miss.
+blizzard	Blizzard	Ice	S	110	70	5	0	1	allAdjacentFoes	protect|mirror|metronome|wind					10	frz				100					0	0				0	0		140				0			0	0	10% chance to freeze foe(s). Can't miss in Snow.
+block	Block	Normal	N	0	0	5	0	1	normal	reflectable|mirror|metronome					0					100					0	0				0	0						0			0	0	Prevents the target from switching out.
+bloodmoon	Blood Moon	Normal	S	140	100	5	0	1	normal	protect|mirror|metronome|cantusetwice					0					100					0	0				0	0		140				0			0	0	Cannot be selected the turn after it's used.
+blueflare	Blue Flare	Fire	S	130	85	5	0	1	normal	protect|mirror|metronome					20	brn				100					0	0				0	0		140				0			0	0	20% chance to burn the target.
+bodypress	Body Press	Fighting	P	80	100	10	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		90				0	def		0	0	Uses user's Def stat as Atk in damage calculation.
+bodyslam	Body Slam	Normal	P	85	100	15	0	1	normal	contact|protect|mirror|nonsky|metronome|minimize					30	par				100					0	0				0	0		130				0			0	0	30% chance to paralyze the target.
+boltbeak	Bolt Beak	Electric	P	85	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Power doubles if user moves before the target.
+boltstrike	Bolt Strike	Electric	P	130	85	5	0	1	normal	contact|protect|mirror|metronome					20	par				100					0	0				0	0		140				0			0	0	20% chance to paralyze the target.
+boneclub	Bone Club	Ground	P	65	85	20	0	1	normal	protect|mirror|metronome					10		flinch			100					0	0				0	0		120				0			0	0	10% chance to make the target flinch.
+bonemerang	Bonemerang	Ground	P	50	90	10	0	1	normal	protect|mirror|metronome					0					100				2-2	0	0				0	0		130				0			0	0	Hits 2 times in one turn.
+bonerush	Bone Rush	Ground	P	25	90	10	0	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+boomburst	Boomburst	Normal	S	140	100	10	0	1	allAdjacent	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		140				0			0	0	No additional effect. Hits adjacent Pokemon.
+bounce	Bounce	Flying	P	85	85	5	0	1	any	contact|charge|protect|mirror|gravity|distance|metronome|nosleeptalk|noassist|failinstruct					30	par				100					0	0				0	0		130				0			0	0	Bounces turn 1. Hits turn 2. 30% paralyze.
+bouncybubble	Bouncy Bubble	Water	S	60	100	20	0	1	normal	protect|mirror|heal					0					100	1/2				0	0				0	0		110				0			0	0	User recovers 50% of the damage dealt.
+branchpoke	Branch Poke	Grass	P	40	100	40	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		90				0			0	0	No additional effect.
+bravebird	Brave Bird	Flying	P	120	100	15	0	1	any	contact|protect|mirror|distance|metronome					0					100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil.
+breakingswipe	Breaking Swipe	Dragon	P	60	100	15	0	1	allAdjacentFoes	contact|protect|mirror					100			atk:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the foe(s) Attack by 1.
+brickbreak	Brick Break	Fighting	P	75	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Destroys screens, unless the target is immune.
+brine	Brine	Water	S	65	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Power doubles if the target's HP is 50% or less.
+brutalswing	Brutal Swing	Dark	P	60	100	20	0	1	allAdjacent	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	No additional effect. Hits adjacent Pokemon.
+bubble	Bubble	Water	S	40	100	30	0	1	allAdjacentFoes	protect|mirror|metronome					10			spe:-1		100					0	0				0	0		90				0			0	0	10% chance to lower the foe(s) Speed by 1.
+bubblebeam	Bubble Beam	Water	S	65	100	20	0	1	normal	protect|mirror|metronome					10			spe:-1		100					0	0				0	0		120				0			0	0	10% chance to lower the target's Speed by 1.
+bugbite	Bug Bite	Bug	P	60	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	User steals and eats the target's Berry.
+bugbuzz	Bug Buzz	Bug	S	90	100	10	0	1	normal	protect|mirror|sound|bypasssub|metronome					10			spd:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Sp. Def by 1.
+bulkup	Bulk Up	Fighting	N	0	0	20	0	1	self	snatch|metronome			atk:1/def:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack and Defense by 1.
+bulldoze	Bulldoze	Ground	P	60	100	20	0	1	allAdjacent	protect|mirror|nonsky|metronome					100			spe:-1		100					0	0				0	0		110				0			0	0	100% chance lower adjacent Pkmn Speed by 1.
+bulletpunch	Bullet Punch	Steel	P	40	100	30	1	1	normal	contact|protect|mirror|punch|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+bulletseed	Bullet Seed	Grass	P	25	100	30	0	1	normal	protect|mirror|metronome|bullet					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+burningbulwark	Burning Bulwark	Fire	N	0	0	10	4	1	self	metronome|noassist|failcopycat		burningbulwark			0					100					0	0				0	0						0			0	0	Protects from damaging attacks. Contact: burn.
+burningjealousy	Burning Jealousy	Fire	S	70	100	5	0	1	allAdjacentFoes	protect|mirror|metronome					100					100					0	0				0	0		120				0			0	0	100% burns a target that had a stat rise this turn.
+buzzybuzz	Buzzy Buzz	Electric	S	60	100	20	0	1	normal	protect|mirror					100	par				100					0	0				0	0		110				0			0	0	100% chance to paralyze the foe.
+calmmind	Calm Mind	Psychic	N	0	0	20	0	1	self	snatch|metronome			spa:1/spd:1		0					100					0	0				0	0						0			0	0	Raises the user's Sp. Atk and Sp. Def by 1.
+camouflage	Camouflage	Normal	N	0	0	20	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	Changes user's type by terrain (default Normal).
+captivate	Captivate	Normal	N	0	100	20	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome				spa:-2	0					100					0	0				0	0						0			0	0	Lowers the foe(s) Sp. Atk by 2 if opposite gender.
+ceaselessedge	Ceaseless Edge	Dark	P	65	90	15	0	1	normal	contact|protect|mirror|metronome|slicing					100					100					0	0				0	0		120				0			0	0	Sets a layer of Spikes on the opposing side.
+celebrate	Celebrate	Normal	N	0	0	40	0	1	self	nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	No competitive use.
+charge	Charge	Electric	N	0	0	20	0	1	self	snatch|metronome		charge	spd:1		0					100					0	0				0	0						0			0	0	+1 SpD, user's next Electric move 2× power.
+chargebeam	Charge Beam	Electric	S	50	90	10	0	1	normal	protect|mirror|metronome					0				spa:1	70					0	0				0	0		100				0			0	0	70% chance to raise the user's Sp. Atk by 1.
+charm	Charm	Fairy	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome				atk:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Attack by 2.
+chatter	Chatter	Flying	S	65	100	20	0	1	any	protect|mirror|sound|distance|bypasssub|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					100		confusion			100					0	0				0	0		120				0			0	0	100% chance to confuse the target.
+chillingwater	Chilling Water	Water	S	50	100	20	0	1	normal	protect|mirror					100			atk:-1		100					0	0				0	0		100				0			0	0	100% chance to lower the target's Attack by 1.
+chillyreception	Chilly Reception	Ice	N	0	0	10	0	1	all						0					100					0	0	snowscape			0	1						0			0	0	Starts Snow. User switches out.
+chipaway	Chip Away	Normal	P	70	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			1	0	Ignores the target's stat stage changes.
+chloroblast	Chloroblast	Grass	S	150	95	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		150				0			0	0	User loses 50% max HP.
+circlethrow	Circle Throw	Fighting	P	60	90	10	-6	1	normal	contact|protect|mirror|metronome|noassist|failcopycat					0					100					0	0				1	0		80				0			0	0	Forces the target to switch to a random ally.
+clamp	Clamp	Water	P	35	85	15	0	1	normal	contact|protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+clangingscales	Clanging Scales	Dragon	S	110	100	5	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		140				0			0	0	Lowers the user's Defense by 1.
+clangoroussoul	Clangorous Soul	Dragon	N	0	100	5	0	1	self	snatch|sound|dance			atk:1/def:1/spa:1/spd:1/spe:1		0					100					0	0				0	0						0			0	0	User loses 33% of its max HP. +1 to all stats.
+clearsmog	Clear Smog	Poison	S	50	0	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		75				0			0	0	Resets all of the target's stat stages to 0.
+closecombat	Close Combat	Fighting	P	120	100	5	0	1	normal	contact|protect|mirror|metronome					0				def:-1/spd:-1	100					0	0				0	0		95				0			0	0	Lowers the user's Defense and Sp. Def by 1.
+coaching	Coaching	Fighting	N	0	0	10	0	1	adjacentAlly	bypasssub|allyanim|metronome				atk:1/def:1	0					100					0	0				0	0						0			0	0	Raises an ally's Attack and Defense by 1.
+coil	Coil	Poison	N	0	0	20	0	1	self	snatch|metronome			atk:1/def:1/accuracy:1		0					100					0	0				0	0						0			0	0	Raises user's Attack, Defense, accuracy by 1.
+collisioncourse	Collision Course	Fighting	P	100	100	5	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		90				0			0	0	Deals 1.3333× damage with supereffective hits.
+cometpunch	Comet Punch	Normal	P	18	85	15	0	1	normal	contact|protect|mirror|punch|metronome					0					100				2-5	0	0				0	0		100				0			0	0	Hits 2-5 times in one turn.
+comeuppance	Comeuppance	Dark	P	0	100	10	0	1	scripted	contact|protect|mirror|failmefirst					0					100					0	0				0	0		100				0			0	0	If hit by an attack, returns 1.5× damage.
+confide	Confide	Normal	N	0	0	20	0	1	normal	reflectable|mirror|sound|bypasssub|metronome				spa:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Sp. Atk by 1.
+confuseray	Confuse Ray	Ghost	N	0	100	10	0	1	normal	protect|reflectable|mirror|metronome		confusion			0					100					0	0				0	0						0			0	0	Confuses the target.
+confusion	Confusion	Psychic	S	50	100	25	0	1	normal	protect|mirror|metronome					10		confusion			100					0	0				0	0		100				0			0	0	10% chance to confuse the target.
+constrict	Constrict	Normal	P	10	100	35	0	1	normal	contact|protect|mirror|metronome					10			spe:-1		100					0	0				0	0		90				0			0	0	10% chance to lower the target's Speed by 1.
+conversion	Conversion	Normal	N	0	0	30	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	Changes user's type to match its first move.
+conversion2	Conversion 2	Normal	N	0	0	30	0	1	normal	bypasssub|metronome					0					100					0	0				0	0						0			0	0	Changes user's type to resist target's last move.
+copycat	Copycat	Normal	N	0	0	20	0	1	self	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Uses the last move used in the battle.
+coreenforcer	Core Enforcer	Dragon	S	100	100	10	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Nullifies the foe(s) Ability if the foe(s) move first.
+cosmicpower	Cosmic Power	Psychic	N	0	0	20	0	1	self	snatch|metronome			def:1/spd:1		0					100					0	0				0	0						0			0	0	Raises the user's Defense and Sp. Def by 1.
+cottonguard	Cotton Guard	Grass	N	0	0	10	0	1	self	snatch|metronome			def:3		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 3.
+cottonspore	Cotton Spore	Grass	N	0	100	40	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome|powder				spe:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Speed by 2.
+counter	Counter	Fighting	P	0	100	20	-5	1	scripted	contact|protect|failmefirst|noassist|failcopycat					0					100					0	0				0	0		75				0			0	0	If hit by physical attack, returns double damage.
+courtchange	Court Change	Normal	N	0	100	10	0	1	all	mirror|metronome					0					100					0	0				0	0						0			0	0	Swaps user's field effects with the opposing side.
+covet	Covet	Normal	P	60	100	25	0	1	normal	contact|protect|mirror|failmefirst|noassist|failcopycat					0					100					0	0				0	0		110				0			0	0	If the user has no item, it steals the target's.
+crabhammer	Crabhammer	Water	P	100	90	10	0	2	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+craftyshield	Crafty Shield	Fairy	N	0	0	10	3	1	allySide						0					100					0	0			craftyshield	0	0						0			0	0	Protects allies from Status moves this turn.
+crosschop	Cross Chop	Fighting	P	100	80	5	0	2	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	High critical hit ratio.
+crosspoison	Cross Poison	Poison	P	70	100	20	0	2	normal	contact|protect|mirror|metronome|slicing					10	psn				100					0	0				0	0		85				0			0	0	High critical hit ratio. 10% chance to poison.
+crunch	Crunch	Dark	P	80	100	15	0	1	normal	contact|protect|mirror|metronome|bite					20			def:-1		100					0	0				0	0		130				0			0	0	20% chance to lower the target's Defense by 1.
+crushclaw	Crush Claw	Normal	P	75	95	10	0	1	normal	contact|protect|mirror|metronome					50			def:-1		100					0	0				0	0		130				0			0	0	50% chance to lower the target's Defense by 1.
+crushgrip	Crush Grip	Normal	P	0	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	More power the more HP the target has left.
+curse	Curse	Ghost	N	0	0	10	0	1	normal	bypasssub|metronome		curse			0					100					0	0				0	0						0			0	0	Curses if Ghost, else -1 Spe, +1 Atk, +1 Def.
+darkestlariat	Darkest Lariat	Dark	P	85	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			1	0	Ignores the target's stat stage changes.
+darkpulse	Dark Pulse	Dark	S	80	100	15	0	1	any	protect|mirror|distance|metronome|pulse					20		flinch			100					0	0				0	0		130				0			0	0	20% chance to make the target flinch.
+darkvoid	Dark Void	Dark	N	0	50	10	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome|nosketch	slp				0					100					0	0				0	0						0			0	0	Darkrai: Causes the foe(s) to fall asleep.
+dazzlinggleam	Dazzling Gleam	Fairy	S	80	100	10	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect. Hits adjacent foes.
+decorate	Decorate	Fairy	N	0	0	15	0	1	normal	allyanim				atk:2/spa:2	0					100					0	0				0	0						0			0	0	Raises the target's Attack and Sp. Atk by 2.
+defendorder	Defend Order	Bug	N	0	0	10	0	1	self	snatch|metronome			def:1/spd:1		0					100					0	0				0	0						0			0	0	Raises the user's Defense and Sp. Def by 1.
+defensecurl	Defense Curl	Normal	N	0	0	40	0	1	self	snatch|metronome		defensecurl	def:1		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 1.
+defog	Defog	Flying	N	0	0	15	0	1	normal	protect|reflectable|mirror|bypasssub|metronome					0					100					0	0				0	0						0			0	0	-1 evasion; ends user and target hazards/terrain.
+destinybond	Destiny Bond	Ghost	N	0	0	5	0	1	self	bypasssub|noassist|failcopycat		destinybond			0					100					0	0				0	0						0			0	0	If an opponent knocks out the user, it also faints.
+detect	Detect	Fighting	N	0	0	5	4	1	self	noassist|failcopycat		protect			0					100					0	0				0	0						0			0	0	Prevents moves from affecting the user this turn.
+diamondstorm	Diamond Storm	Rock	P	100	95	5	0	1	allAdjacentFoes	protect|mirror					100				def:2	100					0	0				0	0		130				0			0	0	50% chance to raise user's Defense by 2.
+dig	Dig	Ground	P	80	100	10	0	1	normal	contact|charge|protect|mirror|nonsky|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		130				0			0	0	Digs underground turn 1, strikes turn 2.
+direclaw	Dire Claw	Poison	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					50					100					0	0				0	0		90				0			0	0	50% chance to sleep, poison, or paralyze target.
+disable	Disable	Normal	N	0	100	20	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		disable			0					100					0	0				0	0						0			0	0	For 4 turns, disables the target's last move used.
+disarmingvoice	Disarming Voice	Fairy	S	40	0	15	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		90				0			0	0	This move does not check accuracy. Hits foes.
+discharge	Discharge	Electric	S	80	100	15	0	1	allAdjacent	protect|mirror|metronome					30	par				100					0	0				0	0		130				0			0	0	30% chance to paralyze adjacent Pokemon.
+dive	Dive	Water	P	80	100	10	0	1	normal	contact|charge|protect|mirror|nonsky|allyanim|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		130				0			0	0	Dives underwater turn 1, strikes turn 2.
+dizzypunch	Dizzy Punch	Normal	P	70	100	10	0	1	normal	contact|protect|mirror|punch|metronome					20		confusion			100					0	0				0	0		120				0			0	0	20% chance to confuse the target.
+doodle	Doodle	Normal	N	0	100	10	0	1	adjacentFoe						0					100					0	0				0	0						0			0	0	User and ally's Abilities become target's Ability.
+doomdesire	Doom Desire	Steel	S	140	100	5	0	1	normal	metronome|futuremove					0					100					0	0				0	0		140				0			0	0	Hits two turns after being used.
+doubleedge	Double-Edge	Normal	P	120	100	15	0	1	normal	contact|protect|mirror|metronome					0					100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil.
+doublehit	Double Hit	Normal	P	35	90	10	0	1	normal	contact|protect|mirror|metronome					0					100				2-2	0	0				0	0		120				0			0	0	Hits 2 times in one turn.
+doubleironbash	Double Iron Bash	Steel	P	60	100	5	0	1	normal	contact|protect|mirror|punch					30		flinch			100				2-2	0	0				0	0		140				0			0	0	Hits twice. 30% chance to make the target flinch.
+doublekick	Double Kick	Fighting	P	30	100	30	0	1	normal	contact|protect|mirror|metronome					0					100				2-2	0	0				0	0		80				0			0	0	Hits 2 times in one turn.
+doubleshock	Double Shock	Electric	P	120	100	5	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		140				0			0	0	User's Electric type: typeless; must be Electric.
+doubleslap	Double Slap	Normal	P	15	85	10	0	1	normal	contact|protect|mirror|metronome					0					100				2-5	0	0				0	0		90				0			0	0	Hits 2-5 times in one turn.
+doubleteam	Double Team	Normal	N	0	0	15	0	1	self	snatch|metronome			evasion:1		0					100					0	0				0	0						0			0	0	Raises the user's evasiveness by 1.
+dracometeor	Draco Meteor	Dragon	S	130	90	5	0	1	normal	protect|mirror|metronome					0				spa:-2	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 2.
+dragonascent	Dragon Ascent	Flying	P	120	100	5	0	1	any	contact|protect|mirror|distance					0				def:-1/spd:-1	100					0	0				0	0		140				0			0	0	Lowers the user's Defense and Sp. Def by 1.
+dragonbreath	Dragon Breath	Dragon	S	60	100	20	0	1	normal	protect|mirror|metronome					30	par				100					0	0				0	0		110				0			0	0	30% chance to paralyze the target.
+dragoncheer	Dragon Cheer	Dragon	N	0	0	15	0	1	adjacentAlly	bypasssub|allyanim|metronome		dragoncheer			0					100					0	0				0	0						0			0	0	Ally: Crit ratio +1, or +2 if ally is Dragon type.
+dragonclaw	Dragon Claw	Dragon	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+dragondance	Dragon Dance	Dragon	N	0	0	20	0	1	self	snatch|dance|metronome			atk:1/spe:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack and Speed by 1.
+dragondarts	Dragon Darts	Dragon	P	50	100	10	0	1	normal	protect|mirror|metronome|noparentalbond					0					100				2-2	0	0				0	0		130				0			0	0	Hits twice. Doubles: Tries to hit each foe once.
+dragonenergy	Dragon Energy	Dragon	S	150	100	5	0	1	allAdjacentFoes	protect|mirror					0					100					0	0				0	0		150				0			0	0	Less power as user's HP decreases. Hits foe(s).
+dragonhammer	Dragon Hammer	Dragon	P	90	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+dragonpulse	Dragon Pulse	Dragon	S	85	100	10	0	1	any	protect|mirror|distance|metronome|pulse					0					100					0	0				0	0		130				0			0	0	No additional effect.
+dragonrage	Dragon Rage	Dragon	S	0	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0	40	100				0			0	0	Deals 40 HP of damage to the target.
+dragonrush	Dragon Rush	Dragon	P	100	75	10	0	1	normal	contact|protect|mirror|metronome|minimize					20		flinch			100					0	0				0	0		130				0			0	0	20% chance to make the target flinch.
+dragontail	Dragon Tail	Dragon	P	60	90	10	-6	1	normal	contact|protect|mirror|metronome|noassist|failcopycat					0					100					0	0				1	0		110				0			0	0	Forces the target to switch to a random ally.
+drainingkiss	Draining Kiss	Fairy	S	50	100	10	0	1	normal	contact|protect|mirror|heal|metronome					0					100	3/4				0	0				0	0		100				0			0	0	User recovers 75% of the damage dealt.
+drainpunch	Drain Punch	Fighting	P	75	100	10	0	1	normal	contact|protect|mirror|punch|heal|metronome					0					100	1/2				0	0				0	0		90				0			0	0	User recovers 50% of the damage dealt.
+dreameater	Dream Eater	Psychic	S	100	100	15	0	1	normal	protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		130				0			0	0	User gains 1/2 HP inflicted. Sleeping target only.
+drillpeck	Drill Peck	Flying	P	80	100	20	0	1	any	contact|protect|mirror|distance|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+drillrun	Drill Run	Ground	P	80	95	10	0	2	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+drumbeating	Drum Beating	Grass	P	80	100	10	0	1	normal	protect|mirror					100			spe:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Speed by 1.
+dualchop	Dual Chop	Dragon	P	40	90	15	0	1	normal	contact|protect|mirror|metronome					0					100				2-2	0	0				0	0		130				0			0	0	Hits 2 times in one turn.
+dualwingbeat	Dual Wingbeat	Flying	P	40	90	10	0	1	normal	contact|protect|mirror|metronome					0					100				2-2	0	0				0	0		130				0			0	0	Hits 2 times in one turn.
+dynamaxcannon	Dynamax Cannon	Dragon	S	100	100	5	0	1	normal	protect|failencore|nosleeptalk|failcopycat|failmimic|failinstruct|noparentalbond					0					100					0	0				0	0		130				0			0	0	No additional effect.
+dynamicpunch	Dynamic Punch	Fighting	P	100	50	5	0	1	normal	contact|protect|mirror|punch|metronome					100		confusion			100					0	0				0	0		90				0			0	0	100% chance to confuse the target.
+earthpower	Earth Power	Ground	S	90	100	10	0	1	normal	protect|mirror|nonsky|metronome					10			spd:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Sp. Def by 1.
+earthquake	Earthquake	Ground	P	100	100	10	0	1	allAdjacent	protect|mirror|nonsky|metronome					0					100					0	0				0	0		130				0			0	0	Hits adjacent Pokemon. Double damage on Dig.
+echoedvoice	Echoed Voice	Normal	S	40	100	15	0	1	normal	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		90				0			0	0	Power increases when used on consecutive turns.
+eerieimpulse	Eerie Impulse	Electric	N	0	100	15	0	1	normal	protect|reflectable|mirror|metronome				spa:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Sp. Atk by 2.
+eeriespell	Eerie Spell	Psychic	S	80	100	5	0	1	normal	protect|mirror|sound|bypasssub|metronome					100					100					0	0				0	0		130				0			0	0	Removes 3 PP from the target's last move.
+eggbomb	Egg Bomb	Normal	P	100	75	10	0	1	normal	protect|mirror|metronome|bullet					0					100					0	0				0	0		130				0			0	0	No additional effect.
+electricterrain	Electric Terrain	Electric	N	0	0	10	0	1	all	nonsky|metronome					0					100					0	0		electricterrain		0	0						0			0	0	5 turns. Grounded: +Electric power, can't sleep.
+electrify	Electrify	Electric	N	0	0	20	0	1	normal	protect|mirror|allyanim|metronome		electrify			0					100					0	0				0	0						0			0	0	Changes the target's move to Electric this turn.
+electroball	Electro Ball	Electric	S	0	100	10	0	1	normal	protect|mirror|metronome|bullet					0					100					0	0				0	0		130				0			0	0	More power the faster the user is than the target.
+electrodrift	Electro Drift	Electric	S	100	100	5	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		130				0			0	0	Deals 1.3333× damage with supereffective hits.
+electroshot	Electro Shot	Electric	S	130	100	10	0	1	normal	charge|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Raises Sp. Atk by 1, hits turn 2. Rain: no charge.
+electroweb	Electroweb	Electric	S	55	95	15	0	1	allAdjacentFoes	protect|mirror|metronome					100			spe:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the foe(s) Speed by 1.
+embargo	Embargo	Dark	N	0	100	15	0	1	normal	protect|reflectable|mirror|metronome		embargo			0					100					0	0				0	0						0			0	0	For 5 turns, the target's item has no effect.
+ember	Ember	Fire	S	40	100	25	0	1	normal	protect|mirror|metronome					10	brn				100					0	0				0	0		90				0			0	0	10% chance to burn the target.
+encore	Encore	Normal	N	0	100	5	0	1	normal	protect|reflectable|mirror|bypasssub|metronome|failencore		encore			0					100					0	0				0	0						0			0	0	Target repeats its last move for its next 3 turns.
+endeavor	Endeavor	Normal	P	0	100	5	0	1	normal	contact|protect|mirror|metronome|noparentalbond					0					100					0	0				0	0		130				0			0	0	Lowers the target's HP to the user's HP.
+endure	Endure	Normal	N	0	0	10	4	1	self	noassist|failcopycat		endure			0					100					0	0				0	0						0			0	0	User survives attacks this turn with at least 1 HP.
+energyball	Energy Ball	Grass	S	90	100	10	0	1	normal	protect|mirror|metronome|bullet					10			spd:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Sp. Def by 1.
+entrainment	Entrainment	Normal	N	0	100	15	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	The target's Ability changes to match the user's.
+eruption	Eruption	Fire	S	150	100	5	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		150				0			0	0	Less power as user's HP decreases. Hits foe(s).
+esperwing	Esper Wing	Psychic	S	80	100	10	0	2	normal	protect|mirror|metronome					0				spe:1	100					0	0				0	0		130				0			0	0	100% chance to raise user Speed by 1. High crit.
+eternabeam	Eternabeam	Dragon	S	160	90	5	0	1	normal	recharge|protect|mirror		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+expandingforce	Expanding Force	Psychic	S	80	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	User on Psychic Terrain: 1.5× power, hits foes.
+explosion	Explosion	Normal	P	250	100	5	0	1	allAdjacent	protect|mirror|metronome|noparentalbond					0					100					1	0				0	0		150				0			0	0	Hits adjacent Pokemon. The user faints.
+extrasensory	Extrasensory	Psychic	S	80	100	20	0	1	normal	protect|mirror|metronome					10		flinch			100					0	0				0	0		130				0			0	0	10% chance to make the target flinch.
+extremespeed	Extreme Speed	Normal	P	80	100	5	2	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Nearly always goes first.
+facade	Facade	Normal	P	70	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Power doubles if user is burn/poison/paralyzed.
+fairylock	Fairy Lock	Fairy	N	0	0	10	0	1	all	mirror|bypasssub|metronome					0					100					0	0				0	0				fairylock		0			0	0	Prevents all Pokemon from switching next turn.
+fairywind	Fairy Wind	Fairy	S	40	100	30	0	1	normal	protect|mirror|metronome|wind					0					100					0	0				0	0		90				0			0	0	No additional effect.
+fakeout	Fake Out	Normal	P	40	100	10	3	1	normal	contact|protect|mirror|metronome					100		flinch			100					0	0				0	0		90				0			0	0	Hits first. First turn out only. 100% flinch chance.
+faketears	Fake Tears	Dark	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome				spd:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Sp. Def by 2.
+falsesurrender	False Surrender	Dark	P	80	0	10	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		130				0			0	0	This move does not check accuracy.
+falseswipe	False Swipe	Normal	P	40	100	40	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Always leaves the target with at least 1 HP.
+featherdance	Feather Dance	Flying	N	0	100	15	0	1	normal	protect|reflectable|mirror|dance|allyanim|metronome				atk:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Attack by 2.
+feint	Feint	Normal	P	30	100	10	2	1	normal	mirror|noassist|failcopycat					0					100					0	0				0	0		90				1			0	0	Nullifies Detect, Protect, and Quick/Wide Guard.
+feintattack	Feint Attack	Dark	P	60	0	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+fellstinger	Fell Stinger	Bug	P	50	100	25	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	Raises user's Attack by 3 if this KOes the target.
+ficklebeam	Fickle Beam	Dragon	S	80	100	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Has a 30% chance this move's power is doubled.
+fierydance	Fiery Dance	Fire	S	80	100	10	0	1	normal	protect|mirror|dance|metronome					0				spa:1	50					0	0				0	0		130				0			0	0	50% chance to raise the user's Sp. Atk by 1.
+fierywrath	Fiery Wrath	Dark	S	90	100	10	0	1	allAdjacentFoes	protect|mirror					20		flinch			100					0	0				0	0		130				0			0	0	20% chance to make the foe(s) flinch.
+filletaway	Fillet Away	Normal	N	0	0	10	0	1	self	snatch			atk:2/spa:2/spe:2		0					100					0	0				0	0						0			0	0	+2 Attack, Sp. Atk, Speed for 1/2 user's max HP.
+finalgambit	Final Gambit	Fighting	S	0	100	5	0	1	normal	protect|metronome|noparentalbond					0					100					1	0				0	0		100				0			0	0	Does damage equal to the user's HP. User faints.
+fireblast	Fire Blast	Fire	S	110	85	5	0	1	normal	protect|mirror|metronome					10	brn				100					0	0				0	0		140				0			0	0	10% chance to burn the target.
+firefang	Fire Fang	Fire	P	65	95	15	0	1	normal	contact|protect|mirror|metronome|bite					10	brn				100					0	0				0	0		120				0			0	0	10% chance to burn. 10% chance to flinch.
+firelash	Fire Lash	Fire	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					100			def:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Defense by 1.
+firepledge	Fire Pledge	Fire	S	80	100	10	0	1	normal	protect|mirror|nonsky|metronome|pledgecombo					0					100					0	0				0	0		130				0			0	0	Use with Grass or Water Pledge for added effect.
+firepunch	Fire Punch	Fire	P	75	100	15	0	1	normal	contact|protect|mirror|punch|metronome					10	brn				100					0	0				0	0		130				0			0	0	10% chance to burn the target.
+firespin	Fire Spin	Fire	S	35	85	15	0	1	normal	protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+firstimpression	First Impression	Bug	P	90	100	10	2	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Nearly always goes first. First turn out only.
+fishiousrend	Fishious Rend	Water	P	85	100	10	0	1	normal	contact|protect|mirror|metronome|bite					0					100					0	0				0	0		130				0			0	0	Power doubles if user moves before the target.
+fissure	Fissure	Ground	P	0	30	5	0	1	normal	protect|mirror|nonsky|metronome					0					100					0	1				0	0		130				0			0	0	OHKOs the target. Fails if user is a lower level.
+flail	Flail	Normal	P	0	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	More power the less HP the user has left.
+flameburst	Flame Burst	Fire	S	70	100	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Damages Pokemon next to the target as well.
+flamecharge	Flame Charge	Fire	P	50	100	20	0	1	normal	contact|protect|mirror|metronome					0				spe:1	100					0	0				0	0		100				0			0	0	100% chance to raise the user's Speed by 1.
+flamethrower	Flamethrower	Fire	S	90	100	15	0	1	normal	protect|mirror|metronome					10	brn				100					0	0				0	0		130				0			0	0	10% chance to burn the target.
+flamewheel	Flame Wheel	Fire	P	60	100	25	0	1	normal	contact|protect|mirror|defrost|metronome					10	brn				100					0	0				0	0		110				0			0	0	10% chance to burn the target. Thaws user.
+flareblitz	Flare Blitz	Fire	P	120	100	15	0	1	normal	contact|protect|mirror|defrost|metronome					10	brn				100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil. 10% chance to burn. Thaws user.
+flash	Flash	Normal	N	0	100	20	0	1	normal	protect|reflectable|mirror|metronome				accuracy:-1	0					100					0	0				0	0						0			0	0	Lowers the target's accuracy by 1.
+flashcannon	Flash Cannon	Steel	S	80	100	10	0	1	normal	protect|mirror|metronome					10			spd:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Sp. Def by 1.
+flatter	Flatter	Dark	N	0	100	15	0	1	normal	protect|reflectable|mirror|allyanim|metronome		confusion		spa:1	0					100					0	0				0	0						0			0	0	Raises the target's Sp. Atk by 1 and confuses it.
+fleurcannon	Fleur Cannon	Fairy	S	130	90	5	0	1	normal	protect|mirror					0				spa:-2	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 2.
+fling	Fling	Dark	P	0	100	10	0	1	normal	protect|mirror|allyanim|metronome|noparentalbond					0					100					0	0				0	0		100				0			0	0	Flings the user's item at the target. Power varies.
+flipturn	Flip Turn	Water	P	60	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	1		110				0			0	0	User switches out after damaging the target.
+floatyfall	Floaty Fall	Flying	P	90	95	15	0	1	normal	contact|protect|mirror|gravity					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+floralhealing	Floral Healing	Fairy	N	0	0	10	0	1	normal	protect|reflectable|heal|allyanim|metronome					0					100					0	0				0	0						0			0	0	Heals the target by 50% of its max HP.
+flowershield	Flower Shield	Fairy	N	0	0	10	0	1	all	distance|metronome					0					100					0	0				0	0						0			0	0	Raises Defense by 1 of all active Grass types.
+flowertrick	Flower Trick	Grass	P	70	0	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		120				0			0	1	Always results in a critical hit; no accuracy check.
+fly	Fly	Flying	P	90	95	15	0	1	any	contact|charge|protect|mirror|gravity|distance|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		130				0			0	0	Flies up on first turn, then strikes the next turn.
+flyingpress	Flying Press	Fighting	P	100	95	10	0	1	any	contact|protect|mirror|gravity|distance|nonsky|metronome|minimize					0					100					0	0				0	0		90				0			0	0	Combines Flying in its type effectiveness.
+focusblast	Focus Blast	Fighting	S	120	70	5	0	1	normal	protect|mirror|metronome|bullet					10			spd:-1		100					0	0				0	0		95				0			0	0	10% chance to lower the target's Sp. Def by 1.
+focusenergy	Focus Energy	Normal	N	0	0	30	0	1	self	snatch|metronome		focusenergy			0					100					0	0				0	0						0			0	0	Raises the user's critical hit ratio by 2.
+focuspunch	Focus Punch	Fighting	P	150	100	20	-3	1	normal	contact|protect|punch|failmefirst|nosleeptalk|noassist|failcopycat|failinstruct					0					100					0	0				0	0		100				0			0	0	Fails if the user takes damage before it hits.
+followme	Follow Me	Normal	N	0	0	20	2	1	self	noassist|failcopycat		followme			0					100					0	0				0	0						0			0	0	The foes' moves target the user on the turn used.
+forcepalm	Force Palm	Fighting	P	60	100	10	0	1	normal	contact|protect|mirror|metronome					30	par				100					0	0				0	0		80				0			0	0	30% chance to paralyze the target.
+foresight	Foresight	Normal	N	0	0	40	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		foresight			0					100					0	0				0	0						0			0	0	Fighting, Normal hit Ghost. Evasiveness ignored.
+forestscurse	Forest's Curse	Grass	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	Adds Grass to the target's type(s).
+foulplay	Foul Play	Dark	P	95	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Uses target's Attack stat in damage calculation.
+freezedry	Freeze-Dry	Ice	S	70	100	20	0	1	normal	protect|mirror|metronome					10	frz				100					0	0				0	0		120				0			0	0	10% chance to freeze. Super effective on Water.
+freezeshock	Freeze Shock	Ice	P	140	90	5	0	1	normal	charge|protect|mirror|nosleeptalk|failinstruct					30	par				100					0	0				0	0		140				0			0	0	Charges turn 1. Hits turn 2. 30% paralyze.
+freezingglare	Freezing Glare	Psychic	S	90	100	10	0	1	normal	protect|mirror					10	frz				100					0	0				0	0		130				0			0	0	10% chance to freeze the target.
+freezyfrost	Freezy Frost	Ice	S	100	90	10	0	1	normal	protect|mirror					0					100					0	0				0	0		130				0			0	0	Eliminates all stat changes.
+frenzyplant	Frenzy Plant	Grass	S	150	90	5	0	1	normal	recharge|protect|mirror|nonsky|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+frostbreath	Frost Breath	Ice	S	60	90	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	1	Always results in a critical hit.
+frustration	Frustration	Normal	P	0	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Max 102 power at minimum Happiness.
+furyattack	Fury Attack	Normal	P	15	85	20	0	1	normal	contact|protect|mirror|metronome					0					100				2-5	0	0				0	0		90				0			0	0	Hits 2-5 times in one turn.
+furycutter	Fury Cutter	Bug	P	40	95	20	0	1	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		90				0			0	0	Power doubles with each hit, up to 160.
+furyswipes	Fury Swipes	Normal	P	18	80	15	0	1	normal	contact|protect|mirror|metronome					0					100				2-5	0	0				0	0		100				0			0	0	Hits 2-5 times in one turn.
+fusionbolt	Fusion Bolt	Electric	P	100	100	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Power doubles if used after Fusion Flare this turn.
+fusionflare	Fusion Flare	Fire	S	100	100	5	0	1	normal	protect|mirror|defrost|metronome					0					100					0	0				0	0		130				0			0	0	Power doubles if used after Fusion Bolt this turn.
+futuresight	Future Sight	Psychic	S	120	100	10	0	1	normal	allyanim|metronome|futuremove					0					100					0	0				0	0		140				0			0	0	Hits two turns after being used.
+gastroacid	Gastro Acid	Poison	N	0	100	10	0	1	normal	protect|reflectable|mirror|allyanim|metronome		gastroacid			0					100					0	0				0	0						0			0	0	Nullifies the target's Ability.
+geargrind	Gear Grind	Steel	P	50	85	15	0	1	normal	contact|protect|mirror|metronome					0					100				2-2	0	0				0	0		130				0			0	0	Hits 2 times in one turn.
+gearup	Gear Up	Steel	N	0	0	20	0	1	allySide	snatch|bypasssub|metronome					0					100					0	0				0	0						0			0	0	Raises Atk, Sp. Atk of allies with Plus/Minus by 1.
+geomancy	Geomancy	Fairy	N	0	0	10	0	1	self	charge|nonsky|metronome|nosleeptalk|failinstruct			spa:2/spd:2/spe:2		0					100					0	0				0	0						0			0	0	Charges, then raises SpA, SpD, Spe by 2 turn 2.
+gigadrain	Giga Drain	Grass	S	75	100	10	0	1	normal	protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		130				0			0	0	User recovers 50% of the damage dealt.
+gigaimpact	Giga Impact	Normal	P	150	90	5	0	1	normal	contact|recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+gigatonhammer	Gigaton Hammer	Steel	P	160	100	5	0	1	normal	protect|mirror|metronome|cantusetwice					0					100					0	0				0	0		150				0			0	0	Cannot be selected the turn after it's used.
+glaciallance	Glacial Lance	Ice	P	120	100	5	0	1	allAdjacentFoes	protect|mirror					0					100					0	0				0	0		140				0			0	0	No additional effect. Hits adjacent foes.
+glaciate	Glaciate	Ice	S	65	95	10	0	1	allAdjacentFoes	protect|mirror|metronome					100			spe:-1		100					0	0				0	0		120				0			0	0	100% chance to lower the foe(s) Speed by 1.
+glaiverush	Glaive Rush	Dragon	P	120	100	5	0	1	normal	contact|protect|mirror|metronome		glaiverush			0					100					0	0				0	0		140				0			0	0	User takes sure-hit 2× damage until its next turn.
+glare	Glare	Normal	N	0	100	30	0	1	normal	protect|reflectable|mirror|metronome	par				0					100					0	0				0	0						0			0	0	Paralyzes the target.
+glitzyglow	Glitzy Glow	Psychic	S	80	95	15	0	1	normal	protect|mirror					0					100					0	0				0	0		130				0			0	0	Summons Light Screen.
+grassknot	Grass Knot	Grass	S	0	100	20	0	1	normal	contact|protect|mirror|nonsky|metronome					0					100					0	0				0	0		130				0			0	0	More power the heavier the target.
+grasspledge	Grass Pledge	Grass	S	80	100	10	0	1	normal	protect|mirror|nonsky|metronome|pledgecombo					0					100					0	0				0	0		130				0			0	0	Use with Fire or Water Pledge for added effect.
+grasswhistle	Grass Whistle	Grass	N	0	55	15	0	1	normal	protect|reflectable|mirror|sound|bypasssub|metronome	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+grassyglide	Grassy Glide	Grass	P	55	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	User on Grassy Terrain: +1 priority.
+grassyterrain	Grassy Terrain	Grass	N	0	0	10	0	1	all	nonsky|metronome					0					100					0	0		grassyterrain		0	0						0			0	0	5 turns. Grounded: +Grass power, +1/16 max HP.
+gravapple	Grav Apple	Grass	P	80	100	10	0	1	normal	protect|mirror					100			def:-1		100					0	0				0	0		130				0			0	0	Target: 100% -1 Def. During Gravity: 1.5× power.
+gravity	Gravity	Psychic	N	0	0	5	0	1	all	nonsky|metronome					0					100					0	0				0	0				gravity		0			0	0	5 turns: no Ground immunities, 1.67× accuracy.
+growl	Growl	Normal	N	0	100	40	0	1	allAdjacentFoes	protect|reflectable|mirror|sound|bypasssub|metronome				atk:-1	0					100					0	0				0	0						0			0	0	Lowers the foe(s) Attack by 1.
+growth	Growth	Normal	N	0	0	20	0	1	self	snatch|metronome			atk:1/spa:1		0					100					0	0				0	0						0			0	0	Raises user's Attack and Sp. Atk by 1; 2 in Sun.
+grudge	Grudge	Ghost	N	0	0	5	0	1	self	bypasssub|metronome		grudge			0					100					0	0				0	0						0			0	0	If the user faints, the attack used loses all its PP.
+guardsplit	Guard Split	Psychic	N	0	0	10	0	1	normal	protect|allyanim|metronome					0					100					0	0				0	0						0			0	0	Averages Defense and Sp. Def stats with target.
+guardswap	Guard Swap	Psychic	N	0	0	10	0	1	normal	protect|mirror|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	Swaps Defense and Sp. Def changes with target.
+guillotine	Guillotine	Normal	P	0	30	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	1				0	0		130				0			0	0	OHKOs the target. Fails if user is a lower level.
+gunkshot	Gunk Shot	Poison	P	120	80	5	0	1	normal	protect|mirror|metronome					30	psn				100					0	0				0	0		95				0			0	0	30% chance to poison the target.
+gust	Gust	Flying	S	40	100	35	0	1	any	protect|mirror|distance|metronome|wind					0					100					0	0				0	0		90				0			0	0	Power doubles during Bounce, Fly, and Sky Drop.
+gyroball	Gyro Ball	Steel	P	0	100	5	0	1	normal	contact|protect|mirror|metronome|bullet					0					100					0	0				0	0		130				0			0	0	More power the slower the user than the target.
+hail	Hail	Ice	N	0	0	10	0	1	all	metronome					0					100					0	0	hail			0	0						0			0	0	For 5 turns, hail crashes down.
+hammerarm	Hammer Arm	Fighting	P	100	90	10	0	1	normal	contact|protect|mirror|punch|metronome					0				spe:-1	100					0	0				0	0		90				0			0	0	Lowers the user's Speed by 1.
+happyhour	Happy Hour	Normal	N	0	0	30	0	1	allySide	metronome					0					100					0	0				0	0						0			0	0	No competitive use.
+harden	Harden	Normal	N	0	0	30	0	1	self	snatch|metronome			def:1		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 1.
+hardpress	Hard Press	Steel	P	0	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	More power the more HP the target has left.
+haze	Haze	Ice	N	0	0	30	0	1	all	bypasssub|metronome					0					100					0	0				0	0						0			0	0	Eliminates all stat changes.
+headbutt	Headbutt	Normal	P	70	100	15	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		120				0			0	0	30% chance to make the target flinch.
+headcharge	Head Charge	Normal	P	120	100	15	0	1	normal	contact|protect|mirror|metronome					0					100		1/4			0	0				0	0		140				0			0	0	Has 1/4 recoil.
+headlongrush	Headlong Rush	Ground	P	120	100	5	0	1	normal	contact|protect|mirror|punch|metronome					0				def:-1/spd:-1	100					0	0				0	0		140				0			0	0	Lowers the user's Defense and Sp. Def by 1.
+headsmash	Head Smash	Rock	P	150	80	5	0	1	normal	contact|protect|mirror|metronome					0					100		1/2			0	0				0	0		150				0			0	0	Has 1/2 recoil.
+healbell	Heal Bell	Normal	N	0	0	5	0	1	allyTeam	snatch|sound|distance|bypasssub|metronome					0					100					0	0				0	0						0			0	0	Cures the user's party of all status conditions.
+healblock	Heal Block	Psychic	N	0	100	15	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome		healblock			0					100					0	0				0	0						0			0	0	For 5 turns, the foe(s) is prevented from healing.
+healingwish	Healing Wish	Psychic	N	0	0	10	0	1	self	snatch|heal|metronome					0					100					1	0				0	0					healingwish	0			0	0	User faints. Next hurt Pokemon is fully healed.
+healorder	Heal Order	Bug	N	0	0	10	0	1	self	snatch|heal|metronome					0					100			1/2		0	0				0	0						0			0	0	Heals the user by 50% of its max HP.
+healpulse	Heal Pulse	Psychic	N	0	0	10	0	1	any	protect|reflectable|distance|heal|allyanim|metronome|pulse					0					100					0	0				0	0						0			0	0	Heals the target by 50% of its max HP.
+heartstamp	Heart Stamp	Psychic	P	60	100	25	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		110				0			0	0	30% chance to make the target flinch.
+heartswap	Heart Swap	Psychic	N	0	0	10	0	1	normal	protect|mirror|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	Swaps all stat changes with target.
+heatcrash	Heat Crash	Fire	P	0	100	10	0	1	normal	contact|protect|mirror|nonsky|metronome|minimize					0					100					0	0				0	0		130				0			0	0	More power the heavier the user than the target.
+heatwave	Heat Wave	Fire	S	95	90	10	0	1	allAdjacentFoes	protect|mirror|metronome|wind					10	brn				100					0	0				0	0		130				0			0	0	10% chance to burn the foe(s).
+heavyslam	Heavy Slam	Steel	P	0	100	10	0	1	normal	contact|protect|mirror|nonsky|metronome|minimize					0					100					0	0				0	0		130				0			0	0	More power the heavier the user than the target.
+helpinghand	Helping Hand	Normal	N	0	0	20	5	1	adjacentAlly	bypasssub|noassist|failcopycat		helpinghand			0					100					0	0				0	0						0			0	0	One adjacent ally's move power is 1.5× this turn.
+hex	Hex	Ghost	S	65	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Power doubles if the target has a status ailment.
+hiddenpower	Hidden Power	Normal	S	60	100	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	Varies in type based on the user's IVs.
+hiddenpower	Hidden Power Bug	Bug	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Dark	Dark	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Dragon	Dragon	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Electric	Electric	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Fighting	Fighting	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		80				0			0	0	
+hiddenpower	Hidden Power Fire	Fire	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Flying	Flying	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Ghost	Ghost	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Grass	Grass	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Ground	Ground	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Ice	Ice	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Poison	Poison	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		80				0			0	0	
+hiddenpower	Hidden Power Psychic	Psychic	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Rock	Rock	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Steel	Steel	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+hiddenpower	Hidden Power Water	Water	S	60	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0		110				0			0	0	
+highhorsepower	High Horsepower	Ground	P	95	95	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+highjumpkick	High Jump Kick	Fighting	P	130	90	10	0	1	normal	contact|protect|mirror|gravity|metronome					0					100					0	0				0	0		95				0			0	0	User is hurt by 50% of its max HP if it misses.
+honeclaws	Hone Claws	Dark	N	0	0	15	0	1	self	snatch|metronome			atk:1/accuracy:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack and accuracy by 1.
+hornattack	Horn Attack	Normal	P	65	100	25	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	No additional effect.
+horndrill	Horn Drill	Normal	P	0	30	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	1				0	0		130				0			0	0	OHKOs the target. Fails if user is a lower level.
+hornleech	Horn Leech	Grass	P	75	100	10	0	1	normal	contact|protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		130				0			0	0	User recovers 50% of the damage dealt.
+howl	Howl	Normal	N	0	0	40	0	1	allies	snatch|sound|metronome				atk:1	0					100					0	0				0	0						0			0	0	Raises the user's and ally's Attack by 1.
+hurricane	Hurricane	Flying	S	110	70	10	0	1	any	protect|mirror|distance|metronome|wind					30		confusion			100					0	0				0	0		140				0			0	0	30% chance to confuse target. Can't miss in rain.
+hydrocannon	Hydro Cannon	Water	S	150	90	5	0	1	normal	recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+hydropump	Hydro Pump	Water	S	110	80	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	No additional effect.
+hydrosteam	Hydro Steam	Water	S	80	100	15	0	1	normal	protect|mirror|defrost|metronome					0					100					0	0				0	0		130				0			0	0	During Sun: 1.5× damage instead of half.
+hyperbeam	Hyper Beam	Normal	S	150	90	5	0	1	normal	recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+hyperdrill	Hyper Drill	Normal	P	100	100	5	0	1	normal	contact|mirror					0					100					0	0				0	0		130				0			0	0	Bypasses protection without breaking it.
+hyperfang	Hyper Fang	Normal	P	80	90	15	0	1	normal	contact|protect|mirror|metronome|bite					10		flinch			100					0	0				0	0		130				0			0	0	10% chance to make the target flinch.
+hyperspacefury	Hyperspace Fury	Dark	P	100	0	5	0	1	normal	mirror|bypasssub|nosketch					0				def:-1	100					0	0				0	0		130				1			0	0	Hoopa-U: Lowers user's Def by 1; breaks protect.
+hyperspacehole	Hyperspace Hole	Psychic	S	80	0	5	0	1	normal	mirror|bypasssub					0					100					0	0				0	0		130				1			0	0	Breaks the target's protection for this turn.
+hypervoice	Hyper Voice	Normal	S	90	100	10	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect. Hits adjacent foes.
+hypnosis	Hypnosis	Psychic	N	0	60	20	0	1	normal	protect|reflectable|mirror|metronome	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+iceball	Ice Ball	Ice	P	30	90	20	0	1	normal	contact|protect|mirror|metronome|failinstruct|bullet|noparentalbond					0					100					0	0				0	0		90				0			0	0	Power doubles with each hit. Repeats for 5 turns.
+icebeam	Ice Beam	Ice	S	90	100	10	0	1	normal	protect|mirror|metronome					10	frz				100					0	0				0	0		130				0			0	0	10% chance to freeze the target.
+iceburn	Ice Burn	Ice	S	140	90	5	0	1	normal	charge|protect|mirror|nosleeptalk|failinstruct					30	brn				100					0	0				0	0		140				0			0	0	Charges turn 1. Hits turn 2. 30% burn.
+icefang	Ice Fang	Ice	P	65	95	15	0	1	normal	contact|protect|mirror|metronome|bite					10	frz				100					0	0				0	0		120				0			0	0	10% chance to freeze. 10% chance to flinch.
+icehammer	Ice Hammer	Ice	P	100	90	10	0	1	normal	contact|protect|mirror|punch|metronome					0				spe:-1	100					0	0				0	0		130				0			0	0	Lowers the user's Speed by 1.
+icepunch	Ice Punch	Ice	P	75	100	15	0	1	normal	contact|protect|mirror|punch|metronome					10	frz				100					0	0				0	0		130				0			0	0	10% chance to freeze the target.
+iceshard	Ice Shard	Ice	P	40	100	30	1	1	normal	protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+icespinner	Ice Spinner	Ice	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Ends the effects of terrain.
+iciclecrash	Icicle Crash	Ice	P	85	90	10	0	1	normal	protect|mirror|metronome					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+iciclespear	Icicle Spear	Ice	P	25	100	30	0	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+icywind	Icy Wind	Ice	S	55	95	15	0	1	allAdjacentFoes	protect|mirror|metronome|wind					100			spe:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the foe(s) Speed by 1.
+imprison	Imprison	Psychic	N	0	0	10	0	1	self	snatch|bypasssub|metronome|mustpressure		imprison			0					100					0	0				0	0						0			0	0	No foe can use any move known by the user.
+incinerate	Incinerate	Fire	S	60	100	15	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	Destroys the foe(s) Berry/Gem.
+infernalparade	Infernal Parade	Ghost	S	60	100	15	0	1	normal	protect|mirror|metronome					30	brn				100					0	0				0	0		110				0			0	0	30% burn. 2× power if target is already statused.
+inferno	Inferno	Fire	S	100	50	5	0	1	normal	protect|mirror|metronome					100	brn				100					0	0				0	0		130				0			0	0	100% chance to burn the target.
+infestation	Infestation	Bug	S	20	100	20	0	1	normal	contact|protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+ingrain	Ingrain	Grass	N	0	0	20	0	1	self	snatch|nonsky|metronome		ingrain			0					100					0	0				0	0						0			0	0	Traps/grounds user; heals 1/16 max HP per turn.
+instruct	Instruct	Psychic	N	0	0	15	0	1	normal	protect|bypasssub|allyanim|failinstruct					0					100					0	0				0	0						0			0	0	The target immediately uses its last used move.
+iondeluge	Ion Deluge	Electric	N	0	0	25	1	1	all	metronome					0					100					0	0				0	0				iondeluge		0			0	0	Normal moves become Electric type this turn.
+irondefense	Iron Defense	Steel	N	0	0	15	0	1	self	snatch|metronome			def:2		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 2.
+ironhead	Iron Head	Steel	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+irontail	Iron Tail	Steel	P	100	75	15	0	1	normal	contact|protect|mirror|metronome					30			def:-1		100					0	0				0	0		130				0			0	0	30% chance to lower the target's Defense by 1.
+ivycudgel	Ivy Cudgel	Grass	P	100	100	10	0	2	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio. Type depends on user's form.
+jawlock	Jaw Lock	Dark	P	80	100	10	0	1	normal	contact|protect|mirror|metronome|bite					0					100					0	0				0	0		130				0			0	0	Prevents both user and target from switching out.
+jetpunch	Jet Punch	Water	P	60	100	15	1	1	normal	contact|protect|mirror|punch					0					100					0	0				0	0		110				0			0	0	Usually goes first.
+judgment	Judgment	Normal	S	100	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Type varies based on the held Plate.
+jumpkick	Jump Kick	Fighting	P	100	95	10	0	1	normal	contact|protect|mirror|gravity|metronome					0					100					0	0				0	0		90				0			0	0	User is hurt by 50% of its max HP if it misses.
+junglehealing	Jungle Healing	Grass	N	0	0	10	0	1	allies	heal|bypasssub|allyanim					0					100					0	0				0	0						0			0	0	User and allies: healed 1/4 max HP, status cured.
+karatechop	Karate Chop	Fighting	P	50	100	25	0	2	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		75				0			0	0	High critical hit ratio.
+kinesis	Kinesis	Psychic	N	0	80	15	0	1	normal	protect|reflectable|mirror|metronome				accuracy:-1	0					100					0	0				0	0						0			0	0	Lowers the target's accuracy by 1.
+kingsshield	King's Shield	Steel	N	0	0	10	4	1	self	noassist|failcopycat|failinstruct		kingsshield			0					100					0	0				0	0						0			0	0	Protects from damaging attacks. Contact: -1 Atk.
+knockoff	Knock Off	Dark	P	65	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	1.5× damage if foe holds an item. Removes item.
+kowtowcleave	Kowtow Cleave	Dark	P	85	0	10	0	1	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		130				0			0	0	This move does not check accuracy.
+landswrath	Land's Wrath	Ground	P	90	100	10	0	1	allAdjacentFoes	protect|mirror|nonsky|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect. Hits adjacent foes.
+laserfocus	Laser Focus	Normal	N	0	0	30	0	1	self	snatch|metronome		laserfocus			0					100					0	0				0	0						0			0	0	Until the end of the next turn, user's moves crit.
+lashout	Lash Out	Dark	P	75	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	2× power if the user had a stat lowered this turn.
+lastresort	Last Resort	Normal	P	140	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Fails unless each known move has been used.
+lastrespects	Last Respects	Ghost	P	50	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	+50 power for each time a party member fainted.
+lavaplume	Lava Plume	Fire	S	80	100	15	0	1	allAdjacent	protect|mirror|metronome					30	brn				100					0	0				0	0		130				0			0	0	30% chance to burn adjacent Pokemon.
+leafage	Leafage	Grass	P	40	100	40	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+leafblade	Leaf Blade	Grass	P	90	100	15	0	2	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+leafstorm	Leaf Storm	Grass	S	130	90	5	0	1	normal	protect|mirror|metronome					0				spa:-2	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 2.
+leaftornado	Leaf Tornado	Grass	S	65	90	10	0	1	normal	protect|mirror|metronome					50			accuracy:-1		100					0	0				0	0		120				0			0	0	50% chance to lower the target's accuracy by 1.
+leechlife	Leech Life	Bug	P	80	100	10	0	1	normal	contact|protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		130				0			0	0	User recovers 50% of the damage dealt.
+leechseed	Leech Seed	Grass	N	0	90	10	0	1	normal	protect|reflectable|mirror|metronome		leechseed			0					100					0	0				0	0						0			0	0	1/8 of target's HP is restored to user every turn.
+leer	Leer	Normal	N	0	100	30	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome				def:-1	0					100					0	0				0	0						0			0	0	Lowers the foe(s) Defense by 1.
+lick	Lick	Ghost	P	30	100	30	0	1	normal	contact|protect|mirror|metronome					30	par				100					0	0				0	0		90				0			0	0	30% chance to paralyze the target.
+lifedew	Life Dew	Water	N	0	0	10	0	1	allies	snatch|heal|bypasssub					0					100			1/4		0	0				0	0						0			0	0	Heals the user and its allies by 1/4 their max HP.
+lightofruin	Light of Ruin	Fairy	S	140	90	5	0	1	normal	protect|mirror					0					100		1/2			0	0				0	0		140				0			0	0	Has 1/2 recoil.
+lightscreen	Light Screen	Psychic	N	0	0	30	0	1	allySide	snatch|metronome					0					100					0	0			lightscreen	0	0						0			0	0	For 5 turns, special damage to allies is halved.
+liquidation	Liquidation	Water	P	85	100	10	0	1	normal	contact|protect|mirror|metronome					20			def:-1		100					0	0				0	0		130				0			0	0	20% chance to lower the target's Defense by 1.
+lockon	Lock-On	Normal	N	0	0	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0						0			0	0	User's next move will not miss the target.
+lovelykiss	Lovely Kiss	Normal	N	0	75	10	0	1	normal	protect|reflectable|mirror|metronome	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+lowkick	Low Kick	Fighting	P	0	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	More power the heavier the target.
+lowsweep	Low Sweep	Fighting	P	65	100	20	0	1	normal	contact|protect|mirror|metronome					100			spe:-1		100					0	0				0	0		85				0			0	0	100% chance to lower the target's Speed by 1.
+luckychant	Lucky Chant	Normal	N	0	0	30	0	1	allySide	snatch|metronome					0					100					0	0			luckychant	0	0						0			0	0	For 5 turns, shields user's party from critical hits.
+luminacrash	Lumina Crash	Psychic	S	80	100	10	0	1	normal	protect|mirror|metronome					100			spd:-2		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Sp. Def by 2.
+lunarblessing	Lunar Blessing	Psychic	N	0	0	5	0	1	allies	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	User and allies: healed 1/4 max HP, status cured.
+lunardance	Lunar Dance	Psychic	N	0	0	10	0	1	self	snatch|dance|heal|metronome					0					100					1	0				0	0					lunardance	0			0	0	User faints. Next hurt Pkmn is cured, max HP/PP.
+lunge	Lunge	Bug	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					100			atk:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Attack by 1.
+lusterpurge	Luster Purge	Psychic	S	95	100	5	0	1	normal	protect|mirror|metronome					50			spd:-1		100					0	0				0	0		130				0			0	0	50% chance to lower the target's Sp. Def by 1.
+machpunch	Mach Punch	Fighting	P	40	100	30	1	1	normal	contact|protect|mirror|punch|metronome					0					100					0	0				0	0		70				0			0	0	Usually goes first.
+magicalleaf	Magical Leaf	Grass	S	60	0	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+magiccoat	Magic Coat	Psychic	N	0	0	15	4	1	self	metronome		magiccoat			0					100					0	0				0	0						0			0	0	Bounces back certain non-damaging moves.
+magicpowder	Magic Powder	Psychic	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome|powder					0					100					0	0				0	0						0			0	0	Changes the target's type to Psychic.
+magicroom	Magic Room	Psychic	N	0	0	10	0	1	all	mirror|metronome					0					100					0	0				0	0				magicroom		0			0	0	For 5 turns, all held items have no effect.
+magmastorm	Magma Storm	Fire	S	100	75	5	0	1	normal	protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		130				0			0	0	Traps and damages the target for 4-5 turns.
+magnetbomb	Magnet Bomb	Steel	P	60	0	20	0	1	normal	protect|mirror|metronome|bullet					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+magneticflux	Magnetic Flux	Electric	N	0	0	20	0	1	allySide	snatch|distance|bypasssub|metronome					0					100					0	0				0	0						0			0	0	Raises Def, Sp. Def of allies with Plus/Minus by 1.
+magnetrise	Magnet Rise	Electric	N	0	0	10	0	1	self	snatch|gravity|metronome		magnetrise			0					100					0	0				0	0						0			0	0	For 5 turns, the user has immunity to Ground.
+magnitude	Magnitude	Ground	P	0	100	30	0	1	allAdjacent	protect|mirror|nonsky|metronome					0					100					0	0				0	0		140				0			0	0	Hits adjacent Pokemon. Power varies; 2× on Dig.
+makeitrain	Make It Rain	Steel	S	120	100	5	0	1	allAdjacentFoes	protect|mirror					0				spa:-1	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 1. Hits foe(s).
+malignantchain	Malignant Chain	Poison	S	100	100	5	0	1	normal	protect|mirror|metronome					50	tox				100					0	0				0	0		90				0			0	0	50% chance to badly poison the target.
+matblock	Mat Block	Fighting	N	0	0	10	0	1	allySide	snatch|nonsky|noassist|failcopycat					0					100					0	0			matblock	0	0						0			0	0	Protects allies from damaging attacks. Turn 1 only.
+matchagotcha	Matcha Gotcha	Grass	S	80	90	15	0	1	allAdjacentFoes	protect|mirror|defrost|heal|metronome					20	brn				100	1/2				0	0				0	0		130				0			0	0	20% burn. Recovers 50% dmg dealt. Thaws foe(s).
+maxairstream	Max Airstream	Flying	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Allies: +1 Speed.
+maxdarkness	Max Darkness	Dark	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Foes: -1 Sp. Def.
+maxflare	Max Flare	Fire	P	100	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Sun.
+maxflutterby	Max Flutterby	Bug	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Foes: -1 Sp. Atk.
+maxgeyser	Max Geyser	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Rain.
+maxguard	Max Guard	Normal	N	0	0	10	4	1	self			maxguard			0					100					0	0				0	0			Max			0			0	0	Protects user from moves & Max Moves this turn.
+maxhailstorm	Max Hailstorm	Ice	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Hail.
+maxknuckle	Max Knuckle	Fighting	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Allies: +1 Attack.
+maxlightning	Max Lightning	Electric	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Electric Terrain.
+maxmindstorm	Max Mindstorm	Psychic	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Psychic Terrain.
+maxooze	Max Ooze	Poison	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Allies: +1 Sp. Atk.
+maxovergrowth	Max Overgrowth	Grass	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Grassy Terrain.
+maxphantasm	Max Phantasm	Ghost	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Foes: -1 Defense.
+maxquake	Max Quake	Ground	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Allies: +1 Sp. Def.
+maxrockfall	Max Rockfall	Rock	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Sandstorm.
+maxstarfall	Max Starfall	Fairy	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Starts Misty Terrain.
+maxsteelspike	Max Steelspike	Steel	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Allies: +1 Defense.
+maxstrike	Max Strike	Normal	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Foes: -1 Speed.
+maxwyrmwind	Max Wyrmwind	Dragon	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0		1	Max			0			0	0	Base move affects power. Foes: -1 Attack.
+meanlook	Mean Look	Normal	N	0	0	5	0	1	normal	reflectable|mirror|metronome					0					100					0	0				0	0						0			0	0	Prevents the target from switching out.
+meditate	Meditate	Psychic	N	0	0	40	0	1	self	snatch|metronome			atk:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack by 1.
+mefirst	Me First	Normal	N	0	0	20	0	1	adjacentFoe	protect|bypasssub|failencore|failmefirst|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Copies a foe at 1.5× power. User must be faster.
+megadrain	Mega Drain	Grass	S	40	100	15	0	1	normal	protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		90				0			0	0	User recovers 50% of the damage dealt.
+megahorn	Megahorn	Bug	P	120	85	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	No additional effect.
+megakick	Mega Kick	Normal	P	120	75	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	No additional effect.
+megapunch	Mega Punch	Normal	P	80	85	20	0	1	normal	contact|protect|mirror|punch|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+memento	Memento	Dark	N	0	100	10	0	1	normal	protect|mirror|metronome				atk:-2/spa:-2	0					100					1	0				0	0						0			0	0	Lowers target's Attack, Sp. Atk by 2. User faints.
+metalburst	Metal Burst	Steel	P	0	100	10	0	1	scripted	protect|mirror|metronome|failmefirst					0					100					0	0				0	0		100				0			0	0	If hit by an attack, returns 1.5× damage.
+metalclaw	Metal Claw	Steel	P	50	95	35	0	1	normal	contact|protect|mirror|metronome					0				atk:1	10					0	0				0	0		100				0			0	0	10% chance to raise the user's Attack by 1.
+metalsound	Metal Sound	Steel	N	0	85	40	0	1	normal	protect|reflectable|mirror|sound|bypasssub|allyanim|metronome				spd:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Sp. Def by 2.
+meteorassault	Meteor Assault	Fighting	P	150	100	5	0	1	normal	recharge|protect|mirror|failinstruct		mustrecharge			0					100					0	0				0	0		100				0			0	0	User cannot move next turn.
+meteorbeam	Meteor Beam	Rock	S	120	90	10	0	1	normal	charge|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.
+meteormash	Meteor Mash	Steel	P	90	90	10	0	1	normal	contact|protect|mirror|punch|metronome					0				atk:1	20					0	0				0	0		130				0			0	0	20% chance to raise the user's Attack by 1.
+metronome	Metronome	Normal	N	0	0	10	0	1	self	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Picks a random move.
+mightycleave	Mighty Cleave	Rock	P	95	100	5	0	1	normal	contact|mirror|metronome|slicing					0					100					0	0				0	0		130				0			0	0	Bypasses protection without breaking it.
+milkdrink	Milk Drink	Normal	N	0	0	5	0	1	self	snatch|heal|metronome					0					100			1/2		0	0				0	0						0			0	0	Heals the user by 50% of its max HP.
+mimic	Mimic	Normal	N	0	0	10	0	1	normal	protect|bypasssub|allyanim|failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	The last move the target used replaces this one.
+mindblown	Mind Blown	Fire	S	150	100	5	0	1	allAdjacent	protect|mirror					0					100					0	0				0	0		150				0			0	0	User loses 50% max HP. Hits adjacent Pokemon.
+mindreader	Mind Reader	Normal	N	0	0	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0						0			0	0	User's next move will not miss the target.
+minimize	Minimize	Normal	N	0	0	10	0	1	self	snatch|metronome		minimize	evasion:2		0					100					0	0				0	0						0			0	0	Raises the user's evasiveness by 2.
+miracleeye	Miracle Eye	Psychic	N	0	0	40	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		miracleeye			0					100					0	0				0	0						0			0	0	Psychic hits Dark. Evasiveness ignored.
+mirrorcoat	Mirror Coat	Psychic	S	0	100	20	-5	1	scripted	protect|failmefirst|noassist					0					100					0	0				0	0		100				0			0	0	If hit by special attack, returns double damage.
+mirrormove	Mirror Move	Flying	N	0	0	20	0	1	normal	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	User uses the target's last used move against it.
+mirrorshot	Mirror Shot	Steel	S	65	85	10	0	1	normal	protect|mirror|metronome					30			accuracy:-1		100					0	0				0	0		120				0			0	0	30% chance to lower the target's accuracy by 1.
+mist	Mist	Ice	N	0	0	30	0	1	allySide	snatch|metronome					0					100					0	0			mist	0	0						0			0	0	For 5 turns, protects user's party from stat drops.
+mistball	Mist Ball	Psychic	S	95	100	5	0	1	normal	protect|mirror|metronome|bullet					50			spa:-1		100					0	0				0	0		130				0			0	0	50% chance to lower the target's Sp. Atk by 1.
+mistyexplosion	Misty Explosion	Fairy	S	100	100	5	0	1	allAdjacent	protect|mirror|metronome					0					100					1	0				0	0		130				0			0	0	User faints. User on Misty Terrain: 1.5× power.
+mistyterrain	Misty Terrain	Fairy	N	0	0	10	0	1	all	nonsky|metronome					0					100					0	0		mistyterrain		0	0						0			0	0	5 turns. Can't status,-Dragon power vs grounded.
+moonblast	Moonblast	Fairy	S	95	100	15	0	1	normal	protect|mirror|metronome					30			spa:-1		100					0	0				0	0		130				0			0	0	30% chance to lower the target's Sp. Atk by 1.
+moongeistbeam	Moongeist Beam	Ghost	S	100	100	5	0	1	normal	protect|mirror					0					100					0	0				0	0		130				0			0	0	Ignores the Abilities of other Pokemon.
+moonlight	Moonlight	Fairy	N	0	0	5	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	Heals the user by a weather-dependent amount.
+morningsun	Morning Sun	Normal	N	0	0	5	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	Heals the user by a weather-dependent amount.
+mortalspin	Mortal Spin	Poison	P	30	100	15	0	1	allAdjacentFoes	contact|protect|mirror|metronome					100	psn				100					0	0				0	0		70				0			0	0	Poisons foes, frees user from hazards/bind/leech.
+mountaingale	Mountain Gale	Ice	P	100	85	10	0	1	normal	protect|mirror|metronome					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+mudbomb	Mud Bomb	Ground	S	65	85	10	0	1	normal	protect|mirror|metronome|bullet					30			accuracy:-1		100					0	0				0	0		120				0			0	0	30% chance to lower the target's accuracy by 1.
+muddywater	Muddy Water	Water	S	90	85	10	0	1	allAdjacentFoes	protect|mirror|nonsky|metronome					30			accuracy:-1		100					0	0				0	0		130				0			0	0	30% chance to lower the foe(s) accuracy by 1.
+mudshot	Mud Shot	Ground	S	55	95	15	0	1	normal	protect|mirror|metronome					100			spe:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the target's Speed by 1.
+mudslap	Mud-Slap	Ground	S	20	100	10	0	1	normal	protect|mirror|metronome					100			accuracy:-1		100					0	0				0	0		90				0			0	0	100% chance to lower the target's accuracy by 1.
+mudsport	Mud Sport	Ground	N	0	0	15	0	1	all	nonsky|metronome					0					100					0	0				0	0				mudsport		0			0	0	For 5 turns, Electric-type attacks have 1/3 power.
+multiattack	Multi-Attack	Normal	P	120	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		95				0			0	0	Type varies based on the held Memory.
+mysticalfire	Mystical Fire	Fire	S	75	100	10	0	1	normal	protect|mirror|metronome					100			spa:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Sp. Atk by 1.
+mysticalpower	Mystical Power	Psychic	S	70	90	10	0	1	normal	protect|mirror|metronome					0				spa:1	100					0	0				0	0		120				0			0	0	100% chance to raise the user's Sp. Atk by 1.
+nastyplot	Nasty Plot	Dark	N	0	0	20	0	1	self	snatch|metronome			spa:2		0					100					0	0				0	0						0			0	0	Raises the user's Sp. Atk by 2.
+naturalgift	Natural Gift	Normal	P	0	100	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Power and type depends on the user's Berry.
+naturepower	Nature Power	Normal	N	0	0	20	0	1	normal	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Attack depends on terrain (default Tri Attack).
+naturesmadness	Nature's Madness	Fairy	S	0	90	10	0	1	normal	protect|mirror					0					100					0	0				0	0		100				0			0	0	Does damage equal to 1/2 target's current HP.
+needlearm	Needle Arm	Grass	P	60	100	15	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		110				0			0	0	30% chance to make the target flinch.
+nightdaze	Night Daze	Dark	S	85	95	10	0	1	normal	protect|mirror|metronome					40			accuracy:-1		100					0	0				0	0		130				0			0	0	40% chance to lower the target's accuracy by 1.
+nightmare	Nightmare	Ghost	N	0	100	15	0	1	normal	protect|mirror|metronome		nightmare			0					100					0	0				0	0						0			0	0	A sleeping target is hurt by 1/4 max HP per turn.
+nightshade	Night Shade	Ghost	S	0	100	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0	level	100				0			0	0	Does damage equal to the user's level.
+nightslash	Night Slash	Dark	P	70	100	15	0	2	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		120				0			0	0	High critical hit ratio.
+nihillight	Nihil Light	Dragon	S	100	100	10	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		130				0			1	0	
+nobleroar	Noble Roar	Normal	N	0	100	30	0	1	normal	protect|reflectable|mirror|sound|bypasssub|metronome				atk:-1/spa:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Attack and Sp. Atk by 1.
+noretreat	No Retreat	Fighting	N	0	0	5	0	1	self	snatch|metronome		noretreat	atk:1/def:1/spa:1/spd:1/spe:1		0					100					0	0				0	0						0			0	0	Raises all stats by 1 (not acc/eva). Traps user.
+nuzzle	Nuzzle	Electric	P	20	100	20	0	1	normal	contact|protect|mirror|metronome					100	par				100					0	0				0	0		90				0			0	0	100% chance to paralyze the target.
+oblivionwing	Oblivion Wing	Flying	S	80	100	10	0	1	any	protect|mirror|distance|heal|metronome					0					100	3/4				0	0				0	0		130				0			0	0	User recovers 75% of the damage dealt.
+obstruct	Obstruct	Dark	N	0	100	10	4	1	self	failinstruct		obstruct			0					100					0	0				0	0						0			0	0	Protects from damaging attacks. Contact: -2 Def.
+octazooka	Octazooka	Water	S	65	85	10	0	1	normal	protect|mirror|metronome|bullet					50			accuracy:-1		100					0	0				0	0		120				0			0	0	50% chance to lower the target's accuracy by 1.
+octolock	Octolock	Fighting	N	0	100	15	0	1	normal	protect|mirror|metronome		octolock			0					100					0	0				0	0						0			0	0	Traps target, lowers Def and SpD by 1 each turn.
+odorsleuth	Odor Sleuth	Normal	N	0	0	40	0	1	normal	protect|reflectable|mirror|bypasssub|allyanim|metronome		foresight			0					100					0	0				0	0						0			0	0	Fighting, Normal hit Ghost. Evasiveness ignored.
+ominouswind	Ominous Wind	Ghost	S	60	100	5	0	1	normal	protect|mirror|metronome					0				atk:1/def:1/spa:1/spd:1/spe:1	10					0	0				0	0		110				0			0	0	10% chance to raise all stats by 1 (not acc/eva).
+orderup	Order Up	Dragon	P	80	100	10	0	1	normal	protect					0					100					0	0				0	0		130				0			0	0	Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe.
+originpulse	Origin Pulse	Water	S	110	85	10	0	1	allAdjacentFoes	protect|mirror|pulse					0					100					0	0				0	0		140				0			0	0	No additional effect. Hits adjacent foes.
+outrage	Outrage	Dragon	P	120	100	10	0	1	randomNormal	contact|protect|mirror|metronome|failinstruct		lockedmove			0					100					0	0				0	0		140				0			0	0	Lasts 2-3 turns. Confuses the user afterwards.
+overdrive	Overdrive	Electric	S	80	100	10	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub					0					100					0	0				0	0		130				0			0	0	No additional effect. Hits foe(s).
+overheat	Overheat	Fire	S	130	90	5	0	1	normal	protect|mirror|metronome					0				spa:-2	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 2.
+painsplit	Pain Split	Normal	N	0	0	20	0	1	normal	protect|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	Shares HP of user and target equally.
+paraboliccharge	Parabolic Charge	Electric	S	65	100	20	0	1	allAdjacent	protect|mirror|heal|metronome					0					100	1/2				0	0				0	0		120				0			0	0	User recovers 50% of the damage dealt.
+partingshot	Parting Shot	Dark	N	0	100	20	0	1	normal	protect|reflectable|mirror|sound|bypasssub|metronome					0					100					0	0				0	1						0			0	0	Lowers target's Atk, Sp. Atk by 1. User switches.
+payback	Payback	Dark	P	50	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	Power doubles if the user moves after the target.
+payday	Pay Day	Normal	P	40	100	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Scatters coins.
+peck	Peck	Flying	P	35	100	35	0	1	any	contact|protect|mirror|distance|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+perishsong	Perish Song	Normal	N	0	0	5	0	1	all	sound|distance|bypasssub|metronome					0					100					0	0				0	0						0			0	0	All active Pokemon will faint in 3 turns.
+petalblizzard	Petal Blizzard	Grass	P	90	100	15	0	1	allAdjacent	protect|mirror|metronome|wind					0					100					0	0				0	0		130				0			0	0	No additional effect. Hits adjacent Pokemon.
+petaldance	Petal Dance	Grass	S	120	100	10	0	1	randomNormal	contact|protect|mirror|dance|metronome|failinstruct		lockedmove			0					100					0	0				0	0		140				0			0	0	Lasts 2-3 turns. Confuses the user afterwards.
+phantomforce	Phantom Force	Ghost	P	90	100	10	0	1	normal	contact|charge|mirror|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		130				1			0	0	Disappears turn 1. Hits turn 2. Breaks protection.
+photongeyser	Photon Geyser	Psychic	S	100	100	5	0	1	normal	protect|mirror					0					100					0	0				0	0		130				0			0	0	Physical if user's Atk > Sp. Atk. Ignores Abilities.
+pikapapow	Pika Papow	Electric	S	0	0	20	0	1	normal	protect|mirror					0					100					0	0				0	0		100				0			0	0	Max happiness: 102 power. Can't miss.
+pinmissile	Pin Missile	Bug	P	25	95	20	0	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+plasmafists	Plasma Fists	Electric	P	100	100	15	0	1	normal	contact|protect|mirror|punch					0					100					0	0				0	0		130		iondeluge		0			0	0	Normal moves become Electric type this turn.
+playnice	Play Nice	Normal	N	0	0	20	0	1	normal	reflectable|mirror|bypasssub|metronome				atk:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Attack by 1.
+playrough	Play Rough	Fairy	P	90	90	10	0	1	normal	contact|protect|mirror|metronome					10			atk:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Attack by 1.
+pluck	Pluck	Flying	P	60	100	20	0	1	any	contact|protect|mirror|distance|metronome					0					100					0	0				0	0		110				0			0	0	User steals and eats the target's Berry.
+poisonfang	Poison Fang	Poison	P	50	100	15	0	1	normal	contact|protect|mirror|metronome|bite					50	tox				100					0	0				0	0		75				0			0	0	50% chance to badly poison the target.
+poisongas	Poison Gas	Poison	N	0	90	40	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome	psn				0					100					0	0				0	0						0			0	0	Poisons the foe(s).
+poisonjab	Poison Jab	Poison	P	80	100	20	0	1	normal	contact|protect|mirror|metronome					30	psn				100					0	0				0	0		90				0			0	0	30% chance to poison the target.
+poisonpowder	Poison Powder	Poison	N	0	75	35	0	1	normal	protect|reflectable|mirror|metronome|powder	psn				0					100					0	0				0	0						0			0	0	Poisons the target.
+poisonsting	Poison Sting	Poison	P	15	100	35	0	1	normal	protect|mirror|metronome					30	psn				100					0	0				0	0		70				0			0	0	30% chance to poison the target.
+poisontail	Poison Tail	Poison	P	50	100	25	0	2	normal	contact|protect|mirror|metronome					10	psn				100					0	0				0	0		75				0			0	0	High critical hit ratio. 10% chance to poison.
+pollenpuff	Pollen Puff	Bug	S	90	100	15	0	1	normal	protect|mirror|allyanim|metronome|bullet					0					100					0	0				0	0		130				0			0	0	If the target is an ally, heals 50% of its max HP.
+poltergeist	Poltergeist	Ghost	P	110	90	5	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Fails if the target has no held item.
+populationbomb	Population Bomb	Normal	P	20	90	10	0	1	normal	contact|protect|mirror|slicing					0					100				10-10	0	0				0	0		90				0			0	0	Hits 10 times. Each hit can miss.
+pounce	Pounce	Bug	P	50	100	20	0	1	normal	contact|protect|mirror					100			spe:-1		100					0	0				0	0		100				0			0	0	100% chance to lower the target's Speed by 1.
+pound	Pound	Normal	P	40	100	35	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+powder	Powder	Bug	N	0	100	20	1	1	normal	protect|reflectable|mirror|bypasssub|metronome|powder		powder			0					100					0	0				0	0						0			0	0	If using a Fire move, target loses 1/4 max HP.
+powdersnow	Powder Snow	Ice	S	40	100	25	0	1	allAdjacentFoes	protect|mirror|metronome					10	frz				100					0	0				0	0		90				0			0	0	10% chance to freeze the foe(s).
+powergem	Power Gem	Rock	S	80	100	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+powersplit	Power Split	Psychic	N	0	0	10	0	1	normal	protect|allyanim|metronome					0					100					0	0				0	0						0			0	0	Averages Attack and Sp. Atk stats with target.
+powerswap	Power Swap	Psychic	N	0	0	10	0	1	normal	protect|mirror|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	Swaps Attack and Sp. Atk stat stages with target.
+powertrick	Power Trick	Psychic	N	0	0	10	0	1	self	snatch|metronome		powertrick			0					100					0	0				0	0						0			0	0	Switches user's Attack and Defense stats.
+powertrip	Power Trip	Dark	P	20	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	+ 20 power for each of the user's stat boosts.
+poweruppunch	Power-Up Punch	Fighting	P	40	100	20	0	1	normal	contact|protect|mirror|punch|metronome					0				atk:1	100					0	0				0	0		70				0			0	0	100% chance to raise the user's Attack by 1.
+powerwhip	Power Whip	Grass	P	120	85	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	No additional effect.
+precipiceblades	Precipice Blades	Ground	P	120	85	10	0	1	allAdjacentFoes	protect|mirror|nonsky					0					100					0	0				0	0		140				0			0	0	No additional effect. Hits adjacent foes.
+present	Present	Normal	P	0	90	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	40, 80, 120 power, or heals target 1/4 max HP.
+prismaticlaser	Prismatic Laser	Psychic	S	160	100	10	0	1	normal	recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+protect	Protect	Normal	N	0	0	10	4	1	self	noassist|failcopycat		protect			0					100					0	0				0	0						0			0	0	Prevents moves from affecting the user this turn.
+psybeam	Psybeam	Psychic	S	65	100	20	0	1	normal	protect|mirror|metronome					10		confusion			100					0	0				0	0		120				0			0	0	10% chance to confuse the target.
+psyblade	Psyblade	Psychic	P	80	100	15	0	1	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		130				0			0	0	During Electric Terrain: 1.5× power.
+psychic	Psychic	Psychic	S	90	100	10	0	1	normal	protect|mirror|metronome					10			spd:-1		100					0	0				0	0		130				0			0	0	10% chance to lower the target's Sp. Def by 1.
+psychicfangs	Psychic Fangs	Psychic	P	85	100	10	0	1	normal	contact|protect|mirror|metronome|bite					0					100					0	0				0	0		130				0			0	0	Destroys screens, unless the target is immune.
+psychicnoise	Psychic Noise	Psychic	S	75	100	10	0	1	normal	protect|mirror|sound|bypasssub|metronome					100		healblock			100					0	0				0	0		130				0			0	0	For 2 turns, the target is prevented from healing.
+psychicterrain	Psychic Terrain	Psychic	N	0	0	10	0	1	all	nonsky|metronome					0					100					0	0		psychicterrain		0	0						0			0	0	5 turns. Grounded: +Psychic power, priority-safe.
+psychoboost	Psycho Boost	Psychic	S	140	90	5	0	1	normal	protect|mirror|metronome					0				spa:-2	100					0	0				0	0		140				0			0	0	Lowers the user's Sp. Atk by 2.
+psychocut	Psycho Cut	Psychic	P	70	100	20	0	2	normal	protect|mirror|metronome|slicing					0					100					0	0				0	0		120				0			0	0	High critical hit ratio.
+psychoshift	Psycho Shift	Psychic	N	0	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0						0			0	0	Transfers the user's status ailment to the target.
+psychup	Psych Up	Normal	N	0	0	10	0	1	normal	bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	Copies the target's current stat stages.
+psyshieldbash	Psyshield Bash	Psychic	P	70	90	10	0	1	normal	contact|protect|mirror|metronome					0				def:1	100					0	0				0	0		120				0			0	0	100% chance to raise the user's Defense by 1.
+psyshock	Psyshock	Psychic	S	80	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Damages target based on Defense, not Sp. Def.
+psystrike	Psystrike	Psychic	S	100	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Damages target based on Defense, not Sp. Def.
+psywave	Psywave	Psychic	S	0	100	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	Random damage equal to 0.5×-1.5× user's level.
+punishment	Punishment	Dark	P	0	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	60 power +20 for each of the target's stat boosts.
+purify	Purify	Poison	N	0	0	20	0	1	normal	protect|reflectable|heal|metronome					0					100					0	0				0	0						0			0	0	Cures target's status; heals user 1/2 max HP if so.
+pursuit	Pursuit	Dark	P	40	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	If a foe is switching out, hits it at 2× power.
+pyroball	Pyro Ball	Fire	P	120	90	5	0	1	normal	protect|mirror|defrost|bullet					10	brn				100					0	0				0	0		140				0			0	0	10% chance to burn the target. Thaws user.
+quash	Quash	Dark	N	0	100	15	0	1	normal	protect|mirror					0					100					0	0				0	0						0			0	0	Forces the target to move last this turn.
+quickattack	Quick Attack	Normal	P	40	100	30	1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+quickguard	Quick Guard	Fighting	N	0	0	15	3	1	allySide	snatch					0					100					0	0			quickguard	0	0						0			0	0	Protects allies from priority attacks this turn.
+quiverdance	Quiver Dance	Bug	N	0	0	20	0	1	self	snatch|dance|metronome			spa:1/spd:1/spe:1		0					100					0	0				0	0						0			0	0	Raises the user's Sp. Atk, Sp. Def, Speed by 1.
+rage	Rage	Normal	P	20	100	20	0	1	normal	contact|protect|mirror|metronome		rage			0					100					0	0				0	0		90				0			0	0	Raises the user's Attack by 1 if hit during use.
+ragefist	Rage Fist	Ghost	P	50	100	10	0	1	normal	contact|protect|mirror|punch					0					100					0	0				0	0		100				0			0	0	+50 power for each time user was hit. Max 6 hits.
+ragepowder	Rage Powder	Bug	N	0	0	20	2	1	self	noassist|failcopycat|powder		ragepowder			0					100					0	0				0	0						0			0	0	The foes' moves target the user on the turn used.
+ragingbull	Raging Bull	Normal	P	90	100	10	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		130				0			0	0	Destroys screens. Type depends on user's form.
+ragingfury	Raging Fury	Fire	P	120	100	10	0	1	randomNormal	protect|mirror		lockedmove			0					100					0	0				0	0		140				0			0	0	Lasts 2-3 turns. Confuses the user afterwards.
+raindance	Rain Dance	Water	N	0	0	5	0	1	all	metronome					0					100					0	0	RainDance			0	0						0			0	0	For 5 turns, heavy rain powers Water moves.
+rapidspin	Rapid Spin	Normal	P	50	100	40	0	1	normal	contact|protect|mirror|metronome					0				spe:1	100					0	0				0	0		100				0			0	0	Free user from hazards/bind/Leech Seed; +1 Spe.
+razorleaf	Razor Leaf	Grass	P	55	95	25	0	2	allAdjacentFoes	protect|mirror|metronome|slicing					0					100					0	0				0	0		110				0			0	0	High critical hit ratio. Hits adjacent foes.
+razorshell	Razor Shell	Water	P	75	95	10	0	1	normal	contact|protect|mirror|metronome|slicing					50			def:-1		100					0	0				0	0		130				0			0	0	50% chance to lower the target's Defense by 1.
+razorwind	Razor Wind	Normal	S	80	100	10	0	2	allAdjacentFoes	charge|protect|mirror|metronome|nosleeptalk|failinstruct					0					100					0	0				0	0		130				0			0	0	Charges, then hits foe(s) turn 2. High crit ratio.
+recover	Recover	Normal	N	0	0	5	0	1	self	snatch|heal|metronome					0					100			1/2		0	0				0	0						0			0	0	Heals the user by 50% of its max HP.
+recycle	Recycle	Normal	N	0	0	10	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	Restores the item the user last used.
+reflect	Reflect	Psychic	N	0	0	20	0	1	allySide	snatch|metronome					0					100					0	0			reflect	0	0						0			0	0	For 5 turns, physical damage to allies is halved.
+reflecttype	Reflect Type	Normal	N	0	0	15	0	1	normal	protect|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	User becomes the same type as the target.
+refresh	Refresh	Normal	N	0	0	20	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	User cures its burn, poison, or paralysis.
+relicsong	Relic Song	Normal	S	75	100	10	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub					10	slp				100					0	0				0	0		130				0			0	0	10% chance to sleep foe(s). Meloetta transforms.
+rest	Rest	Psychic	N	0	0	5	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	User sleeps 2 turns and restores HP and status.
+retaliate	Retaliate	Normal	P	70	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Power doubles if an ally fainted last turn.
+return	Return	Normal	P	0	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Max 102 power at maximum Happiness.
+revelationdance	Revelation Dance	Normal	S	90	100	15	0	1	normal	protect|mirror|dance|metronome					0					100					0	0				0	0		130				0			0	0	Type varies based on the user's primary type.
+revenge	Revenge	Fighting	P	60	100	10	-4	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		80				0			0	0	Power doubles if user is damaged by the target.
+reversal	Reversal	Fighting	P	0	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	More power the less HP the user has left.
+revivalblessing	Revival Blessing	Normal	N	0	0	1	0	1	self	heal|nosketch					0					100					0	0				0	1					revivalblessing	0			0	0	Revives a fainted Pokemon to 50% HP.
+risingvoltage	Rising Voltage	Electric	S	70	100	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	2× power if target is grounded in Electric Terrain.
+roar	Roar	Normal	N	0	0	20	-6	1	normal	reflectable|mirror|sound|bypasssub|allyanim|metronome|noassist|failcopycat					0					100					0	0				1	0						0			0	0	Forces the target to switch to a random ally.
+roaroftime	Roar of Time	Dragon	S	150	90	5	0	1	normal	recharge|protect|mirror|metronome		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+rockblast	Rock Blast	Rock	P	25	90	10	0	1	normal	protect|mirror|metronome|bullet					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+rockclimb	Rock Climb	Normal	P	90	85	20	0	1	normal	contact|protect|mirror|metronome					20		confusion			100					0	0				0	0		130				0			0	0	20% chance to confuse the target.
+rockpolish	Rock Polish	Rock	N	0	0	20	0	1	self	snatch|metronome			spe:2		0					100					0	0				0	0						0			0	0	Raises the user's Speed by 2.
+rockslide	Rock Slide	Rock	P	75	90	10	0	1	allAdjacentFoes	protect|mirror|metronome					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the foe(s) flinch.
+rocksmash	Rock Smash	Fighting	P	40	100	15	0	1	normal	contact|protect|mirror|metronome					50			def:-1		100					0	0				0	0		70				0			0	0	50% chance to lower the target's Defense by 1.
+rockthrow	Rock Throw	Rock	P	50	90	15	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	No additional effect.
+rocktomb	Rock Tomb	Rock	P	60	95	15	0	1	normal	protect|mirror|metronome					100			spe:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the target's Speed by 1.
+rockwrecker	Rock Wrecker	Rock	P	150	90	5	0	1	normal	recharge|protect|mirror|metronome|bullet		mustrecharge			0					100					0	0				0	0		150				0			0	0	User cannot move next turn.
+roleplay	Role Play	Psychic	N	0	0	10	0	1	normal	bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	User replaces its Ability with the target's.
+rollingkick	Rolling Kick	Fighting	P	60	85	15	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		80				0			0	0	30% chance to make the target flinch.
+rollout	Rollout	Rock	P	30	90	20	0	1	normal	contact|protect|mirror|metronome|failinstruct|noparentalbond					0					100					0	0				0	0		90				0			0	0	Power doubles with each hit. Repeats for 5 turns.
+roost	Roost	Flying	N	0	0	5	0	1	self	snatch|heal|metronome		roost			0					100			1/2		0	0				0	0						0			0	0	Heals 50% HP. Flying-type removed 'til turn ends.
+rototiller	Rototiller	Ground	N	0	0	10	0	1	all	distance|nonsky|metronome					0					100					0	0				0	0						0			0	0	Raises Atk/Sp. Atk of grounded Grass types by 1.
+round	Round	Normal	S	60	100	15	0	1	normal	protect|mirror|sound|bypasssub|metronome					0					100					0	0				0	0		110				0			0	0	Power doubles if others used Round this turn.
+ruination	Ruination	Dark	S	0	90	10	0	1	normal	protect|mirror					0					100					0	0				0	0		100				0			0	0	Does damage equal to 1/2 target's current HP.
+sacredfire	Sacred Fire	Fire	P	100	95	5	0	1	normal	protect|mirror|defrost|metronome					50	brn				100					0	0				0	0		130				0			0	0	50% chance to burn the target. Thaws user.
+sacredsword	Sacred Sword	Fighting	P	90	100	15	0	1	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		90				0			1	0	Ignores the target's stat stage changes.
+safeguard	Safeguard	Normal	N	0	0	25	0	1	allySide	snatch|metronome					0					100					0	0			safeguard	0	0						0			0	0	For 5 turns, protects user's party from status.
+saltcure	Salt Cure	Rock	P	40	100	15	0	1	normal	protect|mirror					100		saltcure			100					0	0				0	0		90				0			0	0	Deals 1/8 max HP each turn; 1/4 on Steel, Water.
+sandattack	Sand Attack	Ground	N	0	100	15	0	1	normal	protect|reflectable|mirror|metronome				accuracy:-1	0					100					0	0				0	0						0			0	0	Lowers the target's accuracy by 1.
+sandsearstorm	Sandsear Storm	Ground	S	100	80	10	0	1	allAdjacentFoes	protect|mirror|metronome|wind					20	brn				100					0	0				0	0		130				0			0	0	20% chance to burn foe(s). Can't miss in rain.
+sandstorm	Sandstorm	Rock	N	0	0	10	0	1	all	metronome|wind					0					100					0	0	Sandstorm			0	0						0			0	0	For 5 turns, a sandstorm rages. Rock: 1.5× SpD.
+sandtomb	Sand Tomb	Ground	P	35	85	15	0	1	normal	protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+sappyseed	Sappy Seed	Grass	P	100	90	10	0	1	normal	protect|reflectable|mirror					0					100					0	0				0	0		130				0			0	0	Summons Leech Seed.
+scald	Scald	Water	S	80	100	15	0	1	normal	protect|mirror|defrost|metronome					30	brn				100					0	0				0	0		130				0			0	0	30% chance to burn the target. Thaws target.
+scaleshot	Scale Shot	Dragon	P	25	90	20	0	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times. User: -1 Def, +1 Spe after last hit.
+scaryface	Scary Face	Normal	N	0	100	10	0	1	normal	protect|reflectable|mirror|allyanim|metronome				spe:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Speed by 2.
+scorchingsands	Scorching Sands	Ground	S	70	100	10	0	1	normal	protect|mirror|defrost|metronome					30	brn				100					0	0				0	0		120				0			0	0	30% chance to burn the target. Thaws target.
+scratch	Scratch	Normal	P	40	100	35	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+screech	Screech	Normal	N	0	85	40	0	1	normal	protect|reflectable|mirror|sound|bypasssub|allyanim|metronome				def:-2	0					100					0	0				0	0						0			0	0	Lowers the target's Defense by 2.
+searingshot	Searing Shot	Fire	S	100	100	5	0	1	allAdjacent	protect|mirror|metronome|bullet					30	brn				100					0	0				0	0		130				0			0	0	30% chance to burn adjacent Pokemon.
+secretpower	Secret Power	Normal	P	70	100	20	0	1	normal	protect|mirror|metronome					30	par				100					0	0				0	0		120				0			0	0	Effect varies with terrain. (30% paralysis chance)
+secretsword	Secret Sword	Fighting	S	85	100	10	0	1	normal	protect|mirror|slicing					0					100					0	0				0	0		90				0			0	0	Damages target based on Defense, not Sp. Def.
+seedbomb	Seed Bomb	Grass	P	80	100	15	0	1	normal	protect|mirror|metronome|bullet					0					100					0	0				0	0		130				0			0	0	No additional effect.
+seedflare	Seed Flare	Grass	S	120	85	5	0	1	normal	protect|mirror|metronome					40			spd:-2		100					0	0				0	0		140				0			0	0	40% chance to lower the target's Sp. Def by 2.
+seismictoss	Seismic Toss	Fighting	P	0	100	20	0	1	normal	contact|protect|mirror|nonsky|metronome					0					100					0	0				0	0	level	75				0			0	0	Does damage equal to the user's level.
+selfdestruct	Self-Destruct	Normal	P	200	100	5	0	1	allAdjacent	protect|mirror|metronome|noparentalbond					0					100					1	0				0	0		150				0			0	0	Hits adjacent Pokemon. The user faints.
+shadowball	Shadow Ball	Ghost	S	80	100	15	0	1	normal	protect|mirror|metronome|bullet					20			spd:-1		100					0	0				0	0		130				0			0	0	20% chance to lower the target's Sp. Def by 1.
+shadowbone	Shadow Bone	Ghost	P	85	100	10	0	1	normal	protect|mirror|metronome					20			def:-1		100					0	0				0	0		130				0			0	0	20% chance to lower the target's Defense by 1.
+shadowclaw	Shadow Claw	Ghost	P	70	100	15	0	2	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	High critical hit ratio.
+shadowforce	Shadow Force	Ghost	P	120	100	5	0	1	normal	contact|charge|mirror|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		140				1			0	0	Disappears turn 1. Hits turn 2. Breaks protection.
+shadowpunch	Shadow Punch	Ghost	P	60	0	20	0	1	normal	contact|protect|mirror|punch|metronome					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+shadowsneak	Shadow Sneak	Ghost	P	40	100	30	1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	Usually goes first.
+sharpen	Sharpen	Normal	N	0	0	30	0	1	self	snatch|metronome			atk:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack by 1.
+shedtail	Shed Tail	Normal	N	0	0	10	0	1	self			substitute			0					100					0	0				0	1						0			0	0	User takes 1/2 its max HP to pass a substitute.
+sheercold	Sheer Cold	Ice	S	0	30	5	0	1	normal	protect|mirror|metronome					0					100					0	1				0	0		130				0			0	0	OHKOs non-Ice targets. Fails if user's lower level.
+shellsidearm	Shell Side Arm	Poison	S	90	100	10	0	1	normal	protect|mirror|metronome					20	psn				100					0	0				0	0		90				0			0	0	20% psn. Physical+contact if it would be stronger.
+shellsmash	Shell Smash	Normal	N	0	0	15	0	1	self	snatch|metronome			def:-1/spd:-1/atk:2/spa:2/spe:2		0					100					0	0				0	0						0			0	0	Lowers Def, SpD by 1; raises Atk, SpA, Spe by 2.
+shelltrap	Shell Trap	Fire	S	150	100	5	-3	1	allAdjacentFoes	protect|failmefirst|nosleeptalk|noassist|failcopycat|failinstruct					0					100					0	0				0	0		150				0			0	0	User must take physical damage before moving.
+shelter	Shelter	Steel	N	0	0	10	0	1	self	snatch|metronome			def:2		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 2.
+shiftgear	Shift Gear	Steel	N	0	0	10	0	1	self	snatch|metronome			spe:2/atk:1		0					100					0	0				0	0						0			0	0	Raises the user's Speed by 2 and Attack by 1.
+shockwave	Shock Wave	Electric	S	60	0	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy.
+shoreup	Shore Up	Ground	N	0	0	5	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	User restores 1/2 its max HP; 2/3 in Sandstorm.
+signalbeam	Signal Beam	Bug	S	75	100	15	0	1	normal	protect|mirror|metronome					10		confusion			100					0	0				0	0		130				0			0	0	10% chance to confuse the target.
+silktrap	Silk Trap	Bug	N	0	0	10	4	1	self			silktrap			0					100					0	0				0	0						0			0	0	Protects from damaging attacks. Contact: -1 Spe.
+silverwind	Silver Wind	Bug	S	60	100	5	0	1	normal	protect|mirror|metronome					0				atk:1/def:1/spa:1/spd:1/spe:1	10					0	0				0	0		110				0			0	0	10% chance to raise all stats by 1 (not acc/eva).
+simplebeam	Simple Beam	Normal	N	0	100	15	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	The target's Ability becomes Simple.
+sing	Sing	Normal	N	0	55	15	0	1	normal	protect|reflectable|mirror|sound|bypasssub|metronome	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+sizzlyslide	Sizzly Slide	Fire	P	60	100	20	0	1	normal	contact|protect|mirror|defrost					100	brn				100					0	0				0	0		110				0			0	0	100% chance to burn the foe.
+sketch	Sketch	Normal	N	0	0	1	0	1	normal	bypasssub|allyanim|failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct|nosketch					0					100					0	0				0	0						0			0	0	Permanently copies the last move target used.
+skillswap	Skill Swap	Psychic	N	0	0	10	0	1	normal	protect|mirror|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	The user and the target trade Abilities.
+skittersmack	Skitter Smack	Bug	P	70	90	10	0	1	normal	contact|protect|mirror|metronome					100			spa:-1		100					0	0				0	0		120				0			0	0	100% chance to lower target's Sp. Atk by 1.
+skullbash	Skull Bash	Normal	P	130	100	10	0	1	normal	contact|charge|protect|mirror|metronome|nosleeptalk|failinstruct					0					100					0	0				0	0		140				0			0	0	Raises user's Defense by 1 on turn 1. Hits turn 2.
+skyattack	Sky Attack	Flying	P	140	90	5	0	2	any	charge|protect|mirror|distance|metronome|nosleeptalk|failinstruct					30		flinch			100					0	0				0	0		140				0			0	0	Charges, then hits turn 2. 30% flinch. High crit.
+skydrop	Sky Drop	Flying	P	60	100	10	0	1	any	contact|charge|protect|mirror|gravity|distance|metronome|nosleeptalk|noassist|failinstruct					0					100					0	0				0	0		110				0			0	0	User and foe fly up turn 1. Damages on turn 2.
+skyuppercut	Sky Uppercut	Fighting	P	85	90	15	0	1	normal	contact|protect|mirror|punch|metronome					0					100					0	0				0	0		90				0			0	0	Can hit Pokemon using Bounce, Fly, or Sky Drop.
+slackoff	Slack Off	Normal	N	0	0	5	0	1	self	snatch|heal|metronome					0					100			1/2		0	0				0	0						0			0	0	Heals the user by 50% of its max HP.
+slam	Slam	Normal	P	80	75	20	0	1	normal	contact|protect|mirror|nonsky|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+slash	Slash	Normal	P	70	100	20	0	2	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		120				0			0	0	High critical hit ratio.
+sleeppowder	Sleep Powder	Grass	N	0	75	15	0	1	normal	protect|reflectable|mirror|metronome|powder	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+sleeptalk	Sleep Talk	Normal	N	0	0	10	0	1	self	failencore|nosleeptalk|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	User must be asleep. Uses another known move.
+sludge	Sludge	Poison	S	65	100	20	0	1	normal	protect|mirror|metronome					30	psn				100					0	0				0	0		85				0			0	0	30% chance to poison the target.
+sludgebomb	Sludge Bomb	Poison	S	90	100	10	0	1	normal	protect|mirror|metronome|bullet					30	psn				100					0	0				0	0		90				0			0	0	30% chance to poison the target.
+sludgewave	Sludge Wave	Poison	S	95	100	10	0	1	allAdjacent	protect|mirror|metronome					10	psn				100					0	0				0	0		90				0			0	0	10% chance to poison adjacent Pokemon.
+smackdown	Smack Down	Rock	P	50	100	15	0	1	normal	protect|mirror|nonsky|metronome		smackdown			0					100					0	0				0	0		100				0			0	0	Removes the target's Ground immunity.
+smartstrike	Smart Strike	Steel	P	70	0	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	This move does not check accuracy.
+smellingsalts	Smelling Salts	Normal	P	70	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Power doubles if target is paralyzed, and cures it.
+smog	Smog	Poison	S	30	70	20	0	1	normal	protect|mirror|metronome					40	psn				100					0	0				0	0		70				0			0	0	40% chance to poison the target.
+smokescreen	Smokescreen	Normal	N	0	100	20	0	1	normal	protect|reflectable|mirror|metronome				accuracy:-1	0					100					0	0				0	0						0			0	0	Lowers the target's accuracy by 1.
+snaptrap	Snap Trap	Grass	P	35	100	15	0	1	normal	contact|protect|mirror		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+snarl	Snarl	Dark	S	55	95	15	0	1	allAdjacentFoes	protect|mirror|sound|bypasssub					100			spa:-1		100					0	0				0	0		110				0			0	0	100% chance to lower the foe(s) Sp. Atk by 1.
+snatch	Snatch	Dark	N	0	0	10	4	1	self	bypasssub|mustpressure|noassist|failcopycat		snatch			0					100					0	0				0	0						0			0	0	User steals certain support moves to use itself.
+snipeshot	Snipe Shot	Water	S	80	100	15	0	2	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio. Cannot be redirected.
+snore	Snore	Normal	S	50	100	15	0	1	normal	protect|mirror|sound|bypasssub					30		flinch			100					0	0				0	0		100				0			0	0	User must be asleep. 30% chance to flinch target.
+snowscape	Snowscape	Ice	N	0	0	10	0	1	all						0					100					0	0	snowscape			0	0						0			0	0	For 5 turns, snow falls. Ice: 1.5× Def.
+soak	Soak	Water	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	Changes the target's type to Water.
+softboiled	Soft-Boiled	Normal	N	0	0	5	0	1	self	snatch|heal|metronome					0					100			1/2		0	0				0	0						0			0	0	Heals the user by 50% of its max HP.
+solarbeam	Solar Beam	Grass	S	120	100	10	0	1	normal	charge|protect|mirror|metronome|nosleeptalk|failinstruct					0					100					0	0				0	0		140				0			0	0	Charges turn 1. Hits turn 2. No charge in sunlight.
+solarblade	Solar Blade	Grass	P	125	100	10	0	1	normal	contact|charge|protect|mirror|metronome|nosleeptalk|failinstruct|slicing					0					100					0	0				0	0		140				0			0	0	Charges turn 1. Hits turn 2. No charge in sunlight.
+sonicboom	Sonic Boom	Normal	S	0	90	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0	20	100				0			0	0	Always does 20 HP of damage.
+spacialrend	Spacial Rend	Dragon	S	100	95	5	0	2	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+spark	Spark	Electric	P	65	100	20	0	1	normal	contact|protect|mirror|metronome					30	par				100					0	0				0	0		120				0			0	0	30% chance to paralyze the target.
+sparklingaria	Sparkling Aria	Water	S	90	100	10	0	1	allAdjacent	protect|mirror|sound|bypasssub|metronome					100		sparklingaria			100					0	0				0	0		130				0			0	0	The target is cured of its burn.
+sparklyswirl	Sparkly Swirl	Fairy	S	120	85	5	0	1	normal	protect|mirror					0					100					0	0				0	0		140				0			0	0	Cures the user's party of all status conditions.
+spectralthief	Spectral Thief	Ghost	P	90	100	10	0	1	normal	contact|protect|mirror|bypasssub					0					100					0	0				0	0		130				0			0	0	Steals target's boosts before dealing damage.
+speedswap	Speed Swap	Psychic	N	0	0	10	0	1	normal	protect|mirror|bypasssub|allyanim|metronome					0					100					0	0				0	0						0			0	0	Swaps Speed stat with target.
+spicyextract	Spicy Extract	Grass	N	0	0	15	0	1	normal	protect|reflectable|mirror				atk:2/def:-2	0					100					0	0				0	0						0			0	0	Raises target's Atk by 2 and lowers its Def by 2.
+spiderweb	Spider Web	Bug	N	0	0	10	0	1	normal	protect|reflectable|mirror|metronome					0					100					0	0				0	0						0			0	0	Prevents the target from switching out.
+spikecannon	Spike Cannon	Normal	P	20	100	15	0	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		120				0			0	0	Hits 2-5 times in one turn.
+spikes	Spikes	Ground	N	0	0	20	0	1	foeSide	reflectable|nonsky|metronome|mustpressure					0					100					0	0			spikes	0	0						0			0	0	Hurts grounded foes on switch-in. Max 3 layers.
+spikyshield	Spiky Shield	Grass	N	0	0	10	4	1	self	noassist|failcopycat		spikyshield			0					100					0	0				0	0						0			0	0	Protects from moves. Contact: loses 1/8 max HP.
+spinout	Spin Out	Steel	P	100	100	5	0	1	normal	contact|protect|mirror|metronome					0				spe:-2	100					0	0				0	0		130				0			0	0	Lowers the user's Speed by 2.
+spiritbreak	Spirit Break	Fairy	P	75	100	15	0	1	normal	contact|protect|mirror					100			spa:-1		100					0	0				0	0		130				0			0	0	100% chance to lower the target's Sp. Atk by 1.
+spiritshackle	Spirit Shackle	Ghost	P	80	100	10	0	1	normal	protect|mirror|metronome					100					100					0	0				0	0		130				0			0	0	Prevents the target from switching out.
+spite	Spite	Ghost	N	0	100	10	0	1	normal	protect|reflectable|mirror|bypasssub|metronome					0					100					0	0				0	0						0			0	0	Lowers the PP of the target's last move by 4.
+spitup	Spit Up	Normal	S	0	100	10	0	1	normal	protect|metronome					0					100					0	0				0	0		100				0			0	0	More power with more uses of Stockpile.
+splash	Splash	Normal	N	0	0	40	0	1	self	gravity|metronome					0					100					0	0				0	0						0			0	0	No competitive use.
+splishysplash	Splishy Splash	Water	S	90	100	15	0	1	allAdjacentFoes	protect|mirror					30	par				100					0	0				0	0		130				0			0	0	30% chance to paralyze the target.
+spore	Spore	Grass	N	0	100	15	0	1	normal	protect|reflectable|mirror|metronome|powder	slp				0					100					0	0				0	0						0			0	0	Causes the target to fall asleep.
+spotlight	Spotlight	Normal	N	0	0	15	3	1	normal	protect|reflectable|allyanim|noassist|failcopycat		spotlight			0					100					0	0				0	0						0			0	0	Target's foes' moves are redirected to it this turn.
+springtidestorm	Springtide Storm	Fairy	S	100	80	5	0	1	allAdjacentFoes	protect|mirror|wind					30			atk:-1		100					0	0				0	0		130				0			0	0	30% chance to lower the foe(s) Attack by 1.
+stealthrock	Stealth Rock	Rock	N	0	0	20	0	1	foeSide	reflectable|metronome|mustpressure					0					100					0	0			stealthrock	0	0						0			0	0	Hurts foes on switch-in. Factors Rock weakness.
+steameruption	Steam Eruption	Water	S	110	95	5	0	1	normal	protect|mirror|defrost					30	brn				100					0	0				0	0		140				0			0	0	30% chance to burn the target. Thaws target.
+steamroller	Steamroller	Bug	P	65	100	20	0	1	normal	contact|protect|mirror|metronome|minimize					30		flinch			100					0	0				0	0		120				0			0	0	30% chance to make the target flinch.
+steelbeam	Steel Beam	Steel	S	140	95	5	0	1	normal	protect|mirror					0					100					0	0				0	0		140				0			0	0	User loses 50% max HP.
+steelroller	Steel Roller	Steel	P	130	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Fails if there is no terrain active. Ends the terrain.
+steelwing	Steel Wing	Steel	P	70	90	25	0	1	normal	contact|protect|mirror|metronome					0				def:1	10					0	0				0	0		120				0			0	0	10% chance to raise the user's Defense by 1.
+stickyweb	Sticky Web	Bug	N	0	0	20	0	1	foeSide	reflectable|metronome					0					100					0	0			stickyweb	0	0						0			0	0	Lowers Speed of grounded foes by 1 on switch-in.
+stockpile	Stockpile	Normal	N	0	0	20	0	1	self	snatch|metronome		stockpile			0					100					0	0				0	0						0			0	0	Raises user's Defense, Sp. Def by 1. Max 3 uses.
+stomp	Stomp	Normal	P	65	100	20	0	1	normal	contact|protect|mirror|nonsky|metronome|minimize					30		flinch			100					0	0				0	0		120				0			0	0	30% chance to make the target flinch.
+stompingtantrum	Stomping Tantrum	Ground	P	75	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Power doubles if the user's last move failed.
+stoneaxe	Stone Axe	Rock	P	65	90	15	0	1	normal	contact|protect|mirror|metronome|slicing					100					100					0	0				0	0		120				0			0	0	Sets Stealth Rock on the target's side.
+stoneedge	Stone Edge	Rock	P	100	80	5	0	2	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	High critical hit ratio.
+storedpower	Stored Power	Psychic	S	20	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	+ 20 power for each of the user's stat boosts.
+stormthrow	Storm Throw	Fighting	P	60	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		80				0			0	1	Always results in a critical hit.
+strangesteam	Strange Steam	Fairy	S	90	95	10	0	1	normal	protect|mirror					20		confusion			100					0	0				0	0		130				0			0	0	20% chance to confuse the target.
+strength	Strength	Normal	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	No additional effect.
+strengthsap	Strength Sap	Grass	N	0	100	10	0	1	normal	protect|reflectable|mirror|heal|metronome					0					100					0	0				0	0						0			0	0	User heals HP=target's Atk stat. Lowers Atk by 1.
+stringshot	String Shot	Bug	N	0	95	40	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome				spe:-2	0					100					0	0				0	0						0			0	0	Lowers the foe(s) Speed by 2.
+struggle	Struggle	Normal	P	50	0	1	0	1	randomNormal	contact|protect|failencore|failmefirst|nosleeptalk|noassist|failcopycat|failmimic|failinstruct|nosketch					0					100					0	0				0	0						0			0	0	User loses 1/4 of its max HP.
+strugglebug	Struggle Bug	Bug	S	50	100	20	0	1	allAdjacentFoes	protect|mirror|metronome					100			spa:-1		100					0	0				0	0		100				0			0	0	100% chance to lower the foe(s) Sp. Atk by 1.
+stuffcheeks	Stuff Cheeks	Normal	N	0	0	10	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	Must hold Berry to use. User eats Berry, Def +2.
+stunspore	Stun Spore	Grass	N	0	75	30	0	1	normal	protect|reflectable|mirror|metronome|powder	par				0					100					0	0				0	0						0			0	0	Paralyzes the target.
+submission	Submission	Fighting	P	80	80	20	0	1	normal	contact|protect|mirror|metronome					0					100		1/4			0	0				0	0		90				0			0	0	Has 1/4 recoil.
+substitute	Substitute	Normal	N	0	0	10	0	1	self	snatch|nonsky|metronome		substitute			0					100					0	0				0	0						0			0	0	User takes 1/4 its max HP to put in a substitute.
+suckerpunch	Sucker Punch	Dark	P	70	100	5	1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Usually goes first. Fails if target is not attacking.
+sunnyday	Sunny Day	Fire	N	0	0	5	0	1	all	metronome					0					100					0	0	sunnyday			0	0						0			0	0	For 5 turns, intense sunlight powers Fire moves.
+sunsteelstrike	Sunsteel Strike	Steel	P	100	100	5	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		130				0			0	0	Ignores the Abilities of other Pokemon.
+supercellslam	Supercell Slam	Electric	P	100	95	15	0	1	normal	contact|protect|mirror|metronome|minimize					0					100					0	0				0	0		130				0			0	0	User is hurt by 50% of its max HP if it misses.
+superfang	Super Fang	Normal	P	0	90	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	Does damage equal to 1/2 target's current HP.
+superpower	Superpower	Fighting	P	120	100	5	0	1	normal	contact|protect|mirror|metronome					0				atk:-1/def:-1	100					0	0				0	0		95				0			0	0	Lowers the user's Attack and Defense by 1.
+supersonic	Supersonic	Normal	N	0	55	20	0	1	normal	protect|reflectable|mirror|sound|bypasssub|metronome		confusion			0					100					0	0				0	0						0			0	0	Causes the target to become confused.
+surf	Surf	Water	S	90	100	15	0	1	allAdjacent	protect|mirror|nonsky|metronome					0					100					0	0				0	0		130				0			0	0	Hits adjacent Pokemon. Double damage on Dive.
+surgingstrikes	Surging Strikes	Water	P	25	100	5	0	1	normal	contact|protect|mirror|punch					0					100				3-3	0	0				0	0		130				0			0	1	Always results in a critical hit. Hits 3 times.
+swagger	Swagger	Normal	N	0	85	15	0	1	normal	protect|reflectable|mirror|allyanim|metronome		confusion		atk:2	0					100					0	0				0	0						0			0	0	Raises the target's Attack by 2 and confuses it.
+swallow	Swallow	Normal	N	0	0	10	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	Heals the user based on uses of Stockpile.
+sweetkiss	Sweet Kiss	Fairy	N	0	75	10	0	1	normal	protect|reflectable|mirror|metronome		confusion			0					100					0	0				0	0						0			0	0	Causes the target to become confused.
+sweetscent	Sweet Scent	Normal	N	0	100	20	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome				evasion:-2	0					100					0	0				0	0						0			0	0	Lowers the foe(s) evasiveness by 2.
+swift	Swift	Normal	S	60	0	20	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	This move does not check accuracy. Hits foes.
+switcheroo	Switcheroo	Dark	N	0	100	10	0	1	normal	protect|mirror|allyanim|noassist|failcopycat					0					100					0	0				0	0						0			0	0	User switches its held item with the target's.
+swordsdance	Swords Dance	Normal	N	0	0	20	0	1	self	snatch|dance|metronome			atk:2		0					100					0	0				0	0						0			0	0	Raises the user's Attack by 2.
+synchronoise	Synchronoise	Psychic	S	120	100	10	0	1	allAdjacent	protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	Hits adjacent Pokemon sharing the user's type.
+synthesis	Synthesis	Grass	N	0	0	5	0	1	self	snatch|heal|metronome					0					100					0	0				0	0						0			0	0	Heals the user by a weather-dependent amount.
+syrupbomb	Syrup Bomb	Grass	S	60	85	10	0	1	normal	protect|mirror|metronome|bullet					100		syrupbomb			100					0	0				0	0		110				0			0	0	Target's Speed is lowered by 1 stage for 3 turns.
+tachyoncutter	Tachyon Cutter	Steel	S	50	0	10	0	1	normal	protect|mirror|metronome|slicing					0					100				2-2	0	0				0	0		140				0			0	0	Hits twice. This move does not check accuracy.
+tackle	Tackle	Normal	P	40	100	35	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+tailglow	Tail Glow	Bug	N	0	0	20	0	1	self	snatch|metronome			spa:3		0					100					0	0				0	0						0			0	0	Raises the user's Sp. Atk by 3.
+tailslap	Tail Slap	Normal	P	25	85	10	0	1	normal	contact|protect|mirror|metronome					0					100				2-5	0	0				0	0		130				0			0	0	Hits 2-5 times in one turn.
+tailwhip	Tail Whip	Normal	N	0	100	30	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome				def:-1	0					100					0	0				0	0						0			0	0	Lowers the foe(s) Defense by 1.
+tailwind	Tailwind	Flying	N	0	0	15	0	1	allySide	snatch|metronome|wind					0					100					0	0			tailwind	0	0						0			0	0	For 4 turns, allies' Speed is doubled.
+takedown	Take Down	Normal	P	90	85	20	0	1	normal	contact|protect|mirror|metronome					0					100		1/4			0	0				0	0		130				0			0	0	Has 1/4 recoil.
+takeheart	Take Heart	Psychic	N	0	0	15	0	1	self	snatch|metronome					0					100					0	0				0	0						0			0	0	Cures user's status, raises Sp. Atk, Sp. Def by 1.
+tarshot	Tar Shot	Rock	N	0	100	15	0	1	normal	protect|reflectable|mirror|metronome		tarshot		spe:-1	0					100					0	0				0	0						0			0	0	Target gets -1 Spe and becomes weaker to Fire.
+taunt	Taunt	Dark	N	0	100	20	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		taunt			0					100					0	0				0	0						0			0	0	Target can't use status moves its next 3 turns.
+tearfullook	Tearful Look	Normal	N	0	0	20	0	1	normal	reflectable|mirror|metronome				atk:-1/spa:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Attack and Sp. Atk by 1.
+teatime	Teatime	Normal	N	0	0	10	0	1	all	bypasssub|metronome					0					100					0	0				0	0						0			0	0	All active Pokemon consume held Berries.
+technoblast	Techno Blast	Normal	S	120	100	5	0	1	normal	protect|mirror					0					100					0	0				0	0		140				0			0	0	Type varies based on the held Drive.
+teeterdance	Teeter Dance	Normal	N	0	100	20	0	1	allAdjacent	protect|mirror|dance|metronome		confusion			0					100					0	0				0	0						0			0	0	Confuses adjacent Pokemon.
+telekinesis	Telekinesis	Psychic	N	0	0	15	0	1	normal	protect|reflectable|mirror|gravity|allyanim|metronome		telekinesis			0					100					0	0				0	0						0			0	0	For 3 turns, target floats but moves can't miss it.
+teleport	Teleport	Psychic	N	0	0	20	-6	1	self	metronome					0					100					0	0				0	1						0			0	0	User switches out.
+temperflare	Temper Flare	Fire	P	75	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	Power doubles if the user's last move failed.
+terablast	Tera Blast	Normal	S	80	100	10	0	1	normal	protect|mirror|metronome|mustpressure					0					100					0	0				0	0		130				0			0	0	If Terastallized: Phys. if Atk > SpA, type = Tera.
+terastarstorm	Tera Starstorm	Normal	S	120	100	5	0	1	normal	protect|mirror|noassist|failcopycat|failmimic|nosketch					0					100					0	0				0	0		140				0			0	0	Terapagos-Stellar: Stellar type, hits both foes.
+terrainpulse	Terrain Pulse	Normal	S	50	100	10	0	1	normal	protect|mirror|metronome|pulse					0					100					0	0				0	0		130				0			0	0	User on terrain: power doubles, type varies.
+thief	Thief	Dark	P	60	100	25	0	1	normal	contact|protect|mirror|failmefirst|noassist|failcopycat					0					100					0	0				0	0		110				0			0	0	If the user has no item, it steals the target's.
+thousandarrows	Thousand Arrows	Ground	P	90	100	10	0	1	allAdjacentFoes	protect|mirror|nonsky		smackdown			0					100					0	0				0	0		130				0			0	0	Grounds adjacent foes. First hit neutral on Flying.
+thousandwaves	Thousand Waves	Ground	P	90	100	10	0	1	allAdjacentFoes	protect|mirror|nonsky					0					100					0	0				0	0		130				0			0	0	Hits adjacent foes. Prevents them from switching.
+thrash	Thrash	Normal	P	120	100	10	0	1	randomNormal	contact|protect|mirror|metronome|failinstruct		lockedmove			0					100					0	0				0	0		140				0			0	0	Lasts 2-3 turns. Confuses the user afterwards.
+throatchop	Throat Chop	Dark	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					100					100					0	0				0	0		130				0			0	0	For 2 turns, the target cannot use sound moves.
+thunder	Thunder	Electric	S	110	70	10	0	1	normal	protect|mirror|metronome					30	par				100					0	0				0	0		140				0			0	0	30% chance to paralyze. Can't miss in rain.
+thunderbolt	Thunderbolt	Electric	S	90	100	15	0	1	normal	protect|mirror|metronome					10	par				100					0	0				0	0		130				0			0	0	10% chance to paralyze the target.
+thundercage	Thunder Cage	Electric	S	80	90	15	0	1	normal	protect|mirror		partiallytrapped			0					100					0	0				0	0		130				0			0	0	Traps and damages the target for 4-5 turns.
+thunderclap	Thunderclap	Electric	S	70	100	5	1	1	normal	protect|mirror|metronome					0					100					0	0				0	0		120				0			0	0	Usually goes first. Fails if target is not attacking.
+thunderfang	Thunder Fang	Electric	P	65	95	15	0	1	normal	contact|protect|mirror|metronome|bite					10	par				100					0	0				0	0		120				0			0	0	10% chance to paralyze. 10% chance to flinch.
+thunderouskick	Thunderous Kick	Fighting	P	90	100	10	0	1	normal	contact|protect|mirror					100			def:-1		100					0	0				0	0		90				0			0	0	100% chance to lower the target's Defense by 1.
+thunderpunch	Thunder Punch	Electric	P	75	100	15	0	1	normal	contact|protect|mirror|punch|metronome					10	par				100					0	0				0	0		130				0			0	0	10% chance to paralyze the target.
+thundershock	Thunder Shock	Electric	S	40	100	30	0	1	normal	protect|mirror|metronome					10	par				100					0	0				0	0		90				0			0	0	10% chance to paralyze the target.
+thunderwave	Thunder Wave	Electric	N	0	90	20	0	1	normal	protect|reflectable|mirror|metronome	par				0					100					0	0				0	0						0			0	0	Paralyzes the target.
+tickle	Tickle	Normal	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome				atk:-1/def:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Attack and Defense by 1.
+tidyup	Tidy Up	Normal	N	0	0	10	0	1	self						0					100					0	0				0	0						0			0	0	User +1 Atk, Spe. Clears all substitutes/hazards.
+topsyturvy	Topsy-Turvy	Dark	N	0	0	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	Inverts the target's stat stages.
+torchsong	Torch Song	Fire	S	80	100	10	0	1	normal	protect|mirror|sound|bypasssub|metronome					0				spa:1	100					0	0				0	0		130				0			0	0	100% chance to raise the user's Sp. Atk by 1.
+torment	Torment	Dark	N	0	100	15	0	1	normal	protect|reflectable|mirror|bypasssub|metronome		torment			0					100					0	0				0	0						0			0	0	Target can't select the same move twice in a row.
+toxic	Toxic	Poison	N	0	90	10	0	1	normal	protect|reflectable|mirror|metronome	tox				0					100					0	0				0	0						0			0	0	Badly poisons the target. Poison types can't miss.
+toxicspikes	Toxic Spikes	Poison	N	0	0	20	0	1	foeSide	reflectable|nonsky|metronome|mustpressure					0					100					0	0			toxicspikes	0	0						0			0	0	Poisons grounded foes on switch-in. Max 2 layers.
+toxicthread	Toxic Thread	Poison	N	0	100	20	0	1	normal	protect|reflectable|mirror|metronome	psn			spe:-1	0					100					0	0				0	0						0			0	0	Lowers the target's Speed by 1 and poisons it.
+trailblaze	Trailblaze	Grass	P	50	100	20	0	1	normal	contact|protect|mirror					0				spe:1	100					0	0				0	0		100				0			0	0	100% chance to raise the user's Speed by 1.
+transform	Transform	Normal	N	0	0	10	0	1	normal	allyanim|failencore|noassist|failcopycat|failmimic|failinstruct					0					100					0	0				0	0						0			0	0	Copies target's stats, moves, types, and Ability.
+triattack	Tri Attack	Normal	S	80	100	10	0	1	normal	protect|mirror|metronome					20					100					0	0				0	0		130				0			0	0	20% chance to paralyze or burn or freeze target.
+trick	Trick	Psychic	N	0	100	10	0	1	normal	protect|mirror|allyanim|noassist|failcopycat					0					100					0	0				0	0						0			0	0	User switches its held item with the target's.
+trickortreat	Trick-or-Treat	Ghost	N	0	100	20	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	Adds Ghost to the target's type(s).
+trickroom	Trick Room	Psychic	N	0	0	5	-7	1	all	mirror|metronome					0					100					0	0				0	0				trickroom		0			0	0	Goes last. For 5 turns, turn order is reversed.
+triplearrows	Triple Arrows	Fighting	P	90	100	10	0	2	normal	protect|mirror|metronome					50			def:-1		100					0	0				0	0		90				0			0	0	High crit. Target: 50% -1 Defense, 30% flinch.
+tripleaxel	Triple Axel	Ice	P	20	90	10	0	1	normal	contact|protect|mirror|metronome					0					100				3-3	0	0				0	0		140				0			0	0	Hits 3 times. Each hit can miss, but power rises.
+tripledive	Triple Dive	Water	P	30	95	10	0	1	normal	contact|protect|mirror|metronome					0					100				3-3	0	0				0	0		90				0			0	0	Hits 3 times.
+triplekick	Triple Kick	Fighting	P	10	90	10	0	1	normal	contact|protect|mirror|metronome					0					100				3-3	0	0				0	0		80				0			0	0	Hits 3 times. Each hit can miss, but power rises.
+tropkick	Trop Kick	Grass	P	70	100	15	0	1	normal	contact|protect|mirror|metronome					100			atk:-1		100					0	0				0	0		120				0			0	0	100% chance to lower the target's Attack by 1.
+trumpcard	Trump Card	Normal	S	0	0	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		130				0			0	0	More power the fewer PP this move has left.
+twinbeam	Twin Beam	Psychic	S	40	100	10	0	1	normal	protect|mirror					0					100				2-2	0	0				0	0		90				0			0	0	Hits 2 times in one turn.
+twineedle	Twineedle	Bug	P	25	100	20	0	1	normal	protect|mirror|metronome					20	psn				100				2-2	0	0				0	0		100				0			0	0	Hits 2 times. Each hit has 20% chance to poison.
+twister	Twister	Dragon	S	40	100	20	0	1	allAdjacentFoes	protect|mirror|metronome|wind					20		flinch			100					0	0				0	0		90				0			0	0	20% chance to make the foe(s) flinch.
+upperhand	Upper Hand	Fighting	P	65	100	15	3	1	normal	contact|protect|mirror|metronome					100		flinch			100					0	0				0	0		85				0			0	0	100% flinch. Fails unless target using priority attack.
+uproar	Uproar	Normal	S	90	100	10	0	1	randomNormal	protect|mirror|sound|bypasssub|metronome|nosleeptalk|failinstruct		uproar			0					100					0	0				0	0		130				0			0	0	Lasts 3 turns. Active Pokemon cannot fall asleep.
+uturn	U-turn	Bug	P	70	100	20	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	1		120				0			0	0	User switches out after damaging the target.
+vacuumwave	Vacuum Wave	Fighting	S	40	100	30	1	1	normal	protect|mirror|metronome					0					100					0	0				0	0		70				0			0	0	Usually goes first.
+veeveevolley	Veevee Volley	Normal	P	0	0	20	0	1	normal	contact|protect|mirror					0					100					0	0				0	0		100				0			0	0	Max happiness: 102 power. Can't miss.
+venomdrench	Venom Drench	Poison	N	0	100	20	0	1	allAdjacentFoes	protect|reflectable|mirror|metronome					0					100					0	0				0	0						0			0	0	Lowers Atk/Sp. Atk/Speed of poisoned foes by 1.
+venoshock	Venoshock	Poison	S	65	100	10	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		85				0			0	0	Power doubles if the target is poisoned.
+victorydance	Victory Dance	Fighting	N	0	0	10	0	1	self	snatch|dance|metronome			atk:1/def:1/spe:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack, Defense, Speed by 1.
+vinewhip	Vine Whip	Grass	P	45	100	25	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		100				0			0	0	No additional effect.
+visegrip	Vise Grip	Normal	P	55	100	30	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		110				0			0	0	No additional effect.
+vitalthrow	Vital Throw	Fighting	P	70	0	10	-1	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		85				0			0	0	This move does not check accuracy. Goes last.
+voltswitch	Volt Switch	Electric	S	70	100	20	0	1	normal	protect|mirror|metronome					0					100					0	0				0	1		120				0			0	0	User switches out after damaging the target.
+volttackle	Volt Tackle	Electric	P	120	100	15	0	1	normal	contact|protect|mirror|metronome					10	par				100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil. 10% chance to paralyze target.
+wakeupslap	Wake-Up Slap	Fighting	P	70	100	10	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		85				0			0	0	Power doubles if target is asleep, and wakes it.
+waterfall	Waterfall	Water	P	80	100	15	0	1	normal	contact|protect|mirror|metronome					20		flinch			100					0	0				0	0		130				0			0	0	20% chance to make the target flinch.
+watergun	Water Gun	Water	S	40	100	25	0	1	normal	protect|mirror|metronome					0					100					0	0				0	0		90				0			0	0	No additional effect.
+waterpledge	Water Pledge	Water	S	80	100	10	0	1	normal	protect|mirror|nonsky|metronome|pledgecombo					0					100					0	0				0	0		130				0			0	0	Use with Grass or Fire Pledge for added effect.
+waterpulse	Water Pulse	Water	S	60	100	20	0	1	any	protect|mirror|distance|metronome|pulse					20		confusion			100					0	0				0	0		110				0			0	0	20% chance to confuse the target.
+watershuriken	Water Shuriken	Water	S	15	100	20	1	1	normal	protect|mirror|metronome					0					100				2-5	0	0				0	0		90				0			0	0	Usually goes first. Hits 2-5 times in one turn.
+watersport	Water Sport	Water	N	0	0	15	0	1	all	nonsky|metronome					0					100					0	0				0	0				watersport		0			0	0	For 5 turns, Fire-type attacks have 1/3 power.
+waterspout	Water Spout	Water	S	150	100	5	0	1	allAdjacentFoes	protect|mirror|metronome					0					100					0	0				0	0		150				0			0	0	Less power as user's HP decreases. Hits foe(s).
+wavecrash	Wave Crash	Water	P	120	100	10	0	1	normal	contact|protect|mirror|metronome					0					100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil.
+weatherball	Weather Ball	Normal	S	50	100	10	0	1	normal	protect|mirror|metronome|bullet					0					100					0	0				0	0		130				0			0	0	Power doubles and type varies in each weather.
+whirlpool	Whirlpool	Water	S	35	85	15	0	1	normal	protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+whirlwind	Whirlwind	Normal	N	0	0	20	-6	1	normal	reflectable|mirror|bypasssub|allyanim|metronome|noassist|failcopycat|wind					0					100					0	0				1	0						0			0	0	Forces the target to switch to a random ally.
+wickedblow	Wicked Blow	Dark	P	75	100	5	0	1	normal	contact|protect|mirror|punch					0					100					0	0				0	0		130				0			0	1	Always results in a critical hit.
+wideguard	Wide Guard	Rock	N	0	0	10	3	1	allySide	snatch					0					100					0	0			wideguard	0	0						0			0	0	Protects allies from multi-target moves this turn.
+wildboltstorm	Wildbolt Storm	Electric	S	100	80	10	0	1	allAdjacentFoes	protect|mirror|metronome|wind					20	par				100					0	0				0	0		130				0			0	0	20% chance to paralyze foe(s). Rain: can't miss.
+wildcharge	Wild Charge	Electric	P	90	100	15	0	1	normal	contact|protect|mirror|metronome					0					100		1/4			0	0				0	0		130				0			0	0	Has 1/4 recoil.
+willowisp	Will-O-Wisp	Fire	N	0	85	15	0	1	normal	protect|reflectable|mirror|metronome	brn				0					100					0	0				0	0						0			0	0	Burns the target.
+wingattack	Wing Attack	Flying	P	60	100	35	0	1	any	contact|protect|mirror|distance|metronome					0					100					0	0				0	0		110				0			0	0	No additional effect.
+wish	Wish	Normal	N	0	0	10	0	1	self	snatch|heal|metronome					0					100					0	0				0	0					Wish	0			0	0	Next turn, 50% of the user's max HP is restored.
+withdraw	Withdraw	Water	N	0	0	40	0	1	self	snatch|metronome			def:1		0					100					0	0				0	0						0			0	0	Raises the user's Defense by 1.
+wonderroom	Wonder Room	Psychic	N	0	0	10	0	1	all	mirror|metronome					0					100					0	0				0	0				wonderroom		0			0	0	For 5 turns, all Defense and Sp. Def stats switch.
+woodhammer	Wood Hammer	Grass	P	120	100	15	0	1	normal	contact|protect|mirror|metronome					0					100		33/100			0	0				0	0		140				0			0	0	Has 33% recoil.
+workup	Work Up	Normal	N	0	0	30	0	1	self	snatch|metronome			atk:1/spa:1		0					100					0	0				0	0						0			0	0	Raises the user's Attack and Sp. Atk by 1.
+worryseed	Worry Seed	Grass	N	0	100	10	0	1	normal	protect|reflectable|mirror|allyanim|metronome					0					100					0	0				0	0						0			0	0	The target's Ability becomes Insomnia.
+wrap	Wrap	Normal	P	15	90	20	0	1	normal	contact|protect|mirror|metronome		partiallytrapped			0					100					0	0				0	0		90				0			0	0	Traps and damages the target for 4-5 turns.
+wringout	Wring Out	Normal	S	0	100	5	0	1	normal	contact|protect|mirror|metronome					0					100					0	0				0	0		140				0			0	0	More power the more HP the target has left.
+xscissor	X-Scissor	Bug	P	80	100	15	0	1	normal	contact|protect|mirror|metronome|slicing					0					100					0	0				0	0		130				0			0	0	No additional effect.
+yawn	Yawn	Normal	N	0	0	10	0	1	normal	protect|reflectable|mirror|metronome		yawn			0					100					0	0				0	0						0			0	0	Puts the target to sleep after 1 turn.
+zapcannon	Zap Cannon	Electric	S	120	50	5	0	1	normal	protect|mirror|metronome|bullet					100	par				100					0	0				0	0		140				0			0	0	100% chance to paralyze the target.
+zenheadbutt	Zen Headbutt	Psychic	P	80	90	15	0	1	normal	contact|protect|mirror|metronome					20		flinch			100					0	0				0	0		130				0			0	0	20% chance to make the target flinch.
+zingzap	Zing Zap	Electric	P	80	100	10	0	1	normal	contact|protect|mirror|metronome					30		flinch			100					0	0				0	0		130				0			0	0	30% chance to make the target flinch.
+zippyzap	Zippy Zap	Electric	P	80	100	10	2	1	normal	contact|protect|mirror					0				evasion:1	100					0	0				0	0		130				0			0	0	Goes first. Raises user's evasion by 1.
+gmaxbefuddle	G-Max Befuddle	Bug	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Butterfree			0			0	0	Base move affects power. Foes: slp or psn or par.
+gmaxcannonade	G-Max Cannonade	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Blastoise			0			0	0	Base move affects power. Foes: -1/6 HP, 4 turns.
+gmaxcentiferno	G-Max Centiferno	Fire	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Centiskorch			0			0	0	Base move affects power. Foes: bound 4-5 turns.
+gmaxchistrike	G-Max Chi Strike	Fighting	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Machamp			0			0	0	Base move affects power. Allies: Crit Ratio +1.
+gmaxcuddle	G-Max Cuddle	Normal	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Eevee			0			0	0	Base move affects power. Foes: infatuated.
+gmaxdepletion	G-Max Depletion	Dragon	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Duraludon			0			0	0	Base move affects power. Foes: last move -2 PP.
+gmaxdrumsolo	G-Max Drum Solo	Grass	P	160	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Rillaboom			0			0	0	Always 160 power. Ignores Abilities.
+gmaxfinale	G-Max Finale	Fairy	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Alcremie			0			0	0	Base move affects power. Allies: +1/6 max HP.
+gmaxfireball	G-Max Fireball	Fire	P	160	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Cinderace			0			0	0	Always 160 power. Ignores Abilities.
+gmaxfoamburst	G-Max Foam Burst	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Kingler			0			0	0	Base move affects power. Foes: -2 Speed.
+gmaxgoldrush	G-Max Gold Rush	Normal	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Meowth			0			0	0	Base move affects power. Foes: confused.
+gmaxgravitas	G-Max Gravitas	Psychic	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Orbeetle			0			0	0	Base move affects power. Starts Gravity.
+gmaxhydrosnipe	G-Max Hydrosnipe	Water	P	160	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Inteleon			0			0	0	Always 160 power. Ignores Abilities.
+gmaxmalodor	G-Max Malodor	Poison	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Garbodor			0			0	0	Base move affects power. Foes: poisoned.
+gmaxmeltdown	G-Max Meltdown	Steel	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Melmetal			0			0	0	Base move affects power. Foes: Tormented.
+gmaxoneblow	G-Max One Blow	Dark	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Urshifu			0			0	0	Base move affects power. Bypasses Max Guard.
+gmaxrapidflow	G-Max Rapid Flow	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Urshifu-Rapid-Strike			0			0	0	Base move affects power. Bypasses Max Guard.
+gmaxreplenish	G-Max Replenish	Normal	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Snorlax			0			0	0	Base move affects power. 50% restores Berries.
+gmaxresonance	G-Max Resonance	Ice	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Lapras			0			0	0	Base move affects power. Allies: Aurora Veil.
+gmaxsandblast	G-Max Sandblast	Ground	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Sandaconda			0			0	0	Base move affects power. Foes: bound 4-5 turns.
+gmaxsmite	G-Max Smite	Fairy	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Hatterene			0			0	0	Base move affects power. Foes: confused.
+gmaxsnooze	G-Max Snooze	Dark	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Grimmsnarl			0			0	0	Base move affects power. Target: 50% Yawn.
+gmaxsteelsurge	G-Max Steelsurge	Steel	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Copperajah			0			0	0	Base move affects power. Foes: Steel hazard.
+gmaxstonesurge	G-Max Stonesurge	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Drednaw			0			0	0	Base move affects power. Foes: Stealth Rock.
+gmaxstunshock	G-Max Stun Shock	Electric	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Toxtricity			0			0	0	Base move affects power. Foes: psn or par.
+gmaxsweetness	G-Max Sweetness	Grass	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Appletun			0			0	0	Base move affects power. Allies: status cured.
+gmaxtartness	G-Max Tartness	Grass	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Flapple			0			0	0	Base move affects power. Foes: -1 evasiveness.
+gmaxterror	G-Max Terror	Ghost	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Gengar			0			0	0	Base move affects power. Foes: trapped.
+gmaxvinelash	G-Max Vine Lash	Grass	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Venusaur			0			0	0	Base move affects power. Foes: -1/6 HP, 4 turns.
+gmaxvolcalith	G-Max Volcalith	Rock	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Coalossal			0			0	0	Base move affects power. Foes: -1/6 HP, 4 turns.
+gmaxvoltcrash	G-Max Volt Crash	Electric	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Pikachu			0			0	0	Base move affects power. Foes: paralyzed.
+gmaxwildfire	G-Max Wildfire	Fire	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Charizard			0			0	0	Base move affects power. Foes: -1/6 HP, 4 turns.
+gmaxwindrage	G-Max Wind Rage	Flying	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Corviknight			0			0	0	Base move affects power. Ends Terrain, hazards.
+maxairstream	Max Airstream	Flying	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Allies: +1 Speed.
+maxdarkness	Max Darkness	Dark	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Foes: -1 Sp. Def.
+maxflare	Max Flare	Fire	P	100	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Sun.
+maxflutterby	Max Flutterby	Bug	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Foes: -1 Sp. Atk.
+maxgeyser	Max Geyser	Water	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Rain.
+maxguard	Max Guard	Normal	N	0	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Protects user from moves & Max Moves this turn.
+maxhailstorm	Max Hailstorm	Ice	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Hail.
+maxknuckle	Max Knuckle	Fighting	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Allies: +1 Attack.
+maxlightning	Max Lightning	Electric	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Electric Terrain.
+maxmindstorm	Max Mindstorm	Psychic	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Psychic Terrain.
+maxooze	Max Ooze	Poison	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Allies: +1 Sp. Atk.
+maxovergrowth	Max Overgrowth	Grass	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Grassy Terrain.
+maxphantasm	Max Phantasm	Ghost	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Foes: -1 Defense.
+maxquake	Max Quake	Ground	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Allies: +1 Sp. Def.
+maxrockfall	Max Rockfall	Rock	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Sandstorm.
+maxstarfall	Max Starfall	Fairy	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Starts Misty Terrain.
+maxsteelspike	Max Steelspike	Steel	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Allies: +1 Defense.
+maxstrike	Max Strike	Normal	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Foes: -1 Speed.
+maxwyrmwind	Max Wyrmwind	Dragon	P	10	0	10	0	1	adjacentFoe						0					100					0	0				0	0			Max			0			0	0	Base move affects power. Foes: -1 Attack.
