@@ -74,7 +74,7 @@ volatile boolean escuchando = false;
 boolean escrituraManual = false;
 String ipsLocales = "";
 
-int pasosPorFrame = 4;
+int pasosPorFrame = 6;
 
 // estado de la partida (lo usan host y cliente para dibujar)
 float[] px = new float[MAXJ];     // coordenadas dentro del campo (0..FW, 0..FH)
@@ -664,14 +664,14 @@ void finalizarRonda() {
     }
   }
   rondaTerminada = true;
-  pausaHasta = millis() + 2000;
+  pausaHasta = millis() + 1000;
   mostrarMensajeRonda(ganador);
   s.write("RONDA," + ganador + "\n");
 }
 
 void mostrarMensajeRonda(int ganador) {
   msgRonda = (ganador >= 0) ? ("Punto para " + NOMBRES[ganador]) : "Choque: nadie suma";
-  msgHasta = millis() + 2000;
+  msgHasta = millis() + 1000;
 }
 
 void terminarPartida() {
