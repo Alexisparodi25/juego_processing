@@ -35,6 +35,7 @@ final int CONFIG = 1;
 final int SERVIDOR = 2;
 final int CLIENTE = 3;
 final int CONECTANDO = 4;
+final int IP_INPUT = 5;
 int estadoApp = MENU;
 
 // fases de la partida (host y cliente)
@@ -65,9 +66,7 @@ final int[] SDY = {0, 0, 1, -1, 0};
 Server s;
 Client c;
 int puerto = 12345;
-String[] ipsServidor = {"10.66.88.234", "10.120.2.147", "10.160.4.36"};
-int indiceIp = 0;
-String ipServidor = ipsServidor[indiceIp];
+String ipServidor = "";          // sin IP precargada: se escribe al conectar
 
 int pasosPorFrame = 4;
 
@@ -139,6 +138,8 @@ void draw() {
     dibujarConfig();
   } else if (estadoApp == SERVIDOR) {
     ejecutarServidor();
+  } else if (estadoApp == IP_INPUT) {
+    dibujarIpInput();
   } else if (estadoApp == CONECTANDO) {
     dibujarMensajeCentro("Conectando a " + ipServidor + " ...");
   } else if (estadoApp == CLIENTE) {
@@ -169,8 +170,26 @@ void dibujarMenu() {
 
   textSize(14);
   fill(150, 150, 150);
-  text("IP actual configurada para cliente: " + ipServidor + "  (Presiona [ 3 ] para cambiar IP)", W/2, H/2 + 80);
-  text("Hasta 5 jugadores  |  ESC para salir", W/2, H/2 + 105);
+  text("Hasta 5 jugadores  |  ESC para salir", W/2, H/2 + 80);
+}
+
+void dibujarIpInput() {
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  fill(0, 220, 255);
+  text("CONECTAR A UN SERVIDOR", W/2, 150);
+
+  textSize(18);
+  fill(255);
+  text("Escribí la IP que muestra el host en su sala de espera", W/2, 230);
+
+  textSize(36);
+  fill(255, 220, 60);
+  text(ipServidor + ((frameCount / 30) % 2 == 0 ? "_" : " "), W/2, 310);
+
+  textSize(14);
+  fill(150);
+  text("[ ENTER ] conectar    [ BACKSPACE ] borrar (con la IP vacía, vuelve al menú)", W/2, 400);
 }
 
 void dibujarConfig() {
@@ -234,10 +253,16 @@ boolean esEnter() {
 void keyPressed() {
   if (estadoApp == MENU) {
     if (key == '1') estadoApp = CONFIG;
-    if (key == '2') iniciarCliente();
-    if (key == '3') {
-      indiceIp = (indiceIp + 1) % ipsServidor.length;
-      ipServidor = ipsServidor[indiceIp];
+    if (key == '2') { ipServidor = ""; estadoApp = IP_INPUT; }
+  }
+  else if (estadoApp == IP_INPUT) {
+    if (esEnter()) {
+      if (ipServidor.length() > 0) iniciarCliente();
+    } else if (key == BACKSPACE) {
+      if (ipServidor.length() > 0) ipServidor = ipServidor.substring(0, ipServidor.length() - 1);
+      else estadoApp = MENU;
+    } else if (key != CODED && ((key >= '0' && key <= '9') || key == '.' || key == ':') && ipServidor.length() < 40) {
+      ipServidor += key;
     }
   }
   else if (estadoApp == CONFIG) {
@@ -269,6 +294,8 @@ void keyPressed() {
       if (d != null) c.write("KEY_" + d + "\n");
     } else if (key == 'r' || key == 'R') {
       iniciarCliente();
+    } else if (key == 'i' || key == 'I') {
+      estadoApp = IP_INPUT;
     }
   }
 }
@@ -593,21 +620,12 @@ Client conectarConTimeout(String ip) {
 void conectarCliente() {
   errorConexion = "";
   c = conectarConTimeout(ipServidor);
-  if (c == null && ipsServidor.length > 1) {
-    int alternativa = (indiceIp + 1) % ipsServidor.length;
-    Client intentoAlternativo = conectarConTimeout(ipsServidor[alternativa]);
-    if (intentoAlternativo != null) {
-      c = intentoAlternativo;
-      indiceIp = alternativa;
-      ipServidor = ipsServidor[indiceIp];
-    }
-  }
   estadoApp = CLIENTE;
 }
 
 void ejecutarCliente() {
   if (c == null || !c.active()) {
-    dibujarMensajeCentro("Sin conexión con " + ipServidor + "  -  [ R ] para reintentar");
+    dibujarMensajeCentro("Sin conexión con " + ipServidor + "  -  [ R ] reintentar  |  [ I ] cambiar IP");
     textSize(14);
     textAlign(CENTER, TOP);
     fill(255, 120, 120);
